@@ -176,7 +176,7 @@ a:hover {
     background-color: var(--color-dark-blue);
     /* Тъмно синьо */
     color: #fff;
-    padding: 15px 0;
+    padding: 10px 0;
     position: sticky;
     top: 0;
     z-index: 999;
@@ -184,16 +184,16 @@ a:hover {
 }
 
 .header .container {
+    min-height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.logo {
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-transform: uppercase;
+.logo-link {
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .main-nav ul {
@@ -596,7 +596,7 @@ section {
         display: none;
         width: 100%;
         position: absolute;
-        top: 60px;
+        top: 50px;
         /* Под хедъра */
         left: 0;
         background-color: var(--color-dark-blue);
@@ -786,11 +786,19 @@ section {
     .main-nav {
         display: none;
         /* Скриване на пълната навигация */
-        /* ... (Добавете CSS за показване на .main-nav при click - обикновено с JS) */
+    }
+
+    .header {
+        padding: 10px 0;
     }
 
     .header .container {
         justify-content: space-between;
+    }
+
+    .logo-image {
+        /* Намаляваме височината за по-малки екрани */
+        height: 35px; 
     }
 
     .hamburger-menu {
@@ -903,6 +911,7 @@ section {
     .cta-note {
         text-align: center;
     }
+
 
     /* Футър линкове */
     .footer-links nav {
