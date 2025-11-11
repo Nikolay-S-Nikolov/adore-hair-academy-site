@@ -1,11 +1,18 @@
 /* Глобални стилове и променливи */
 :root {
-    --color-dark-blue: #1A237E; /* Хедър + CTA бутони */
-    --color-gold: #D4A017; /* Златист/Акцентен нюанс */
-    --color-pink-quartz: #F8BBD0; /* Ховер ефекти + Акцентни рамки/икони */
-    --color-beige-gray: #FAF9F6; /* Фон на секции */
-    --color-dark-graphite: #212121; /* Основен текст */
+    --color-dark-blue: #1A237E;
+    /* Хедър + CTA бутони */
+    --color-gold: #D4A017;
+    /* Златист/Акцентен нюанс */
+    --color-pink-quartz: #F8BBD0;
+    /* Ховер ефекти + Акцентни рамки/икони */
+    --color-beige-gray: #FAF9F6;
+    /* Фон на секции */
+    --color-dark-graphite: #212121;
+    /* Основен текст */
     --font-family-primary: 'Inter', sans-serif;
+    /* Меню и хедър */
+    --color-ivory-white: #EAE8E1;
 }
 
 * {
@@ -27,17 +34,27 @@ body {
     padding: 0 20px;
 }
 
-/* Шрифтове за заглавия [cite: 10] */
-h1, h2 {
+/* Шрифтове за заглавия */
+h1,
+h2 {
     font-weight: 700;
     color: var(--color-dark-blue);
     margin-bottom: 20px;
     text-align: center;
 }
 
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { color: var(--color-dark-graphite); font-weight: 600; }
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    color: var(--color-dark-graphite);
+    font-weight: 600;
+}
 
 a {
     text-decoration: none;
@@ -61,15 +78,20 @@ a:hover {
     text-align: center;
 }
 
-[cite_start]/* Основен CTA (Златист акцент) [cite: 5] */
-.primary-cta, .hero-cta, .contact-cta {
+/* Основен CTA (Златист акцент) */
+.primary-cta,
+.hero-cta,
+.contact-cta {
     background-color: var(--color-gold);
     color: #fff;
     border: 2px solid var(--color-gold);
 }
 
-.primary-cta:hover, .hero-cta:hover, .contact-cta:hover {
-    background-color: var(--color-pink-quartz); /* Ховер ефект */
+.primary-cta:hover,
+.hero-cta:hover,
+.contact-cta:hover {
+    background-color: var(--color-pink-quartz);
+    /* Ховер ефект */
     color: var(--color-dark-blue);
     border-color: var(--color-pink-quartz);
 }
@@ -89,9 +111,38 @@ a:hover {
     border-color: var(--color-pink-quartz);
 }
 
-/* -------------------- Фиксиран CTA (Телефон) [cite: 7, 9] -------------------- */
+/* -------------------- Фиксиран CTA (Телефон) -------------------- */
+
+@keyframes pulse-once {
+
+    /* Начално състояние: Нормален размер */
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Пик на вибрацията: Лек скок и добавяне на ринг ефект */
+    5% {
+        transform: scale(1.15);
+        /* Увеличаване (Вибрация) */
+        box-shadow: 0 0 0 5px rgba(212, 160, 23, 0.4), 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Връщане към нормален размер */
+    10% {
+        transform: scale(1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Останалата част от цикъла (50 секунди) - иконата е статична */
+    100% {
+        transform: scale(1);
+    }
+}
+
 
 .fixed-cta-phone {
+    animation: pulse-once 5s linear infinite;
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -110,12 +161,20 @@ a:hover {
 .fixed-cta-phone svg {
     width: 24px;
     height: 24px;
+
 }
 
-/* -------------------- Хедър и Навигация [cite: 5, 8] -------------------- */
+.fixed-cta-phone svg path {
+    fill: var(--color-dark-blue);
+}
+
+
+
+/* -------------------- Хедър и Навигация -------------------- */
 
 .header {
-    background-color: var(--color-dark-blue);/* Тъмно синьо [cite: 10] */
+    background-color: var(--color-dark-blue);
+    /* Тъмно синьо */
     color: #fff;
     padding: 15px 0;
     position: sticky;
@@ -144,11 +203,15 @@ a:hover {
     align-items: center;
 }
 
-[cite_start]/* Едноредова навигация, без падащи менюта [cite: 8] */
+/* Едноредова навигация, без падащи менюта */
 .main-nav a {
     color: #fff;
     font-weight: 600;
     padding: 5px 0;
+}
+
+.main-nav>ul>li>a {
+    color: var(--color-ivory-white);
 }
 
 .main-nav a:hover {
@@ -164,7 +227,8 @@ a:hover {
 }
 
 .hamburger-menu {
-    display: none; /* Скрито на десктоп */
+    display: none;
+    /* Скрито на десктоп */
 }
 
 /* -------------------- Hero Секция -------------------- */
@@ -186,7 +250,8 @@ a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Полупрозрачен овърлей */
+    background: rgba(0, 0, 0, 0.5);
+    /* Полупрозрачен овърлей */
     z-index: 1;
 }
 
@@ -240,8 +305,10 @@ section {
     padding: 60px 0;
 }
 
-[cite_start]/* Фон на секции [cite: 10] */
-.about-section, .process-section, .reviews-section {
+/* Фон на секции*/
+.about-section,
+.process-section,
+.reviews-section {
     background-color: var(--color-beige-gray);
 }
 
@@ -277,10 +344,12 @@ section {
 
 .course-card {
     background-color: #fff;
-    border: 1px solid var(--color-pink-quartz); /* Акцентна рамка */
+    border: 1px solid var(--color-pink-quartz);
+    /* Акцентна рамка */
     border-radius: 8px;
     padding: 20px;
-    flex: 1 1 300px; /* Осигурява responsive гъвкавост */
+    flex: 1 1 300px;
+    /* Осигурява responsive гъвкавост */
     max-width: 350px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
@@ -419,7 +488,7 @@ section {
     font-weight: 600;
 }
 
-/* -------------------- Футър [cite: 24] -------------------- */
+/* -------------------- Футър  -------------------- */
 
 .footer {
     background-color: var(--color-dark-graphite);
@@ -464,10 +533,12 @@ section {
 
 /* Правила за активно меню (при клик на hamburger) */
 .header.nav-open .main-nav {
-    display: flex; /* Показва менюто */
-    flex-direction: column; 
-    position: absolute; 
-    top: 100%; /* Позиционира го под хедъра */
+    display: flex;
+    /* Показва менюто */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    /* Позиционира го под хедъра */
     left: 0;
     width: 100%;
     background-color: var(--color-dark-blue);
@@ -510,23 +581,29 @@ section {
 
 /* -------------------- Медийни заявки (Mobile first / Responsive) -------------------- */
 
-/* Мобилна версия (до 768px) [cite: 9] */
+/* Мобилна версия (до 768px)  */
 @media (max-width: 768px) {
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.7rem; }
-    
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+    }
+
     /* Скриване на пълното меню */
     .main-nav {
         display: none;
         width: 100%;
         position: absolute;
-        top: 60px; /* Под хедъра */
+        top: 60px;
+        /* Под хедъра */
         left: 0;
         background-color: var(--color-dark-blue);
         padding: 10px 0;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-    
+
     .main-nav ul {
         flex-direction: column;
         text-align: center;
@@ -537,7 +614,7 @@ section {
         width: 100%;
         padding: 5px 0;
     }
-    
+
     .main-nav ul li a {
         display: block;
         padding: 10px 0;
@@ -551,7 +628,7 @@ section {
         cursor: pointer;
         padding: 10px;
     }
-    
+
     .hamburger-menu .bar {
         display: block;
         width: 25px;
@@ -560,7 +637,7 @@ section {
         background-color: #fff;
         transition: 0.4s;
     }
-    
+
     /* Hero Секция */
     .hero-section .container {
         flex-direction: column;
@@ -568,12 +645,14 @@ section {
         min-height: auto;
     }
 
-    .hero-content, .hero-image-wrapper {
+    .hero-content,
+    .hero-image-wrapper {
         max-width: 100%;
         margin-bottom: 30px;
     }
 
-    .hero-content h1, .hero-content .subtitle {
+    .hero-content h1,
+    .hero-content .subtitle {
         text-align: center;
     }
 
@@ -582,12 +661,15 @@ section {
     }
 
     /* Курсове и Отзиви */
-    .course-cards, .review-cards, .process-steps {
+    .course-cards,
+    .review-cards,
+    .process-steps {
         flex-direction: column;
         gap: 20px;
     }
 
-    .course-card, .review-card {
+    .course-card,
+    .review-card {
         max-width: 100%;
     }
 
@@ -622,51 +704,62 @@ section {
 
 /* 1. Максимална ширина 1024px (Таблети в пейзажен режим и малки лаптопи) */
 @media (max-width: 1024px) {
+
     /* Общи промени */
     .container {
         padding: 0 15px;
     }
-    h1 { font-size: 2.2rem; }
-    h2 { font-size: 1.8rem; }
-    
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
     /* Hero Секция */
     .hero-section .container {
         flex-direction: column;
         text-align: center;
         min-height: auto;
     }
-    
+
     .hero-content {
         max-width: 90%;
         margin-bottom: 30px;
     }
-    
-    .hero-content h1, .hero-content .subtitle {
+
+    .hero-content h1,
+    .hero-content .subtitle {
         text-align: center;
     }
 
     .hero-image-wrapper {
         max-width: 70%;
     }
-    
+
     /* Навигация (Скриване на CTA бутона в менюто, тъй като има фиксиран) */
     .header .primary-cta {
         display: none;
     }
 
     /* Курсове и Процес */
-    .course-cards, .process-steps {
+    .course-cards,
+    .process-steps {
         gap: 20px;
         flex-wrap: wrap;
     }
 
     .course-card {
-        flex: 1 1 45%; /* По 2 карти на ред */
+        flex: 1 1 45%;
+        /* По 2 карти на ред */
     }
-    
+
     .process-steps {
         justify-content: space-between;
     }
+
     .step-card {
         flex: 1 1 30%;
     }
@@ -675,47 +768,64 @@ section {
 
 /* 2. Максимална ширина 768px (Таблети в портретен режим) */
 @media (max-width: 768px) {
+
     /* Общи промени */
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.7rem; }
-    section { padding: 40px 0; }
-    
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+    }
+
+    section {
+        padding: 40px 0;
+    }
+
     /* Хедър (Включване на hamburger меню) */
     .main-nav {
-        display: none; /* Скриване на пълната навигация */
+        display: none;
+        /* Скриване на пълната навигация */
         /* ... (Добавете CSS за показване на .main-nav при click - обикновено с JS) */
     }
 
     .header .container {
         justify-content: space-between;
     }
-    
+
     .hamburger-menu {
-        display: block; /* Показване на hamburger меню */
+        display: block;
+        /* Показване на hamburger меню */
     }
-    
+
     /* Секции с карти (Курсове, Отзиви, Процес) */
-    .course-cards, .review-cards, .process-steps {
+    .course-cards,
+    .review-cards,
+    .process-steps {
         flex-direction: column;
         gap: 30px;
     }
 
-    .course-card, .review-card, .step-card {
+    .course-card,
+    .review-card,
+    .step-card {
         max-width: 100%;
         flex: 1 1 100%;
     }
-    
+
     .about-buttons {
         flex-direction: column;
         gap: 15px;
     }
-    
+
     /* Hero Секция */
     .hero-content {
         max-width: 100%;
     }
+
     .hero-image-wrapper {
-        display: none; /* Скриване на голямото изображение за по-малки екрани */
+        display: none;
+        /* Скриване на голямото изображение за по-малки екрани */
     }
 
     /* Футър */
@@ -724,24 +834,33 @@ section {
         text-align: center;
         gap: 15px;
     }
+
     .footer-links {
         flex-direction: column;
     }
+
     .social-icons {
-        order: -1; /* Преместване на иконите над линковете/копирайта */
+        order: -1;
+        /* Преместване на иконите над линковете/копирайта */
     }
 }
 
 
 /* 3. Максимална ширина 640px (Големи смартфони в пейзажен режим) */
 @media (max-width: 640px) {
-    h1 { font-size: 1.8rem; }
-    h2 { font-size: 1.5rem; }
-    .cta-button { 
-        padding: 10px 25px; 
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .cta-button {
+        padding: 10px 25px;
         font-size: 0.95rem;
     }
-    
+
     /* Fixed CTA */
     .fixed-cta-phone {
         width: 45px;
@@ -754,10 +873,20 @@ section {
 
 /* 4. Максимална ширина 480px (Стандартни смартфони) */
 @media (max-width: 480px) {
-    h1 { font-size: 1.5rem; margin-bottom: 15px; }
-    h2 { font-size: 1.3rem; margin-bottom: 15px; }
-    section { padding: 30px 0; }
-    
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    section {
+        padding: 30px 0;
+    }
+
     /* Hero Секция */
     .hero-content .subtitle {
         font-size: 1rem;
@@ -766,10 +895,11 @@ section {
     /* CTA на Hero */
     .hero-cta {
         width: 90%;
-        display: block; /* Запълва почти целия екран */
+        display: block;
+        /* Запълва почти целия екран */
         margin: 15px auto 5px auto;
     }
-    
+
     .cta-note {
         text-align: center;
     }
@@ -780,6 +910,7 @@ section {
         flex-direction: column;
         gap: 5px;
     }
+
     .footer-links p {
         font-size: 0.8rem;
     }
@@ -793,7 +924,10 @@ section {
     .container {
         max-width: 1280px;
     }
-    h1 { font-size: 2.8rem; }
+
+    h1 {
+        font-size: 2.8rem;
+    }
 }
 
 /* 6. Минимална ширина 1440px (Десктоп монитори) */
@@ -801,9 +935,18 @@ section {
     .container {
         max-width: 1400px;
     }
-    h1 { font-size: 3rem; }
-    h2 { font-size: 2.5rem; }
-    section { padding: 80px 0; }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    section {
+        padding: 80px 0;
+    }
 }
 
 /* 7. Минимална ширина 1536px (Много големи монитори) */
