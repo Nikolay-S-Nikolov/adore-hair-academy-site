@@ -19,8 +19,8 @@
     /* Заглавия */
 
 
+    --font-family-serif: 'Cormorant', serif;
     --font-family-primary: 'Inter', sans-serif;
-    /* Меню и хедър */
 }
 
 * {
@@ -30,10 +30,10 @@
 }
 
 body {
-    background-color: var(--color-black);
+    font-family: var(--font-family-primary);
+    background-color: var(--color-beige);
     color: var(--color-light-gray);
     line-height: 1.6;
-    background-color: #fff;
 }
 
 .container {
@@ -45,7 +45,8 @@ body {
 /* Шрифтове за заглавия */
 h1,
 h2 {
-    font-weight: 700;
+    font-family: var(--font-family-serif); 
+    font-weight: 500;
     color: var(--color-white);
     margin-bottom: 20px;
     text-align: center;
@@ -65,15 +66,18 @@ h3 {
 }
 
 .about-section h1,
-.about-section h2,
 .about-section h3,
 .process-section h1,
-.process-section h2,
 .process-section h3,
 .reviews-section h1,
-.reviews-section h2,
 .reviews-section h3 {
     color: var(--color-gold-dark);
+}
+
+.about-section h2,
+.process-section h2,
+.reviews-section h2 {
+    color: var(--color-dark-text);
 }
 
 a {
@@ -104,6 +108,25 @@ a:hover {
     color: var(--color-gold);
 }
 
+
+.container h2 {
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.container h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    /* TODO да се премахне или увеличи */
+    height: 2px;
+    background-color: var(--color-gold);
+}
+
 /* -------------------- CTA Бутони -------------------- */
 
 .cta-button {
@@ -119,38 +142,44 @@ a:hover {
     border: 2px solid var(--color-gold);
 }
 
-/* Основен CTA (Златист акцент) */
-.primary-cta,
+
+.primary-cta {
+    color: var(--color-dark-gray);
+}
+
+.primary-cta:hover {
+    background-color: var(--color-gold-dark);
+}
+
 .hero-cta,
 .contact-cta {
-    background-color: var(--color-gold);
-    color: #fff;
+    background-color: var(--color-dark-gray);
+    color: var(--color-gold);
     border: 2px solid var(--color-gold);
 }
 
-.primary-cta:hover,
 .hero-cta:hover,
 .contact-cta:hover {
-    background-color: var(--color-gold-dark);
-    border-color: var(--color-gold-dark);
-    color: var(--color-white);
+    background-color: var(--color-gold);
+    border-color: var(--color-gold);
+    color: var(--color-dark-gray);
 }
 
+
+
 @keyframes gold-glow {
-    0% {
-        box-shadow: 0 0 8px rgba(201, 169, 110, .4);
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
     }
 
     50% {
-        box-shadow: 0 0 20px rgba(201, 169, 110, .8);
-    }
-
-    100% {
-        box-shadow: 0 0 8px rgba(201, 169, 110, .4);
+        box-shadow: 0 0 10px rgba(170, 133, 91, .6);
     }
 }
 
-.primary-cta:hover,
+.primary-cta,
 .course-cta:hover {
     animation: gold-glow 1.2s ease-in-out infinite;
 }
@@ -271,10 +300,6 @@ a:hover {
 
 }
 
-.main-nav>ul>li>a {
-    color: var(--color-ivory-white);
-}
-
 .main-nav a:hover {
     color: var(--color-gold);
 }
@@ -370,7 +395,8 @@ section {
 .about-section,
 .process-section,
 .reviews-section {
-    background-color: var(--color-dark-text);
+    background-color: var(--color-beige);
+    color: var(--color-dark-text);
 }
 
 /* -------------------- Секция "За академията" -------------------- */
@@ -395,6 +421,10 @@ section {
 }
 
 /* -------------------- Секция "Курсове" -------------------- */
+
+.courses-section h2 {
+    color: var(--color-dark-text);
+}
 
 .course-cards {
     display: flex;
@@ -560,12 +590,15 @@ section {
     font-weight: 600;
 }
 
+.contact-section h2 {
+    color: var(--color-dark-text);
+}
+
 /* -------------------- Футър  -------------------- */
 
 .footer {
     background: var(--color-dark-gray);
     color: var(--color-light-gray);
-    color: #fff;
     padding: 20px 0;
     font-size: 0.9rem;
 }
