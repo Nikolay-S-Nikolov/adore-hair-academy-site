@@ -1,18 +1,26 @@
-/* Глобални стилове и променливи */
 :root {
-    --color-dark-blue: #1A237E;
-    /* Хедър + CTA бутони */
-    --color-gold: #D4A017;
-    /* Златист/Акцентен нюанс */
-    --color-pink-quartz: #F8BBD0;
-    /* Ховер ефекти + Акцентни рамки/икони */
-    --color-beige-gray: #FAF9F6;
+    --color-black: #0A0A0A;
+    /* Основен фон */
+    --color-dark-gray: #1C1C1C;
+    /* Хедър, CTA */
+    --color-beige: #F5F2EB;
     /* Фон на секции */
-    --color-dark-graphite: #212121;
+    --color-gold: #C9A96E;
+    /* Основен акцент */
+    --color-gold-dark: #A67C52;
+    /* Hover злато */
+    --color-silver: #B8B8B8;
+    /* Вторичен акцент */
+    --color-dark-text: var(--color-dark-gray);
+    /* #1C1C1C – за текст в светли секции */
+    --color-light-gray: #E8E8E8;
     /* Основен текст */
+    --color-white: #FFFFFF;
+    /* Заглавия */
+
+
     --font-family-primary: 'Inter', sans-serif;
     /* Меню и хедър */
-    --color-ivory-white: #EAE8E1;
 }
 
 * {
@@ -22,9 +30,9 @@
 }
 
 body {
-    font-family: var(--font-family-primary);
+    background-color: var(--color-black);
+    color: var(--color-light-gray);
     line-height: 1.6;
-    color: var(--color-dark-graphite);
     background-color: #fff;
 }
 
@@ -38,7 +46,7 @@ body {
 h1,
 h2 {
     font-weight: 700;
-    color: var(--color-dark-blue);
+    color: var(--color-white);
     margin-bottom: 20px;
     text-align: center;
 }
@@ -52,17 +60,47 @@ h2 {
 }
 
 h3 {
-    color: var(--color-dark-graphite);
+    color: var(--color-dark-text);
     font-weight: 600;
+}
+
+.about-section h1,
+.about-section h2,
+.about-section h3,
+.process-section h1,
+.process-section h2,
+.process-section h3,
+.reviews-section h1,
+.reviews-section h2,
+.reviews-section h3 {
+    color: var(--color-gold-dark);
 }
 
 a {
     text-decoration: none;
-    color: var(--color-dark-graphite);
+    color: var(--color-light-gray);
     transition: color 0.3s;
 }
 
 a:hover {
+    color: var(--color-gold);
+}
+
+.about-section a {
+    color: var(--color-gold-dark);
+}
+
+.process-section a,
+.reviews-section a {
+    color: var(--color-dark-text);
+}
+
+.about-section a:hover {
+    color: var(--color-dark-text);
+}
+
+.process-section a:hover,
+.reviews-section a:hover {
     color: var(--color-gold);
 }
 
@@ -76,6 +114,9 @@ a:hover {
     text-transform: uppercase;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
     text-align: center;
+    background-color: var(--color-gold);
+    color: var(--color-black);
+    border: 2px solid var(--color-gold);
 }
 
 /* Основен CTA (Златист акцент) */
@@ -90,16 +131,34 @@ a:hover {
 .primary-cta:hover,
 .hero-cta:hover,
 .contact-cta:hover {
-    background-color: var(--color-pink-quartz);
-    /* Ховер ефект */
-    color: var(--color-dark-blue);
-    border-color: var(--color-pink-quartz);
+    background-color: var(--color-gold-dark);
+    border-color: var(--color-gold-dark);
+    color: var(--color-white);
+}
+
+@keyframes gold-glow {
+    0% {
+        box-shadow: 0 0 8px rgba(201, 169, 110, .4);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(201, 169, 110, .8);
+    }
+
+    100% {
+        box-shadow: 0 0 8px rgba(201, 169, 110, .4);
+    }
+}
+
+.primary-cta:hover,
+.course-cta:hover {
+    animation: gold-glow 1.2s ease-in-out infinite;
 }
 
 .secondary-button {
     background-color: transparent;
-    color: var(--color-dark-blue);
-    border: 2px solid var(--color-dark-blue);
+    border: 2px solid var(--color-silver);
+    color: var(--color-silver);
     padding: 10px 20px;
     border-radius: 5px;
     font-weight: 600;
@@ -107,8 +166,8 @@ a:hover {
 }
 
 .secondary-button:hover {
-    background-color: var(--color-pink-quartz);
-    border-color: var(--color-pink-quartz);
+    background-color: var(--color-silver);
+    color: var(--color-black);
 }
 
 /* -------------------- Фиксиран CTA (Телефон) -------------------- */
@@ -149,7 +208,7 @@ a:hover {
     width: 50px;
     height: 50px;
     background-color: var(--color-gold);
-    color: #fff;
+    color: var(--color-white);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -165,7 +224,7 @@ a:hover {
 }
 
 .fixed-cta-phone svg path {
-    fill: var(--color-dark-blue);
+    fill: var(--color-dark-gray);
 }
 
 
@@ -173,7 +232,7 @@ a:hover {
 /* -------------------- Хедър и Навигация -------------------- */
 
 .header {
-    background-color: var(--color-dark-blue);
+    background-color: var(--color-dark-gray);
     /* Тъмно синьо */
     color: #fff;
     padding: 10px 0;
@@ -208,6 +267,8 @@ a:hover {
     color: #fff;
     font-weight: 600;
     padding: 5px 0;
+    color: var(--color-light-gray);
+
 }
 
 .main-nav>ul>li>a {
@@ -223,7 +284,7 @@ a:hover {
 }
 
 .nav-login a:hover {
-    color: var(--color-pink-quartz);
+    color: var(--color-silver);
 }
 
 .hamburger-menu {
@@ -309,7 +370,7 @@ section {
 .about-section,
 .process-section,
 .reviews-section {
-    background-color: var(--color-beige-gray);
+    background-color: var(--color-dark-text);
 }
 
 /* -------------------- Секция "За академията" -------------------- */
@@ -329,6 +390,7 @@ section {
     margin-top: 30px;
     display: flex;
     justify-content: center;
+    color: var(--color-gold-dark);
     gap: 20px;
 }
 
@@ -344,7 +406,8 @@ section {
 
 .course-card {
     background-color: #fff;
-    border: 1px solid var(--color-pink-quartz);
+    border: 1px solid var(--color-gold);
+    color: var(--color-dark-text);
     /* Акцентна рамка */
     border-radius: 8px;
     padding: 20px;
@@ -357,8 +420,8 @@ section {
 }
 
 .course-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, .2);
 }
 
 .course-card img {
@@ -371,7 +434,7 @@ section {
 
 .course-card h3 {
     margin-bottom: 10px;
-    color: var(--color-dark-blue);
+    color: var(--color-dark-text);
 }
 
 .course-card p {
@@ -387,16 +450,16 @@ section {
 }
 
 .course-cta {
-    background-color: var(--color-dark-blue);
+    background: var(--color-dark-gray);
     color: #fff;
-    border: 2px solid var(--color-dark-blue);
+    border: 2px solid var(--color-dark-gray);
     width: 100%;
 }
 
 .course-cta:hover {
-    background-color: var(--color-pink-quartz);
-    border-color: var(--color-pink-quartz);
-    color: var(--color-dark-blue);
+    background: var(--color-gold);
+    border-color: var(--color-gold);
+    color: var(--color-black);
 }
 
 /* -------------------- Секция "Как протича обучението" -------------------- */
@@ -419,9 +482,11 @@ section {
     text-align: center;
     flex: 1;
     padding: 20px;
-    border: 1px solid var(--color-pink-quartz);
+    border: 1px solid var(--color-gold);
     border-radius: 8px;
     background-color: #fff;
+    color: var(--color-dark-text);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
 }
 
 .step-card .icon {
@@ -431,7 +496,7 @@ section {
 }
 
 .step-card h3 {
-    color: var(--color-dark-blue);
+    color: var(--color-dark-text);
     font-size: 1.2rem;
 }
 
@@ -450,6 +515,7 @@ section {
     border-left: 5px solid var(--color-gold);
     border-radius: 0 8px 8px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    color: var(--color-dark-text);
     flex: 1;
     max-width: 450px;
 }
@@ -464,13 +530,19 @@ section {
     text-align: right;
     font-weight: 600;
     font-style: normal;
-    color: var(--color-dark-blue);
+    color: var(--color-dark-text);
+}
+
+.review-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, .2);
 }
 
 /* -------------------- Секция "Контакти" -------------------- */
 
 .contact-section {
     text-align: center;
+    color: var(--color-dark-text);
 }
 
 .contact-section p {
@@ -484,14 +556,15 @@ section {
 }
 
 .contact-details a {
-    color: var(--color-dark-blue);
+    color: var(--color-dark-text);
     font-weight: 600;
 }
 
 /* -------------------- Футър  -------------------- */
 
 .footer {
-    background-color: var(--color-dark-graphite);
+    background: var(--color-dark-gray);
+    color: var(--color-light-gray);
     color: #fff;
     padding: 20px 0;
     font-size: 0.9rem;
@@ -510,7 +583,7 @@ section {
 }
 
 .footer-links nav a {
-    color: #fff;
+    color: var(--color-light-gray);
     margin: 0 5px;
 }
 
@@ -519,7 +592,7 @@ section {
 }
 
 .social-icons a {
-    color: #fff;
+    color: var(--color-silver);
     margin-left: 15px;
     display: inline-block;
     width: 24px;
@@ -527,7 +600,7 @@ section {
 }
 
 .social-icons a:hover {
-    color: var(--color-pink-quartz);
+    color: var(--color-gold);
 }
 
 
@@ -541,7 +614,7 @@ section {
     /* Позиционира го под хедъра */
     left: 0;
     width: 100%;
-    background-color: var(--color-dark-blue);
+    background-color: var(--color-dark-gray);
     padding: 10px 0;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     z-index: 990;
@@ -599,7 +672,6 @@ section {
         top: 50px;
         /* Под хедъра */
         left: 0;
-        background-color: var(--color-dark-blue);
         padding: 10px 0;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
@@ -671,6 +743,10 @@ section {
     .course-card,
     .review-card {
         max-width: 100%;
+        background: #fff;
+        color: var(--color-dark-text);
+        border: 1px solid var(--color-gold);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
     }
 
     .about-buttons {
@@ -798,7 +874,7 @@ section {
 
     .logo-image {
         /* Намаляваме височината за по-малки екрани */
-        height: 35px; 
+        height: 35px;
     }
 
     .hamburger-menu {
