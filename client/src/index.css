@@ -1,68 +1,1075 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+    --color-black: #0A0A0A;
+    /* Основен фон */
+    --color-dark-gray: #1C1C1C;
+    /* Хедър, CTA */
+    --color-beige: #F5F2EB;
+    /* Фон на секции */
+    --color-gold: #C9A96E;
+    /* Основен акцент */
+    --color-gold-dark: #A67C52;
+    /* Hover злато */
+    --color-silver: #B8B8B8;
+    /* Вторичен акцент */
+    --color-dark-text: var(--color-dark-gray);
+    /* #1C1C1C – за текст в светли секции */
+    --color-light-gray: #E8E8E8;
+    /* Основен текст */
+    --color-white: #FFFFFF;
+    /* Заглавия */
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    --font-family-serif: 'Cormorant', serif;
+    --font-family-primary: 'Inter', sans-serif;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+    font-family: var(--font-family-primary);
+    background-color: var(--color-beige);
+    color: var(--color-light-gray);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Шрифтове за заглавия */
+h1,
+h2 {
+    font-family: var(--font-family-serif); 
+    font-weight: 500;
+    color: var(--color-white);
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+    font-size: 2.5rem;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+h2 {
+    font-size: 2rem;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+h3 {
+    color: var(--color-dark-text);
+    font-weight: 600;
+}
+
+.about-section h1,
+.about-section h3,
+.process-section h1,
+.process-section h3,
+.reviews-section h1,
+.reviews-section h3 {
+    color: var(--color-gold-dark);
+}
+
+.about-section h2,
+.process-section h2,
+.reviews-section h2 {
+    color: var(--color-dark-text);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-light-gray);
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--color-gold);
+}
+
+.about-section a {
+    color: var(--color-gold-dark);
+}
+
+.process-section a,
+.reviews-section a {
+    color: var(--color-dark-text);
+}
+
+.about-section a:hover {
+    color: var(--color-dark-text);
+}
+
+.process-section a:hover,
+.reviews-section a:hover {
+    color: var(--color-gold);
+}
+
+
+.container h2 {
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.container h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    /* TODO да се премахне или увеличи */
+    height: 2px;
+    background-color: var(--color-gold);
+}
+
+/* -------------------- CTA Бутони -------------------- */
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    text-align: center;
+    background-color: var(--color-gold);
+    color: var(--color-black);
+    border: 2px solid var(--color-gold);
+}
+
+
+.primary-cta {
+    color: var(--color-dark-gray);
+}
+
+.primary-cta:hover {
+    background-color: var(--color-gold-dark);
+}
+
+.hero-cta,
+.contact-cta {
+    background-color: var(--color-dark-gray);
+    color: var(--color-gold);
+    border: 2px solid var(--color-gold);
+}
+
+.hero-cta:hover,
+.contact-cta:hover {
+    background-color: var(--color-gold);
+    border-color: var(--color-gold);
+    color: var(--color-dark-gray);
+}
+
+
+
+@keyframes gold-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 10px rgba(170, 133, 91, .6);
+    }
+}
+
+.primary-cta,
+.course-cta:hover {
+    animation: gold-glow 1.2s ease-in-out infinite;
+}
+
+.secondary-button {
+    background-color: transparent;
+    border: 2px solid var(--color-silver);
+    color: var(--color-silver);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.secondary-button:hover {
+    background-color: var(--color-silver);
+    color: var(--color-black);
+}
+
+/* -------------------- Фиксиран CTA (Телефон) -------------------- */
+
+@keyframes pulse-once {
+
+    /* Начално състояние: Нормален размер */
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Пик на вибрацията: Лек скок и добавяне на ринг ефект */
+    5% {
+        transform: scale(1.15);
+        /* Увеличаване (Вибрация) */
+        box-shadow: 0 0 0 5px rgba(212, 160, 23, 0.4), 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Връщане към нормален размер */
+    10% {
+        transform: scale(1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Останалата част от цикъла (50 секунди) - иконата е статична */
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+.fixed-cta-phone {
+    animation: pulse-once 5s linear infinite;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-gold);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.fixed-cta-phone svg {
+    width: 24px;
+    height: 24px;
+
+}
+
+.fixed-cta-phone svg path {
+    fill: var(--color-dark-gray);
+}
+
+
+
+/* -------------------- Хедър и Навигация -------------------- */
+
+.header {
+    background-color: var(--color-dark-gray);
+    /* Тъмно синьо */
+    color: #fff;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header .container {
+    min-height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+/* Едноредова навигация, без падащи менюта */
+.main-nav a {
+    color: #fff;
+    font-weight: 600;
+    padding: 5px 0;
+    color: var(--color-light-gray);
+
+}
+
+.main-nav a:hover {
+    color: var(--color-gold);
+}
+
+.nav-login a {
+    color: var(--color-gold);
+}
+
+.nav-login a:hover {
+    color: var(--color-silver);
+}
+
+.hamburger-menu {
+    display: none;
+    /* Скрито на десктоп */
+}
+
+/* -------------------- Hero Секция -------------------- */
+
+.hero-section {
+    background-image: url('https://images.unsplash.com/photo-1734111719430-fe4a3973f8af?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687');
+    background-size: cover;
+    background-position: center;
+    padding: 80px 0;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    /* Полупрозрачен овърлей */
+    z-index: 1;
+}
+
+.hero-section .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+    min-height: 500px;
+}
+
+.hero-content {
+    max-width: 50%;
+    text-align: left;
+}
+
+.hero-content h1 {
+    color: #fff;
+    text-align: left;
+}
+
+.hero-content .subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.hero-image-wrapper {
+    max-width: 45%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.cta-note {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* -------------------- Общи секционни стилове -------------------- */
+
+section {
+    padding: 60px 0;
+}
+
+/* Фон на секции*/
+.about-section,
+.process-section,
+.reviews-section {
+    background-color: var(--color-beige);
+    color: var(--color-dark-text);
+}
+
+/* -------------------- Секция "За академията" -------------------- */
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.about-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    color: var(--color-gold-dark);
+    gap: 20px;
+}
+
+/* -------------------- Секция "Курсове" -------------------- */
+
+.courses-section h2 {
+    color: var(--color-dark-text);
+}
+
+.course-cards {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.course-card {
+    background-color: #fff;
+    border: 1px solid var(--color-gold);
+    color: var(--color-dark-text);
+    /* Акцентна рамка */
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1 1 300px;
+    /* Осигурява responsive гъвкавост */
+    max-width: 350px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.course-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, .2);
+}
+
+.course-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.course-card h3 {
+    margin-bottom: 10px;
+    color: var(--color-dark-text);
+}
+
+.course-card p {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+.course-card small {
+    display: block;
+    color: var(--color-gold);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.course-cta {
+    background: var(--color-dark-gray);
+    color: #fff;
+    border: 2px solid var(--color-dark-gray);
+    width: 100%;
+}
+
+.course-cta:hover {
+    background: var(--color-gold);
+    border-color: var(--color-gold);
+    color: var(--color-black);
+}
+
+/* -------------------- Секция "Как протича обучението" -------------------- */
+
+.intro-text {
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.process-steps {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.step-card {
+    text-align: center;
+    flex: 1;
+    padding: 20px;
+    border: 1px solid var(--color-gold);
+    border-radius: 8px;
+    background-color: #fff;
+    color: var(--color-dark-text);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+}
+
+.step-card .icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.step-card h3 {
+    color: var(--color-dark-text);
+    font-size: 1.2rem;
+}
+
+/* -------------------- Секция "Отзиви" -------------------- */
+
+.review-cards {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+.review-card {
+    background-color: #fff;
+    padding: 30px;
+    border-left: 5px solid var(--color-gold);
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    color: var(--color-dark-text);
+    flex: 1;
+    max-width: 450px;
+}
+
+.review-card p {
+    font-style: italic;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.review-card .author {
+    text-align: right;
+    font-weight: 600;
+    font-style: normal;
+    color: var(--color-dark-text);
+}
+
+.review-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, .2);
+}
+
+/* -------------------- Секция "Контакти" -------------------- */
+
+.contact-section {
+    text-align: center;
+    color: var(--color-dark-text);
+}
+
+.contact-section p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.contact-details {
+    margin: 30px 0;
+    font-size: 1.2rem;
+}
+
+.contact-details a {
+    color: var(--color-dark-text);
+    font-weight: 600;
+}
+
+.contact-section h2 {
+    color: var(--color-dark-text);
+}
+
+/* -------------------- Футър  -------------------- */
+
+.footer {
+    background: var(--color-dark-gray);
+    color: var(--color-light-gray);
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.footer-links nav a {
+    color: var(--color-light-gray);
+    margin: 0 5px;
+}
+
+.footer-links nav a:hover {
+    color: var(--color-gold);
+}
+
+.social-icons a {
+    color: var(--color-silver);
+    margin-left: 15px;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+}
+
+.social-icons a:hover {
+    color: var(--color-gold);
+}
+
+
+/* Правила за активно меню (при клик на hamburger) */
+.header.nav-open .main-nav {
+    display: flex;
+    /* Показва менюто */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    /* Позиционира го под хедъра */
+    left: 0;
+    width: 100%;
+    background-color: var(--color-dark-gray);
+    padding: 10px 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 990;
+}
+
+.header.nav-open .main-nav ul {
+    flex-direction: column;
+    width: 100%;
+}
+
+.header.nav-open .main-nav ul li {
+    padding: 5px 20px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Гарантираме, че CTA бутонът (Обади се сега) е видим в мобилното меню, ако ще го ползваме */
+.header.nav-open .main-nav .primary-cta {
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+/* Допълнително стилизиране на хамбургер иконата за "затваряне" */
+.hamburger-menu.is-active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.is-active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-menu.is-active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* -------------------- Медийни заявки (Mobile first / Responsive) -------------------- */
+
+/* Мобилна версия (до 768px)  */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+    }
+
+    /* Скриване на пълното меню */
+    .main-nav {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 50px;
+        /* Под хедъра */
+        left: 0;
+        padding: 10px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .main-nav ul li {
+        width: 100%;
+        padding: 5px 0;
+    }
+
+    .main-nav ul li a {
+        display: block;
+        padding: 10px 0;
+    }
+
+    /* Бутон за меню */
+    .hamburger-menu {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .hamburger-menu .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: #fff;
+        transition: 0.4s;
+    }
+
+    /* Hero Секция */
+    .hero-section .container {
+        flex-direction: column;
+        text-align: center;
+        min-height: auto;
+    }
+
+    .hero-content,
+    .hero-image-wrapper {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .hero-content h1,
+    .hero-content .subtitle {
+        text-align: center;
+    }
+
+    .hero-cta {
+        margin: 0 auto;
+    }
+
+    /* Курсове и Отзиви */
+    .course-cards,
+    .review-cards,
+    .process-steps {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .course-card,
+    .review-card {
+        max-width: 100%;
+        background: #fff;
+        color: var(--color-dark-text);
+        border: 1px solid var(--color-gold);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+    }
+
+    .about-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Футър */
+    .footer .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .footer-links nav a {
+        margin: 0 8px;
+    }
+
+    .social-icons a {
+        margin: 0 8px;
+    }
+}
+
+
+/* -------------------- Медийни заявки (Mobile & Tablet) -------------------- */
+
+/* 1. Максимална ширина 1024px (Таблети в пейзажен режим и малки лаптопи) */
+@media (max-width: 1024px) {
+
+    /* Общи промени */
+    .container {
+        padding: 0 15px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    /* Hero Секция */
+    .hero-section .container {
+        flex-direction: column;
+        text-align: center;
+        min-height: auto;
+    }
+
+    .hero-content {
+        max-width: 90%;
+        margin-bottom: 30px;
+    }
+
+    .hero-content h1,
+    .hero-content .subtitle {
+        text-align: center;
+    }
+
+    .hero-image-wrapper {
+        max-width: 70%;
+    }
+
+    /* Навигация (Скриване на CTA бутона в менюто, тъй като има фиксиран) */
+    .header .primary-cta {
+        display: none;
+    }
+
+    /* Курсове и Процес */
+    .course-cards,
+    .process-steps {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .course-card {
+        flex: 1 1 45%;
+        /* По 2 карти на ред */
+    }
+
+    .process-steps {
+        justify-content: space-between;
+    }
+
+    .step-card {
+        flex: 1 1 30%;
+    }
+}
+
+
+/* 2. Максимална ширина 768px (Таблети в портретен режим) */
+@media (max-width: 768px) {
+
+    /* Общи промени */
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+    }
+
+    section {
+        padding: 40px 0;
+    }
+
+    /* Хедър (Включване на hamburger меню) */
+    .main-nav {
+        display: none;
+        /* Скриване на пълната навигация */
+    }
+
+    .header {
+        padding: 10px 0;
+    }
+
+    .header .container {
+        justify-content: space-between;
+    }
+
+    .logo-image {
+        /* Намаляваме височината за по-малки екрани */
+        height: 35px;
+    }
+
+    .hamburger-menu {
+        display: block;
+        /* Показване на hamburger меню */
+    }
+
+    /* Секции с карти (Курсове, Отзиви, Процес) */
+    .course-cards,
+    .review-cards,
+    .process-steps {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .course-card,
+    .review-card,
+    .step-card {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+
+    .about-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Hero Секция */
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-image-wrapper {
+        display: none;
+        /* Скриване на голямото изображение за по-малки екрани */
+    }
+
+    /* Футър */
+    .footer .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+    }
+
+    .social-icons {
+        order: -1;
+        /* Преместване на иконите над линковете/копирайта */
+    }
+}
+
+
+/* 3. Максимална ширина 640px (Големи смартфони в пейзажен режим) */
+@media (max-width: 640px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .cta-button {
+        padding: 10px 25px;
+        font-size: 0.95rem;
+    }
+
+    /* Fixed CTA */
+    .fixed-cta-phone {
+        width: 45px;
+        height: 45px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+
+/* 4. Максимална ширина 480px (Стандартни смартфони) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    section {
+        padding: 30px 0;
+    }
+
+    /* Hero Секция */
+    .hero-content .subtitle {
+        font-size: 1rem;
+    }
+
+    /* CTA на Hero */
+    .hero-cta {
+        width: 90%;
+        display: block;
+        /* Запълва почти целия екран */
+        margin: 15px auto 5px auto;
+    }
+
+    .cta-note {
+        text-align: center;
+    }
+
+
+    /* Футър линкове */
+    .footer-links nav {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .footer-links p {
+        font-size: 0.8rem;
+    }
+}
+
+
+/* -------------------- Медийни заявки (Desktop & Large Screens) -------------------- */
+
+/* 5. Минимална ширина 1280px (Големи лаптопи) */
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1280px;
+    }
+
+    h1 {
+        font-size: 2.8rem;
+    }
+}
+
+/* 6. Минимална ширина 1440px (Десктоп монитори) */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    section {
+        padding: 80px 0;
+    }
+}
+
+/* 7. Минимална ширина 1536px (Много големи монитори) */
+@media (min-width: 1536px) {
+    .container {
+        max-width: 1500px;
+    }
 }
