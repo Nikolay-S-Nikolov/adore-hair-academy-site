@@ -1,29 +1,26 @@
-/* src/components/courses.css */
-/* Страница "Курсове" – допълнение към основния стил */
-
-.courses-page {
+.coursesPage {
   background-color: var(--color-beige);
   color: var(--color-dark-text);
   padding: 60px 0 80px;
 }
 
-.courses-header {
+.coursesHeader {
   text-align: center;
   max-width: 760px;
   margin: 0 auto 50px auto;
 }
 
-.courses-header h1 {
+.coursesHeader h1 {
   color: var(--color-dark-text);
   margin-bottom: 15px;
 }
 
-.courses-header .courses-intro {
+.coursesIntro {
   font-size: 1.05rem;
   color: var(--color-dark-text);
 }
 
-.courses-eyebrow {
+.coursesEyebrow {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.8rem;
@@ -33,44 +30,44 @@
 
 /* Групи с курсове */
 
-.courses-group {
+.coursesGroup {
   margin-bottom: 60px;
 }
 
-.courses-group-header {
+.coursesGroupHeader {
   max-width: 700px;
   margin: 0 auto 30px auto;
   text-align: center;
 }
 
-.courses-group-header h2 {
+.coursesGroupHeader h2 {
   color: var(--color-dark-text);
   margin-bottom: 10px;
 }
 
-.courses-group-header p {
+.coursesGroupHeader p {
   color: var(--color-dark-text);
   font-size: 1rem;
 }
 
-/* Grid с карти – използваме идея, близка до .course-cards от styles.css */
+/* Grid с карти – използваме идея, близка до .courseCards от styles.css */
 
-.courses-grid {
+.coursesGrid {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
   justify-content: center;
 }
 
-/* Картите стъпват на съществуващия стил .course-card, но го допълваме */
+/* Картите стъпват на съществуващия стил .courseCard, но го допълваме */
 
-.courses-page .course-card {
+.coursesPage .courseCard {
   background-color: #ffffff;
   border-radius: 10px;
   border: 1px solid var(--color-gold);
   padding: 22px 22px 24px;
   flex: 1 1 320px;
-  max-width: 360px;
+  max-width: 560px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
@@ -78,14 +75,21 @@
   gap: 12px;
 }
 
-.courses-page .course-card:hover {
+.coursesPage .courseCard:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 26px rgba(0, 0, 0, 0.2);
 }
 
 /* Хедър на картата */
 
-.course-card-header h3 {
+.courseCardHeader {
+  min-height: 100px;
+  /* display: flex;
+  flex-direction: column;
+  gap: 6px; */
+}
+
+.courseCardHeader h3 {
   font-size: 1.1rem;
   margin-top: 6px;
   color: var(--color-dark-text);
@@ -93,7 +97,7 @@
 
 /* Таг – ниво */
 
-.course-tag {
+.courseTag {
   display: inline-block;
   padding: 4px 10px;
   border-radius: 999px;
@@ -104,26 +108,26 @@
   border: 1px solid currentColor;
 }
 
-.course-tag--beginner {
+.courseTagBeginner {
   color: var(--color-gold-dark);
   background-color: rgba(201, 169, 110, 0.12);
 }
 
-.course-tag--advanced {
+.courseTagAdvanced {
   color: var(--color-dark-gray);
   background-color: rgba(26, 26, 26, 0.06);
 }
 
 /* Кратко описание */
 
-.course-short {
+.courseShort {
   font-size: 0.95rem;
   color: var(--color-dark-text);
 }
 
 /* Списък с умения */
 
-.course-list {
+.courseList {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -131,7 +135,7 @@
   padding-top: 10px;
 }
 
-.course-list li {
+.courseList li {
   font-size: 0.9rem;
   color: var(--color-dark-text);
   padding-left: 18px;
@@ -139,7 +143,7 @@
   margin-bottom: 6px;
 }
 
-.course-list li::before {
+.courseList li::before {
   content: "•";
   position: absolute;
   left: 0;
@@ -148,9 +152,38 @@
   font-size: 1rem;
 }
 
+.courseImage {
+  width: 100%;
+  max-width: 330px;
+  height: 330px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 0 auto 12px auto;
+  display: block;
+}
+
+.moreButton {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  border-radius: 20px;
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold-dark);
+  background: transparent;
+  text-decoration: none;
+  transition: 0.25s ease;
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+
+.moreButton:hover {
+  background: var(--color-gold);
+  color: #fff;
+}
+
 /* Метаданни – продължителност, формат */
 
-.course-meta {
+.courseMeta {
   display: flex;
   flex-wrap: wrap;
   gap: 8px 16px;
@@ -159,25 +192,25 @@
   color: var(--color-dark-text);
 }
 
-.course-duration,
-.course-format {
+.courseDuration,
+.courseFormat {
   display: inline-flex;
   align-items: center;
   gap: 6px;
 }
 
-.course-duration::before {
+.courseDuration::before {
   content: "⏱";
 }
 
-.course-format::before {
+.courseFormat::before {
   content: "🎓";
 }
 
 /* CTA бутон в картата */
 
-.courses-page .course-cta {
-  margin-top: 14px;
+.coursesPage .courseCta {
+  margin-top: auto;
   width: 100%;
   text-align: center;
   border-radius: 999px;
@@ -185,21 +218,21 @@
 
 /* Малко нюанси между начинаещи и напреднали */
 
-.course-card--beginner {
+.courseCardBeginner {
   border-color: var(--color-gold);
 }
 
-.course-card--advanced {
+.courseCardAdvanced {
   border-color: var(--color-dark-gray);
 }
 
 /* Долен CTA блок */
 
-.courses-cta-section {
+.coursesCtaSection {
   margin-top: 40px;
 }
 
-.courses-cta-box {
+.coursesCtaBox {
   border-radius: 16px;
   background-color: var(--color-dark-gray);
   padding: 35px 25px;
@@ -208,37 +241,42 @@
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
 }
 
-.courses-cta-box h2 {
+.coursesCtaBox h2 {
   color: var(--color-gold);
   margin-bottom: 10px;
 }
 
-.courses-cta-box p {
+.coursesCtaBox p {
   max-width: 600px;
   margin: 0 auto 18px auto;
   font-size: 1rem;
 }
 
+.courseCard a:last-child {
+  margin-top: auto;
+}
+
 /* Responsive */
 
 @media (max-width: 768px) {
-  .courses-page {
+  .coursesPage {
     padding: 40px 0 60px;
   }
 
-  .courses-header {
+  .coursesHeader {
     margin-bottom: 40px;
   }
 
-  .courses-grid {
+  .coursesGrid {
     flex-direction: column;
   }
 
-  .courses-page .course-card {
+  .coursesPage .courseCard {
     max-width: 100%;
   }
 
-  .courses-cta-box {
+  .coursesCtaBox {
     padding: 28px 18px;
   }
 }
+
