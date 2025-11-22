@@ -1,7 +1,11 @@
+import { useState } from "react";
 import logo from "../../assets/ADORE-small.png"
 
 // TODO make the mobile menu working
 export default function Header() {
+    const [isOpen, setIsOpen] = useState(false)
+    const onMenuClick = () => setIsOpen(prev => !prev);
+    const closeMenu = () => setIsOpen(false);
     return (
         <>
             <a href="tel:0888123456" className="fixed-cta-phone" aria-label="Обади се сега">
@@ -12,28 +16,32 @@ export default function Header() {
             </a>
 
 
-            <header className="header">
+            <header className={`header ${isOpen ? "nav-open" : ""}`}>
                 <div className="container">
                     <a href="#home" className="logo-link">
-                        <img src={logo} alt="ADORE Hair Academy Logo" className="logo-image"/>
+                        <img src={logo} alt="ADORE Hair Academy Logo" className="logo-image" />
                     </a>
                     <nav className="main-nav">
                         <ul>
-                            <li><a href="#home">Начало</a></li>
-                            <li><a href="#courses">Курсове</a></li>
-                            <li><a href="#about">За нас</a></li>
-                            <li><a href="#contact">Контакти</a></li>
-                            <li className="nav-login"><a href="#login">Вход</a></li>
-                            <li><a href="tel:0888123456" className="cta-button primary-cta">📞 Обади се сега</a></li>
+                            <li><a href="#home" onClick={closeMenu}>Начало</a></li>
+                            <li><a href="#courses" onClick={closeMenu}>Курсове</a></li>
+                            <li><a href="#about" onClick={closeMenu}>За нас</a></li>
+                            <li><a href="#contact" onClick={closeMenu}>Контакти</a></li>
+                            <li className="nav-login" o><a href="#login" nClick={closeMenu}>Вход</a></li>
+                            <li><a href="tel:0888123456" className="cta-button primary-cta" onClick={closeMenu}>📞 Обади се сега</a></li>
                         </ul>
                     </nav>
-                    <button className="hamburger-menu" aria-label="Меню">
+                    <button
+                        className={`hamburger-menu ${isOpen ? "is-active" : ""}`}
+                        onClick={onMenuClick}
+                        aria-label="Меню"
+                    >
                         <span className="bar"></span>
                         <span className="bar"></span>
                         <span className="bar"></span>
                     </button>
                 </div>
-            </header>
+            </header >
         </>
     );
 };
