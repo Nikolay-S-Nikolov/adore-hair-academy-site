@@ -27,7 +27,7 @@ export default function Header() {
                             <li><a href="#courses" onClick={closeMenu}>Курсове</a></li>
                             <li><a href="#about" onClick={closeMenu}>За нас</a></li>
                             <li><a href="#contact" onClick={closeMenu}>Контакти</a></li>
-                            <li className="nav-login" o><a href="#login" nClick={closeMenu}>Вход</a></li>
+                            <li className="nav-login"><a href="#login" onClick={closeMenu}>Вход</a></li>
                             <li><a href="tel:0888123456" className="cta-button primary-cta" onClick={closeMenu}>📞 Обади се сега</a></li>
                         </ul>
                     </nav>

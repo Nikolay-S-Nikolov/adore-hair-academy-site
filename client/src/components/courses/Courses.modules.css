@@ -1,0 +1,244 @@
+/* src/components/courses.css */
+/* Страница "Курсове" – допълнение към основния стил */
+
+.courses-page {
+  background-color: var(--color-beige);
+  color: var(--color-dark-text);
+  padding: 60px 0 80px;
+}
+
+.courses-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 50px auto;
+}
+
+.courses-header h1 {
+  color: var(--color-dark-text);
+  margin-bottom: 15px;
+}
+
+.courses-header .courses-intro {
+  font-size: 1.05rem;
+  color: var(--color-dark-text);
+}
+
+.courses-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  color: var(--color-gold-dark);
+  margin-bottom: 8px;
+}
+
+/* Групи с курсове */
+
+.courses-group {
+  margin-bottom: 60px;
+}
+
+.courses-group-header {
+  max-width: 700px;
+  margin: 0 auto 30px auto;
+  text-align: center;
+}
+
+.courses-group-header h2 {
+  color: var(--color-dark-text);
+  margin-bottom: 10px;
+}
+
+.courses-group-header p {
+  color: var(--color-dark-text);
+  font-size: 1rem;
+}
+
+/* Grid с карти – използваме идея, близка до .course-cards от styles.css */
+
+.courses-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+/* Картите стъпват на съществуващия стил .course-card, но го допълваме */
+
+.courses-page .course-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid var(--color-gold);
+  padding: 22px 22px 24px;
+  flex: 1 1 320px;
+  max-width: 360px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.courses-page .course-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.2);
+}
+
+/* Хедър на картата */
+
+.course-card-header h3 {
+  font-size: 1.1rem;
+  margin-top: 6px;
+  color: var(--color-dark-text);
+}
+
+/* Таг – ниво */
+
+.course-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid currentColor;
+}
+
+.course-tag--beginner {
+  color: var(--color-gold-dark);
+  background-color: rgba(201, 169, 110, 0.12);
+}
+
+.course-tag--advanced {
+  color: var(--color-dark-gray);
+  background-color: rgba(26, 26, 26, 0.06);
+}
+
+/* Кратко описание */
+
+.course-short {
+  font-size: 0.95rem;
+  color: var(--color-dark-text);
+}
+
+/* Списък с умения */
+
+.course-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--color-light-gray);
+  padding-top: 10px;
+}
+
+.course-list li {
+  font-size: 0.9rem;
+  color: var(--color-dark-text);
+  padding-left: 18px;
+  position: relative;
+  margin-bottom: 6px;
+}
+
+.course-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: -1px;
+  color: var(--color-gold-dark);
+  font-size: 1rem;
+}
+
+/* Метаданни – продължителност, формат */
+
+.course-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--color-dark-text);
+}
+
+.course-duration,
+.course-format {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.course-duration::before {
+  content: "⏱";
+}
+
+.course-format::before {
+  content: "🎓";
+}
+
+/* CTA бутон в картата */
+
+.courses-page .course-cta {
+  margin-top: 14px;
+  width: 100%;
+  text-align: center;
+  border-radius: 999px;
+}
+
+/* Малко нюанси между начинаещи и напреднали */
+
+.course-card--beginner {
+  border-color: var(--color-gold);
+}
+
+.course-card--advanced {
+  border-color: var(--color-dark-gray);
+}
+
+/* Долен CTA блок */
+
+.courses-cta-section {
+  margin-top: 40px;
+}
+
+.courses-cta-box {
+  border-radius: 16px;
+  background-color: var(--color-dark-gray);
+  padding: 35px 25px;
+  text-align: center;
+  color: var(--color-light-gray);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
+
+.courses-cta-box h2 {
+  color: var(--color-gold);
+  margin-bottom: 10px;
+}
+
+.courses-cta-box p {
+  max-width: 600px;
+  margin: 0 auto 18px auto;
+  font-size: 1rem;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .courses-page {
+    padding: 40px 0 60px;
+  }
+
+  .courses-header {
+    margin-bottom: 40px;
+  }
+
+  .courses-grid {
+    flex-direction: column;
+  }
+
+  .courses-page .course-card {
+    max-width: 100%;
+  }
+
+  .courses-cta-box {
+    padding: 28px 18px;
+  }
+}
