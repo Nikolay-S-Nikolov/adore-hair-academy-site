@@ -1,1 +1,4 @@
 "# adore-hair-academy-site" 
+
+-[x] Added html and css resources
+-[x] Create react base project inside client folder `npm create vite@latest .`
