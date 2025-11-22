@@ -37,7 +37,7 @@ export default function Courses() {
                             </div>
 
                             <img
-                                src="https://cdn.creazilla.com/photos/550550/hair-hairstyle-stylist-photo-lg.jpeg"
+                                src="https://plus.unsplash.com/premium_photo-1669675935972-74a2f5d1e44a"
                                 alt="Основи на дамското подстригване"
                                 className={styles.courseImage}
                             />
@@ -134,7 +134,7 @@ export default function Courses() {
                             </div>
 
                             <img
-                                src="https://cdn.creazilla.com/photos/483827/brush-white-woman-photo-lg.jpeg"
+                                src="https://images.unsplash.com/photo-1712213396688-c6f2d536671f"
                                 alt="Основи на дамското подстригване"
                                 className={styles.courseImage}
                             />
