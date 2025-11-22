@@ -5,3 +5,4 @@
 - [x] Add components Header, Home and Footer
 - [x] Add responsive Header menu functionality
 - [x] Setup React router `npm i react-router`
+- [x]  Add Routes
