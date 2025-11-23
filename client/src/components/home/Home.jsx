@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export default function Home() {
     return (
         <>
@@ -27,7 +29,7 @@ export default function Home() {
                     <p>Нашият екип вярва, че всеки може да се научи да създава красота — нужно е само желание и правилно
                         обучение.</p>
                     <div className="about-buttons">
-                        <a href="#" className="secondary-button"> Научи повече за нас</a>
+                        <Link to="/about" className="secondary-button"> Научи повече за нас</Link>
                         <a href="#reviews" className="secondary-button"> Виж отзиви от курсисти</a>
                     </div>
                 </div>
