@@ -9,3 +9,4 @@
 - [x]  Add Courses component and css
 - [x]  Add About component and css
 - [x]  Add Contact component and css
+- [x]  Add Product component and css
