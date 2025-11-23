@@ -8,3 +8,4 @@
 - [x]  Add Routes
 - [x]  Add Courses component and css
 - [x]  Add About component and css
+- [x]  Add Contact component and css
