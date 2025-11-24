@@ -9,29 +9,30 @@
   text-align: center;
   margin-bottom: 40px;
 }
+
 .header h1 {
   font-size: 2.4rem;
   margin-bottom: 10px;
   font-weight: 700;
 }
+
 .subtitle {
   color: var(--color-gold-dark);
   font-size: 1.1rem;
 }
 
-/* CONTACT INFO + FORM WRAPPER */
+/* CONTACT INFO*/
 .infoSection {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
 }
 
-.infoCard,
-.formCard {
+.infoCard {
   background: #fff;
   border-radius: 12px;
   padding: 26px 28px;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
   border: 1px solid var(--color-gold);
 }
 
@@ -39,10 +40,12 @@
 .infoCard h2 {
   margin-bottom: 16px;
 }
+
 .infoList p {
   margin-bottom: 8px;
   line-height: 1.6;
 }
+
 .infoList a {
   color: var(--color-dark-text);
   text-decoration: underline;
@@ -54,6 +57,7 @@
   gap: 14px;
   margin-top: 18px;
 }
+
 .socialButton {
   padding: 8px 16px;
   border-radius: 25px;
@@ -62,49 +66,23 @@
   text-decoration: none;
   transition: 0.3s;
 }
+
 .socialButton:hover {
   background: var(--color-gold-dark);
-}
-
-/* FORM */
-.formCard h2 {
-  margin-bottom: 18px;
-}
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.form input,
-.form textarea {
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid var(--color-gold);
-}
-.sendButton {
-  padding: 12px;
-  border-radius: 25px;
-  background: var(--color-gold-dark);
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.sendButton:hover {
-  background: var(--color-dark-gray);
 }
 
 /* MAP */
 .mapSection {
   text-align: center;
 }
+
 .mapWrapper {
   width: 100%;
   height: 400px;
   margin-top: 20px;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
 }
 
 /* CTA */
@@ -112,6 +90,7 @@
   display: flex;
   justify-content: center;
 }
+
 .ctaCard {
   background: var(--color-dark-gray);
   color: var(--color-light-gray);
@@ -119,8 +98,9 @@
   border-radius: 16px;
   max-width: 640px;
   text-align: center;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
 }
+
 .ctaCard h2 {
   color: var(--color-gold);
   margin-bottom: 10px;

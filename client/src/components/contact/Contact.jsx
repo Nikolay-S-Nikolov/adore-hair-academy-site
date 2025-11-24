@@ -1,9 +1,8 @@
+import ContactForm from "./contact-form/ContactForm.jsx";
 import styles from "./Contact.module.css";
-import FaqSection from "./faq-section/faqSection.jsx";
+import FaqSection from "./faq-section/FaqSection.jsx";
 
 export default function Contact() {
-
-
   return (
     <section className={styles.contactPage}>
       <div className="container">
@@ -52,31 +51,11 @@ export default function Contact() {
               >
                 Facebook
               </a>
-
-              <a
-                href="https://m.me/yourpage"
-                target="_blank"
-                className={styles.socialButton}
-              >
-                Messenger
-              </a>
             </div>
           </div>
 
           {/* CONTACT FORM */}
-          <div className={styles.formCard}>
-            <h2>Изпратете ни съобщение</h2>
-
-            <form className={styles.form}>
-              <input type="text" placeholder="Вашето име" required />
-              <input type="email" placeholder="Имейл адрес" required />
-              <input type="tel" placeholder="Телефон (по желание)" />
-              <textarea placeholder="Вашето съобщение" rows="5" required></textarea>
-              <button type="submit" className={styles.sendButton}>
-                Изпрати
-              </button>
-            </form>
-          </div>
+          <ContactForm />
 
         </section>
 

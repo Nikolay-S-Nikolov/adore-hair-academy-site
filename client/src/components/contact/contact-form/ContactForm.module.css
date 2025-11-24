@@ -1,0 +1,38 @@
+.formCard {
+    background: #fff;
+    border-radius: 12px;
+    padding: 26px 28px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--color-gold);
+}
+
+.formCard h2 {
+    margin-bottom: 18px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form input,
+.form textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--color-gold);
+}
+
+.sendButton {
+    padding: 12px;
+    border-radius: 25px;
+    background: var(--color-gold-dark);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sendButton:hover {
+    background: var(--color-dark-gray);
+}
