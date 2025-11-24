@@ -61,7 +61,7 @@ export default function Home() {
                     </article>
 
                     <article className="course-card">
-                        <img src="https://plus.unsplash.com/premium_photo-1677098574517-99d59b97bdd6"
+                        <img src="https://images.unsplash.com/photo-1654097801176-cb1795fd0c5e"
                             alt="Снимка на барбер подстригва брада"/>
                         <h3>Курс по мъжко фризьорство (барбъринг)</h3>
                         <p>Практическо обучение с фокус върху модерните техники за подстригване и оформяне на бради.</p>
