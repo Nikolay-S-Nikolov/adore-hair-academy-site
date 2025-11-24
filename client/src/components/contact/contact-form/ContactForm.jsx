@@ -55,7 +55,7 @@ export default function ContactForm() {
             {!status.success && <p>{status.error}</p>}
 
             <form action={submitAction} className={styles.form}>
-                <input type="hidden" name="access_key" value="7605f6af-86e2-41fb-9155-bf4c0fc88251" ></input>
+                <input type="hidden" name="access_key" value="ef6c567c-dd1b-4c11-b5a7-f31c638a5827" ></input>
                 <input type="text" name="name" placeholder="Вашето име" required defaultValue={status.name} />
                 <input type="email" name="email" placeholder="Имейл адрес" required defaultValue={status.email} />
                 <input type="tel" name="tel" placeholder="Телефон (по желание)" defaultValue={status.tel} />
