@@ -58,10 +58,12 @@ export default function ContactForm() {
     });
 
     useEffect(() => {
-        setToast({
-            type: status.error ? 'error' : 'success',
-            text: status.error ? status.error : 'Съобщението е изпратено успешно!'
-        })
+        if (status.success) {
+            setToast({ type: "success", text: "Съобщението е изпратено успешно!" });
+        }
+        if (status.error) {
+            setToast({ type: "error", text: status.error });
+        }
     }, [status]);
 
     useEffect(() => {
