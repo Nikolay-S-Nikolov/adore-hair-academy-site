@@ -4,12 +4,14 @@
     padding: 26px 28px;
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
     border: 1px solid var(--color-gold);
+    position: relative;
 }
 
 .formCard h2 {
     margin-bottom: 18px;
 }
 
+/************** FORM **************/
 .form {
     display: flex;
     flex-direction: column;
@@ -21,8 +23,17 @@
     padding: 12px;
     border-radius: 8px;
     border: 1px solid var(--color-gold);
+    transition: 0.2s;
 }
 
+.form input:focus,
+.form textarea:focus {
+    outline: none;
+    border-color: var(--color-gold-dark);
+    box-shadow: 0 0 6px rgba(201, 169, 110, 0.4);
+}
+
+/************** BUTTON **************/
 .sendButton {
     padding: 12px;
     border-radius: 25px;
@@ -31,8 +42,63 @@
     border: none;
     cursor: pointer;
     transition: 0.3s;
+    font-weight: 600;
 }
 
 .sendButton:hover {
     background: var(--color-dark-gray);
+}
+
+.loading {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+/************** HONEYPOT **************/
+.honeypot {
+    display: none !important;
+}
+
+/************** TOAST **************/
+.toast {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    padding: 12px 18px;
+    border-radius: 12px;
+    color: #fff;
+    font-weight: 600;
+    animation: fadeInOut 3.5s ease forwards;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+}
+
+.toastSuccess {
+    background: #2e9d57;
+}
+
+.toastError {
+    background: #c94c4c;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -120%);
+    }
+
+    15% {
+        opacity: 1;
+        transform: translate(-50%, -100%);
+    }
+
+    85% {
+        opacity: 1;
+        transform: translate(-50%, -100%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -120%);
+    }
 }

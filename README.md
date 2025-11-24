@@ -10,3 +10,4 @@
 - [x]  Add About component and css
 - [x]  Add Contact component and css
 - [x]  Add Product component and css
+- [x]  Add Contact send email functionality
