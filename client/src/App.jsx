@@ -7,8 +7,8 @@ import Courses from './components/courses/Courses.jsx'
 import About from './components/about/About.jsx'
 import Products from './components/products/Products.jsx'
 import Contact from './components/contact/Contact.jsx'
-import Register from './components/register/Register.jsx'
-import Login from './components/login/Login.jsx'
+import Login from './components/auth/Login.jsx'
+import Register from './components/auth/Register.jsx'
 
 function App() {
 

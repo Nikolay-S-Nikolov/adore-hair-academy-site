@@ -1,5 +1,4 @@
-import styles from "./Register.module.css";
-
+import styles from "./auth.module.css";
 import { Link } from "react-router";
 import { useFormFlow } from "../../hooks/useFormFlow.js";
 
