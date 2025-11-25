@@ -1,12 +1,9 @@
-import { useActionState, useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router";
-
 import styles from "./Register.module.css";
 
+import { Link } from "react-router";
+import { useFormFlow } from "../../hooks/useFormFlow.js";
+
 export default function Register() {
-    const navigate = useNavigate();
-    const [toast, setToast] = useState(null);
-    const [fadeOut, setFadeOut] = useState(false);
 
     function handleSubmit(prevState, formData) {
         const email = formData.get("email").trim();
@@ -28,41 +25,19 @@ export default function Register() {
         if (pass !== confirm) {
             return handleError('Паролите не съвпадат.');
         }
+
+        // TODO: тук ще бъде реалното API login изпращане
+
+        // демо – винаги успешен логин
+
         return {
             email: '',
             error: null,
             success: true
         };
-
-
-        // TODO send user registration to API
     };
 
-    const [status, submitAction, isPending] = useActionState(handleSubmit, {
-        email: '',
-        error: null,
-        success: false
-    });
-
-
-    useEffect(() => {
-        if (status.success) {
-
-            setTimeout(() => {
-                setToast({ type: 'success', text: 'Успешна регистрация!' });
-            }, 10);
-
-            setTimeout(() => setFadeOut(true), 600);
-            setTimeout(() => navigate('/'), 1500);
-        }
-    }, [status.success, navigate])
-
-    useEffect(() => {
-        if (toast) {
-            const timer = setTimeout(() => setToast(null), 2500);
-            return () => clearTimeout(timer);
-        }
-    }, [toast])
+    const { toast, fadeOut, isPending, status, submitAction } = useFormFlow(handleSubmit)
 
     return (
         <div className={styles.page}>

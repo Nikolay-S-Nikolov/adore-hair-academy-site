@@ -8,6 +8,7 @@ import About from './components/about/About.jsx'
 import Products from './components/products/Products.jsx'
 import Contact from './components/contact/Contact.jsx'
 import Register from './components/register/Register.jsx'
+import Login from './components/login/Login.jsx'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/login' element={<Login />} />
       </Routes>
       
       <Footer />
