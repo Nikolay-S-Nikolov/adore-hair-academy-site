@@ -1,4 +1,4 @@
-import styles from "./auth.module.css";
+import styles from "./Auth.module.css";
 import { useFormFlow } from "../../hooks/useFormFlow.js";
 
 export default function Login() {
