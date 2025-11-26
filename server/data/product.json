@@ -1,0 +1,26 @@
+{
+    "005072b5-2e01-47d4-bb08-985fed2b2ae9": {
+        "brand": "L’Oréal Professionnel",
+        "name": "Blond Studio Lightening Powder",
+        "image": "https://www.lorealprofessionnel.com/-/media/project/loreal/brand-sites/lp/emea/inter/hair-color/blond-studio/lp_blond_studio_9.jpg",
+        "category": "Колористика",
+        "description": "Професионален изсветлител до 9 тона с минимално увреждане.",
+        "_id": "005072b5-2e01-47d4-bb08-985fed2b2ae9"
+    },
+    "70a21ec4-8195-41df-9d1f-fed84877273d": {
+        "brand": "Schwarzkopf Professional",
+        "name": "Igora Royal Permanent Color",
+        "image": "https://dm.henkel-dam.com/is/image/henkel/SKP_1-1_IG_Vario_Blond_2023_Flatlay_Full-range_1680x1680",
+        "category": "Кола",
+        "description": "Перманентна боя с наситени пигменти и устойчиви резултати.",
+        "_id": "70a21ec4-8195-41df-9d1f-fed84877273d"
+    },
+    "e8cbe1a0-465f-445c-83ec-cb85155957e2": {
+        "brand": "Keune",
+        "name": "Care Vital Nutrition Mask",
+        "image": "https://keune.bg/images_ext/?id=613F693D4D7A5A794B6B5571566C34324E5439624A4541704846594342334D6265415145526E526D416E414645455269424159",
+        "category": "Грижа за коса",
+        "description": "Интензивна маска за възстановяване, хидратация и блясък.",
+        "_id": "e8cbe1a0-465f-445c-83ec-cb85155957e2"
+    }
+}

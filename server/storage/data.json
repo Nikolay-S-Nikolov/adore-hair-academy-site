@@ -1,0 +1,58 @@
+{
+  "faqData": {
+    "213ce26d-bb98-4b48-b4b4-82d141a7cf80": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "question": "Как да се запиша за курс?",
+      "answer": "Можете да се обадите директно или да изпратите съобщение през формата.",
+      "_createdOn": 1764152991847,
+      "_id": "213ce26d-bb98-4b48-b4b4-82d141a7cf80"
+    },
+    "134a6086-caaa-438c-b1d8-76def0ff6898": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "question": "Имате ли практика върху модели?",
+      "answer": "Да — практиката е ключова част от обучението.",
+      "_createdOn": 1764158102701
+    },
+    "522e620c-4a01-46a7-92c5-c2338d866285": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "question": "Нужен ли е опит?",
+      "answer": "Не — имаме курсове за напълно начинаещи.",
+      "_createdOn": 1764158140298
+    },
+    "26d04f63-3c77-419b-b87d-bf61e3a41094": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "question": "Получава ли се сертификат?",
+      "answer": "Да — след завършване на обученията се издава сертификат.",
+      "_createdOn": 1764158621031
+    }
+  },
+  "products": {
+    "76309afa-e79f-4e4c-a1dc-ee4f93dc1f8b": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "brand": "Keune",
+      "name": "Care Vital Nutrition Mask",
+      "image": "https://keune.bg/images_ext/?id=613F693D4D7A5A794B6B5571566C34324E5439624A4541704846594342334D6265415145526E526D416E414645455269424159",
+      "category": "Грижа за коса",
+      "description": "Интензивна маска за възстановяване, хидратация и блясък.",
+      "_createdOn": 1764161030594
+    },
+    "5f56b339-4cf4-40ae-a397-540e26f464eb": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "brand": "L’Oréal Professionnel",
+      "name": "Blond Studio Lightening Powder",
+      "image": "https://www.lorealprofessionnel.com/-/media/project/loreal/brand-sites/lp/emea/inter/hair-color/blond-studio/lp_blond_studio_9.jpg",
+      "category": "Колористика",
+      "description": "Професионален изсветлител до 9 тона с минимално увреждане.",
+      "_createdOn": 1764161059424
+    },
+    "0df48bcd-2058-4952-8bf1-33f8f2b9a16d": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "brand": "Schwarzkopf Professional",
+      "name": "Igora Royal Permanent Color",
+      "image": "https://dm.henkel-dam.com/is/image/henkel/SKP_1-1_IG_Vario_Blond_2023_Flatlay_Full-range_1680x1680",
+      "category": "Кола",
+      "description": "Перманентна боя с наситени пигменти и устойчиви резултати.",
+      "_createdOn": 1764161100944
+    }
+  }
+}
