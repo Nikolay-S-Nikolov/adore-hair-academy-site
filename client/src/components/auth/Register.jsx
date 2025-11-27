@@ -1,10 +1,16 @@
 import styles from "./Auth.module.css";
 import { Link } from "react-router";
 import { useFormFlow } from "../../hooks/useFormFlow.js";
+import { useAuth } from "../../hooks/useAuth.js";
+import { useToast } from "../../hooks/useToast.js";
+import { useNavigate } from "react-router";
 
 export default function Register() {
+    const { register } = useAuth();
+    const toast = useToast();
+    const navigate = useNavigate();
 
-    function handleSubmit(prevState, formData) {
+    async function handleSubmit(prevState, formData) {
         const email = formData.get("email").trim();
         const pass = formData.get("password").trim();
         const confirm = formData.get("confirm").trim();
@@ -25,36 +31,28 @@ export default function Register() {
             return handleError('Паролите не съвпадат.');
         }
 
-        // TODO: тук ще бъде реалното API login изпращане
-
-        // демо – винаги успешен логин
-
-        return {
-            email: '',
-            error: null,
-            success: true
+        try {
+            await register(email, pass);
+            toast.success("Успешно се регистрирахте и влязохте!");
+            navigate('/', { replace: true });
+        } catch (err) {
+            return {
+                email,
+                error: err.message,
+                success: false
+            };
         };
-    };
+    }
+    const { isPending, status, submitAction } = useFormFlow(handleSubmit);
+    console.log(status);
 
-    const { toast, fadeOut, isPending, status, submitAction } = useFormFlow(handleSubmit)
 
     return (
         <div className={styles.page}>
             <div className={styles.overlay}></div>
 
-            {toast && (
-                <div
-                    className={`${styles.toast} ${toast.type === "success"
-                        ? styles.toastSuccess
-                        : styles.toastError
-                        }`}
-                >
-                    {toast.text}
-                </div>
-            )}
-
             <form
-                className={`${styles.form} ${fadeOut ? styles.fadeOut : ""}`}
+                className={`${styles.form} ${isPending ? styles.fadeOut : ""}`}
                 action={submitAction}
             >
                 <h2 className={styles.title}>Създайте профил</h2>
@@ -67,18 +65,21 @@ export default function Register() {
                     placeholder="Имейл адрес"
                     defaultValue={status.email}
                     className={styles.input}
+                    autoComplete="email"
                 />
                 <input
                     type="password"
                     name="password"
                     placeholder="Парола"
                     className={styles.input}
+                    autoComplete="password"
                 />
                 <input
                     type="password"
                     name="confirm"
                     placeholder="Повтори парола"
                     className={styles.input}
+                    autoComplete="password"
                 />
 
                 <div className={styles.haveAccount}>
