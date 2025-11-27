@@ -1,12 +1,15 @@
-import {Link} from 'react-router'
+import { Link } from 'react-router'
 import { useState } from "react";
-import logo from "../../assets/ADORE-small.png"
+import logo from '../../assets/ADORE-small.png'
+import { useAuth } from '../../hooks/useAuth.js'
 
-// TODO make the mobile menu working
+
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false)
     const onMenuClick = () => setIsOpen(prev => !prev);
     const closeMenu = () => setIsOpen(false);
+    const { isAuthenticated } = useAuth()
+
     return (
         <>
             <Link to="tel:0888123456" className="fixed-cta-phone" aria-label="Обади се сега">
@@ -26,11 +29,18 @@ export default function Header() {
                         <ul>
                             <li><Link to="/" onClick={closeMenu}>Начало</Link></li>
                             <li><Link to="/courses" onClick={closeMenu}>Курсове</Link></li>
+                            {isAuthenticated &&
+                                <li><Link to="/dashboard" onClick={closeMenu}>Dashboard</Link></li>
+                            }
                             <li><Link to="/products" onClick={closeMenu}>Продукти</Link></li>
                             <li><Link to="/about" onClick={closeMenu}>За нас</Link></li>
                             <li><Link to="/contact" onClick={closeMenu}>Контакти</Link></li>
-                            <li className="nav-login"><Link to="/login" onClick={closeMenu}>Вход</Link></li>
-                            <li className="nav-login"><Link to="/logout" onClick={closeMenu}>Излизане</Link></li>
+                            {!isAuthenticated &&
+                                <li className="nav-login"><Link to="/login" onClick={closeMenu}>Вход</Link></li>
+                            }
+                            {isAuthenticated &&
+                                <li className="nav-login"><Link to="/logout" onClick={closeMenu}>Излизане</Link></li>
+                            }
                             <li><Link to="tel:0888123456" className="cta-button primary-cta" onClick={closeMenu}>📞 Обади се сега</Link></li>
                         </ul>
                     </nav>

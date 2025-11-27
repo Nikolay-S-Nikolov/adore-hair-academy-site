@@ -3,16 +3,26 @@ import ConfirmModal from "../modals/ConfirmModal.jsx";
 import { useToast } from "../../hooks/useToast.js";
 
 import { useNavigate } from "react-router";
+import { useEffect } from "react";
 
 export default function Logout() {
-    const { logout } = useAuth();
+    const { logout, isAuthenticated } = useAuth();
     const navigate = useNavigate();
-    const toast = useToast()
+    const toast = useToast();
+
+
+    useEffect(() => {
+        if (!isAuthenticated) {
+            // toast.warning("Вие вече сте излезли от профила си!");
+            navigate("/", { replace: true });
+        }
+    }, [isAuthenticated, navigate]);
 
     const handleConfirm = async () => {
+
         await logout();
         toast.success("Успешно излязохте от профила си!");
-        navigate('/', { replace: true });
+        navigate('/', { replace: true })
     }
 
     const handleCancel = () => {

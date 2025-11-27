@@ -2,12 +2,15 @@ import styles from "./Auth.module.css";
 import { useFormFlow } from "../../hooks/useFormFlow.js";
 import { useAuth } from "../../hooks/useAuth.js";
 import { useToast } from "../../hooks/useToast.js";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 export default function Login() {
     const { login } = useAuth();
     const successToast = useToast();
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const redirectTo = location.state?.from || '/'
 
     async function handleLogin(prevState, formData) {
         const email = formData.get("email")?.trim();
@@ -26,7 +29,7 @@ export default function Login() {
         try {
             await login(email, password);
             successToast.success("Успешно влизане!");
-            navigate('/', { replace: true });
+            navigate(redirectTo, { replace: true });
         } catch (err) {
             return {
                 email,

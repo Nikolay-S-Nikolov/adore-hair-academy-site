@@ -13,3 +13,9 @@
 - [x]  Add Contact send email functionality
 - [x]  Add Register component and css
 - [x]  Add Login component and css
+- [x]  Add Logout component and css
+- [x]  Add toast context and hook
+- [x]  Add GlobalToast component, toast context and hook
+- [x]  Add GuestRoute guard
+- [x]  Add ProtectedRoute guard
+- [x]  Add Dashboard component

@@ -11,7 +11,9 @@ import Login from './components/auth/Login.jsx'
 import Register from './components/auth/Register.jsx'
 import Logout from './components/auth/Logout.jsx'
 import GuestRoute from './guards/GuestRoute.jsx';
+import ProtectedRoute from './guards/ProtectedRoute.jsx'
 import { ToastProvider } from './context/ToastContext.jsx'
+import Dashboard from './components/dashboard/Dashboard.jsx'
 
 function App() {
 
@@ -27,11 +29,10 @@ function App() {
           <Route path='/products' element={<Products />} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
-
           <Route path='/register' element={<GuestRoute><Register /></GuestRoute>} />
           <Route path='/login' element={<GuestRoute><Login /></GuestRoute>} />
-
           <Route path='/logout' element={<Logout />} />
+          <Route path='/dashboard' element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
         </Routes>
 
         <Footer />
