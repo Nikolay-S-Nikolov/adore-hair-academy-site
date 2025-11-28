@@ -15,6 +15,7 @@ import ProtectedRoute from './guards/ProtectedRoute.jsx'
 import { ToastProvider } from './context/ToastContext.jsx'
 import Dashboard from './components/dashboard/Dashboard.jsx'
 import AdminDashboard from './components/admin-dashboard/AdminDashboard.jsx'
+import AdminRoute from './guards/AdminRoute.jsx'
 
 function App() {
 
@@ -34,7 +35,7 @@ function App() {
           <Route path='/login' element={<GuestRoute><Login /></GuestRoute>} />
           <Route path='/logout' element={<Logout />} />
           <Route path='/dashboard' element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-          <Route path='/admin' element={<AdminDashboard />} />
+          <Route path='/admin' element={<AdminRoute><AdminDashboard /></AdminRoute>} />
         </Routes>
 
         <Footer />
