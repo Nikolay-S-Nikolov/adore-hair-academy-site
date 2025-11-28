@@ -1,0 +1,57 @@
+.page {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #4b5563;
+    font-size: 1rem;
+    margin-bottom: 32px;
+}
+
+.highlight {
+    color: #d4af37;
+    font-weight: 600;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    display: block;
+    padding: 22px;
+    background: white;
+    border-radius: 14px;
+    text-decoration: none;
+    color: #111827;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    transition: 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: #d4af37;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: #6b7280;
+}

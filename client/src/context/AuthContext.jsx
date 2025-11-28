@@ -1,11 +1,27 @@
 import { createContext, useState, useCallback } from "react";
-
-const AuthContext = createContext();
 import config from '../gonfig/config.js'
+
+const AuthContext = createContext({
+    token: null,
+    user: {
+        _id: '',
+        email: '',
+        accessToken: '',        
+    },
+    loading: false,
+    error: false,
+    login() { },
+    register() { },
+    logout() { },
+    isAuthenticated: false,
+});
 
 export function AuthProvider({ children }) {
     const [token, setToken] = useState(() => localStorage.getItem('authToken'));
-    const [user, setUser] = useState(() => localStorage.getItem('user'));
+    const [user, setUser] = useState(() => {
+        const raw = localStorage.getItem('user');
+        return raw ? JSON.parse(raw) : {};
+    });
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -30,14 +46,31 @@ export function AuthProvider({ children }) {
             const res = await fetch(baseUrl + url, opts);
 
             if (isLogout) {
-                if (res.status === 204) return;
+                if (res.status === 204 || res.status === 403) return;
                 throw new Error(`Logout failed (status ${res.status})`);
             }
 
+            if (res.status === 401 || res.status === 403) {
+                localStorage.removeItem("authToken");
+                localStorage.removeItem("user");
+                setToken(null);
+                setUser(null);
+                throw new Error("SESSION_EXPIRED");
+            }
+
             const result = await res.json();
-            if (!res.ok) throw new Error(result.message || "Request failed");
+
+            if (!res.ok) {
+                throw new Error(result?.message || "Request failed");
+            }
+
             return result;
         } catch (err) {
+            // if (err.message === "SESSION_EXPIRED") {
+            //     toast.warning("Вашата сесия е изтекла. Моля влезте отново.");
+            //     navigate("/login");
+            //     return;
+            // }
             setError(err.message);
             throw err;
         } finally {
