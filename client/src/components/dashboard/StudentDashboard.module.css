@@ -1,0 +1,250 @@
+.page {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Inter', sans-serif;
+    min-height: 80vh;
+}
+
+.title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #111827; 
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #4b5563; 
+    margin-bottom: 32px;
+}
+
+.highlight {
+    color: #d4af37; 
+    font-weight: 600;
+}
+
+/* GRID LAYOUT */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 24px;
+}
+
+/* CARD UI */
+.card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 20px 22px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border: 1px solid #e5e7eb;
+}
+
+.cardTitle {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #111827;
+}
+
+/* EMPTY MESSAGE */
+.empty {
+    color: #6b7280;
+    font-size: 0.95rem;
+}
+
+/* COURSE LIST */
+.courseList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.courseItem {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 18px;
+    background: #fafafa;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.courseItem:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+    transform: translateY(-2px);
+}
+
+/* COURSE HEADER */
+.courseHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.courseHeader h3 {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* STATUS LABELS */
+.status {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.in_progress {
+    background: #d4af37;
+    color: #fff;
+}
+
+.enrolled {
+    background: #3b82f6;
+    color: #fff;
+}
+
+.completed {
+    background: #10b981;
+    color: #fff;
+}
+
+/* NEXT LESSON */
+.nextLesson {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin-top: 8px;
+}
+
+/* COURSE ACTION BUTTONS */
+.courseActions {
+    margin-top: 14px;
+    display: flex;
+    gap: 10px;
+}
+
+.linkButton,
+.secondaryButton {
+    display: inline-block;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.linkButton {
+    background: #d4af37;
+    color: #fff;
+}
+
+.linkButton:hover {
+    background: #b8962e;
+}
+
+.secondaryButton {
+    background: #111827;
+    color: #fff;
+}
+
+.secondaryButton:hover {
+    background: #1f2937;
+}
+
+/* SIDE COLUMN */
+.sideColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* EXAMS */
+.examList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.examItem {
+    padding: 14px;
+    margin-bottom: 14px;
+    background: #fafafa;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+}
+
+.examCourse {
+    font-weight: 600;
+    color: #111827;
+}
+
+.examTitle {
+    color: #4b5563;
+}
+
+.examDate {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin: 6px 0;
+}
+
+.linkButtonSmall {
+    display: inline-block;
+    padding: 8px 10px;
+    background: #d4af37;
+    color: #fff;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.linkButtonSmall:hover {
+    background: #b8962e;
+}
+
+/* RESOURCES */
+.resourceList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.resourceItem {
+    padding: 10px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.resourceItem a {
+    color: #111827;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.resourceItem a:hover {
+    color: #d4af37;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sideColumn {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    .page {
+        margin-top: 20px;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+}

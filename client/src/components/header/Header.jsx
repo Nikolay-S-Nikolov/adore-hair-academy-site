@@ -30,7 +30,7 @@ export default function Header() {
                             <li><Link to="/" onClick={closeMenu}>Начало</Link></li>
                             <li><Link to="/courses" onClick={closeMenu}>Курсове</Link></li>
                             {isAuthenticated &&
-                                <li><Link to="/dashboard" onClick={closeMenu}>Dashboard</Link></li>
+                                <li><Link to="/dashboard" onClick={closeMenu}>Моето обучение</Link></li>
                             }
                             <li><Link to="/products" onClick={closeMenu}>Продукти</Link></li>
                             <li><Link to="/about" onClick={closeMenu}>За нас</Link></li>

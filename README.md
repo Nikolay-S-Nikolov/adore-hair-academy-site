@@ -19,3 +19,4 @@
 - [x]  Add GuestRoute guard
 - [x]  Add ProtectedRoute guard
 - [x]  Add Dashboard component
+- [x]  Update dashboard with static data
