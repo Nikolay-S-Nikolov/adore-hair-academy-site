@@ -1443,13 +1443,14 @@
             "60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
                 email: "admin@abv.bg",
                 username: "Admin",
+                role: "staff",
                 hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
             }
         },
         sessions: {
         }
     };
-    var seedData = {   
+    var seedData = {
         members: {
             "cc9b0a0f-655d-45d7-9857-0a61c6bb2c4d": {
                 _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
