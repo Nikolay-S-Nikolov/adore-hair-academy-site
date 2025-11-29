@@ -1,12 +1,11 @@
 import styles from "./AdminCourseForm.module.css";
 import { useFormAction } from "../../../../hooks/UseFormAction.js";
 
-export default function AdminCourseForm({ isEdit, onSubmit, initialData }) {
+export default function AdminCourseForm({ isEdit, onSubmit, initialData, onCancel }) {
 
     const {
         register,
         handleSubmit,
-        resetForm,
         state,
         isPending
     } = useFormAction(onSubmit, initialData);
@@ -53,6 +52,16 @@ export default function AdminCourseForm({ isEdit, onSubmit, initialData }) {
                 </label>
 
                 <label className={styles.label}>
+                    Снимка
+                    <input
+                        type="text"
+                        {...register("imageUrl")}
+                        className={styles.input}
+                        placeholder="Сложете линк към, снимката"
+                    />
+                </label>
+
+                <label className={styles.label}>
                     Описание
                     <textarea
                         {...register("description")}
@@ -84,7 +93,7 @@ export default function AdminCourseForm({ isEdit, onSubmit, initialData }) {
                         <button
                             type="button"
                             className={styles.secondaryButton}
-                            onClick={() => resetForm(initialData)}
+                            onClick={onCancel}
                         >
                             Отказ
                         </button>

@@ -50,7 +50,7 @@ export default function AdminCourseList({
                             <button
                                 type="button"
                                 className={styles.smallButtonDanger}
-                                onClick={() => handleDelete(course)}
+                                onClick={() => handleDelete(course._id)}
                             >
                                 Изтриване
                             </button>

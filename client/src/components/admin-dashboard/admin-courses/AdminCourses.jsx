@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from 'react-router'
 import styles from "./AdminCourses.module.css";
 // import AdminCourseForm from "./courses-form/AdminCourseForm.jsx";
 import { useAdminApi } from "../../../hooks/useAdminApi.js";
@@ -22,7 +23,7 @@ export default function AdminCourses() {
 
 
     const handleUpdate = async (formData) => {
-        const updated = await updateCourse(editingCourse._id, {...editingCourse,...formData });
+        const updated = await updateCourse(editingCourse._id, { ...editingCourse, ...formData });
         setCourses(prev => prev.map(c => (c._id === editingCourse._id ? updated : c)));
         setEditingCourse(null);
     };
@@ -31,6 +32,10 @@ export default function AdminCourses() {
         setEditingCourse(course);
 
     }
+
+    const onCancelEdit = () => {
+        setEditingCourse(null);
+    };
 
     const handleDelete = async (id) => {
         await deleteCourse(id);
@@ -47,6 +52,11 @@ export default function AdminCourses() {
     return (
 
         <div className={styles.page}>
+
+            <Link className={styles.backButton} to="/admin">
+                ⟵ Обратно към админ панела
+            </Link>
+
             <h1 className={styles.title}>Управление на курсове</h1>
             <p className={styles.subtitle}>
                 Добавяйте, редактирайте и изтривайте курсове във вашата академия.
@@ -60,6 +70,7 @@ export default function AdminCourses() {
                     key={editingCourse?._id || "new"}
                     isEdit={Boolean(editingCourse)}
                     onSubmit={editingCourse ? handleUpdate : handleCreate}
+                    onCancel={onCancelEdit}
                     initialData={editingCourse ? editingCourse :
                         {
                             _ownerId: '',
@@ -67,6 +78,7 @@ export default function AdminCourses() {
                             level: '',
                             description: '',
                             duration: '',
+                            imageUrl: '',
                             hasOnlineExam: false,
                             _createdOn: 0
                         }
