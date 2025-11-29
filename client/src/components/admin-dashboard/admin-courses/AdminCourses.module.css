@@ -1,0 +1,245 @@
+.page {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.title {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #4b5563;
+    margin-bottom: 24px;
+}
+
+.error {
+    background: #fee2e2;
+    border: 1px solid #fca5a5;
+    color: #991b1b;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    font-size: 0.95rem;
+}
+
+.info {
+    font-size: 0.95rem;
+    color: #6b7280;
+}
+
+/* LAYOUT */
+.layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: 22px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 20px 22px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+.cardTitle {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #111827;
+}
+
+/* FORM */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.95rem;
+    color: #374151;
+}
+
+.input,
+.textarea {
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    padding: 9px 11px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input:focus,
+.textarea:focus {
+    border-color: #d4af37;
+    box-shadow: 0 0 0 1px rgba(212,175,55,0.3);
+}
+
+.textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.checkboxRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: #4b5563;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.primaryButton,
+.secondaryButton {
+    border: none;
+    border-radius: 999px;
+    padding: 9px 16px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.primaryButton {
+    background: #d4af37;
+    color: #ffffff;
+}
+
+.primaryButton:hover {
+    background: #b8962e;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 7px rgba(0,0,0,0.18);
+}
+
+.secondaryButton {
+    background: #f3f4f6;
+    color: #111827;
+}
+
+.secondaryButton:hover {
+    background: #e5e7eb;
+}
+
+/* COURSE LIST */
+.courseList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.courseItem {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 14px 16px;
+    background: #f9fafb;
+    transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.courseItem:hover {
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+    transform: translateY(-1px);
+    border-color: #d4af37;
+}
+
+.courseMain {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.courseMain h3 {
+    font-size: 1rem;
+    margin: 0;
+    color: #111827;
+}
+
+.levelBadge {
+    padding: 4px 10px;
+    background: #111827;
+    color: #ffffff;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.courseMeta {
+    font-size: 0.9rem;
+    color: #4b5563;
+    margin-top: 6px;
+}
+
+.examBadge {
+    margin-top: 4px;
+    font-size: 0.85rem;
+    color: #065f46;
+    background: #d1fae5;
+    border-radius: 8px;
+    padding: 4px 8px;
+    display: inline-block;
+}
+
+.courseActions {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+}
+
+.smallButton,
+.smallButtonDanger {
+    border-radius: 999px;
+    border: none;
+    padding: 7px 12px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.smallButton {
+    background: #ffffff;
+    color: #111827;
+    border: 1px solid #d1d5db;
+}
+
+.smallButton:hover {
+    background: #f3f4f6;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+.smallButtonDanger {
+    background: #f97373;
+    color: #fff;
+    border: 1px solid #f87171;
+}
+
+.smallButtonDanger:hover {
+    background: #ef4444;
+    box-shadow: 0 2px 6px rgba(248,113,113,0.6);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+}

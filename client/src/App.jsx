@@ -16,6 +16,7 @@ import { ToastProvider } from './context/ToastContext.jsx'
 import Dashboard from './components/dashboard/Dashboard.jsx'
 import AdminDashboard from './components/admin-dashboard/AdminDashboard.jsx'
 import AdminRoute from './guards/AdminRoute.jsx'
+import AdminCourses from './components/admin-dashboard/admin-courses/AdminCourses.jsx'
 
 function App() {
 
@@ -35,7 +36,8 @@ function App() {
           <Route path='/login' element={<GuestRoute><Login /></GuestRoute>} />
           <Route path='/logout' element={<Logout />} />
           <Route path='/dashboard' element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-          <Route path='/admin' element={<AdminRoute><AdminDashboard /></AdminRoute>} />
+          <Route path='/admin' element={<AdminRoute> <AdminDashboard /> </AdminRoute>} />
+          <Route path="/admin/courses" element={<AdminRoute> <AdminCourses /> </AdminRoute>} />
         </Routes>
 
         <Footer />

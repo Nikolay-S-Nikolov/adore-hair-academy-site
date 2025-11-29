@@ -1,0 +1,102 @@
+
+/* COURSE LIST */
+.courseList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.courseItem {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 14px 16px;
+    background: #f9fafb;
+    transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.courseItem:hover {
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+    transform: translateY(-1px);
+    border-color: #d4af37;
+}
+
+.courseMain {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.courseMain h3 {
+    font-size: 1rem;
+    margin: 0;
+    color: #111827;
+}
+
+.levelBadge {
+    padding: 4px 10px;
+    background: #111827;
+    color: #ffffff;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.courseMeta {
+    font-size: 0.9rem;
+    color: #4b5563;
+    margin-top: 6px;
+}
+
+.examBadge {
+    margin-top: 4px;
+    font-size: 0.85rem;
+    color: #065f46;
+    background: #d1fae5;
+    border-radius: 8px;
+    padding: 4px 8px;
+    display: inline-block;
+}
+
+.courseActions {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+}
+
+.smallButton,
+.smallButtonDanger {
+    border-radius: 999px;
+    border: none;
+    padding: 7px 12px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.smallButton {
+    background: #ffffff;
+    color: #111827;
+    border: 1px solid #d1d5db;
+}
+
+.smallButton:hover {
+    background: #f3f4f6;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+.smallButtonDanger {
+    background: #f97373;
+    color: #fff;
+    border: 1px solid #f87171;
+}
+
+.smallButtonDanger:hover {
+    background: #ef4444;
+    box-shadow: 0 2px 6px rgba(248,113,113,0.6);
+}
