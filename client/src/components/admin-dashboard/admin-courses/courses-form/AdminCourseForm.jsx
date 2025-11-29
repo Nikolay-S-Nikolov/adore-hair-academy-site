@@ -5,11 +5,11 @@ import { useEffect } from "react";
 export default function AdminCourseForm({ isEdit, onSubmit, initialData, onCancel }) {
 
     const {
-        register,
-        handleSubmit,
         state,
+        register,
+        resetForm,
+        formAction,
         isPending,
-        resetForm
     } = useFormAction(onSubmit, initialData);
 
     useEffect(() => {
@@ -20,10 +20,11 @@ export default function AdminCourseForm({ isEdit, onSubmit, initialData, onCance
                 duration: "",
                 description: "",
                 imageUrl: "",
-                hasOnlineExam: false,
+                hasOnlineExam: true,
             });
         }
     }, [state.success, isEdit, resetForm]);
+
 
     return (
         <section className={styles.card}>
@@ -31,7 +32,7 @@ export default function AdminCourseForm({ isEdit, onSubmit, initialData, onCance
                 {isEdit ? "Редактиране на курс" : "Нов курс"}
             </h2>
 
-            <form action={handleSubmit} className={styles.form}>
+            <form action={formAction} className={styles.form}>
 
                 {state.error && <p className="error">{state.error}</p>}
                 {state.success && <p className="success">Успешно записано!</p>}
@@ -87,11 +88,18 @@ export default function AdminCourseForm({ isEdit, onSubmit, initialData, onCance
 
                 <label className={styles.checkboxRow}>
                     <input
-                        type="checkbox"
+                        type="hidden"
                         name="hasOnlineExam"
-                        checked={register("hasOnlineExam").value}
-                        onChange={register("hasOnlineExam").onChange}
+                        value="false"
                     />
+
+                    <input
+                        type="checkbox"
+                        name={register("hasOnlineExam").name}
+                        onChange={register("hasOnlineExam").onChange}
+                        checked={register("hasOnlineExam").value ? true : false}
+                    />
+
                     <span>Курсът включва онлайн теоретичен изпит</span>
                 </label>
 

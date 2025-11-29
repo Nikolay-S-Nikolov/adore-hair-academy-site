@@ -14,9 +14,8 @@ export function useFormAction(actionHandler, initialValues = {}) {
             try {
                 const body = Object.fromEntries(formData.entries());
 
-
                 if ("hasOnlineExam" in body) {
-                    body.hasOnlineExam = body.hasOnlineExam === "on";
+                    body.hasOnlineExam = body.hasOnlineExam === 'on' ? true : false;
                 };
 
                 const result = await actionHandler(body);
@@ -45,32 +44,29 @@ export function useFormAction(actionHandler, initialValues = {}) {
                 const { name, value, type, checked } = e.target;
                 setValues((v) => ({
                     ...v,
-                    [name]: type === "checkbox" ? checked ? checked : '' : value,
-                    [e.target.name]: e.target.type === 'checkbox' ? e.target.checked : e.target.value,
+                    [name]: type === "checkbox" ? checked : value,
                 }));
             },
         }), [values]);
+
 
     const resetForm = useCallback((newValues = initialValues) => {
         setValues(newValues);
     }, [initialValues]);
 
     useEffect(() => {
-        if (state.success && initialState._id == null) {
+        if (state.success && initialValues._id == null) {
             resetForm({});
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [state.success]);
-    const handleSubmit = (formData) => {
-        return formAction(formData);
-    };
 
     return {
         state,
         values,
         register,
         resetForm,
-        handleSubmit,
+        formAction,
         isPending,
         setValues
     };

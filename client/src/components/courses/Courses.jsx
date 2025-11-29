@@ -1,7 +1,37 @@
+import { useEffect, useState } from "react";
 import styles from "./Courses.module.css";
 import { Link } from 'react-router'
+import config from '../../gonfig/config.js'
 
 export default function Courses() {
+    const [beginnerCourses, setBeginnerCourses] = useState([]);
+    const [advancedCourses, setAdvancedCourses] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        async function load() {
+            try {
+                const [begRes, advRes] = await Promise.all([
+                    fetch(`${config.BASE_URL}/data/courses?where=level%3D%22Начинаещ%22`),
+                    fetch(`${config.BASE_URL}/data/courses?where=level%3D%22Напреднали%22`)
+                ]);
+
+                const beginners = await begRes.json();
+                const advanced = await advRes.json();
+
+                setBeginnerCourses(beginners);
+                setAdvancedCourses(advanced);
+            } catch (err) {
+                console.error("Error loading courses:", err);
+            } finally {
+                setLoading(false);
+            }
+        }
+        load();
+    }, [])
+
+    if (loading) return <p>Зареждане...</p>;
+
     return (
         <section className={styles.coursesPage}>
             <div className="container">
@@ -26,94 +56,44 @@ export default function Courses() {
                         </p>
                     </div>
 
+
                     <div className={styles.coursesGrid}>
-                        {/* Курс 1 */}
-                        <article className={`${styles.courseCard} ${styles.courseCardBeginner}`}>
-                            <div className={styles.courseCardHeader}>
-                                <span className={`${styles.courseTag} ${styles.courseTagBeginner}`}>
-                                    Ниво: Начинаещ
-                                </span>
-                                <h3>Основи на дамското подстригване и работа със сешоар</h3>
-                            </div>
 
-                            <img
-                                src="https://plus.unsplash.com/premium_photo-1669675935972-74a2f5d1e44a"
-                                alt="Основи на дамското подстригване"
-                                className={styles.courseImage}
-                            />
+                        {beginnerCourses.map(c => (
+                            <article key={c._id} className={`${styles.courseCard} ${styles.courseCardBeginner}`}>
+                                <div className={styles.courseCardHeader}>
+                                    <span className={`${styles.courseTag} ${styles.courseTagBeginner}`}>
+                                        Ниво: {c.level}
+                                    </span>
+                                    <h3>{c.title}</h3>
+                                </div>
+                                <img
+                                    src={c.imageUrl}
+                                    alt={`${c.title} image`}
+                                    className={styles.courseImage}
+                                />
 
-                            <p className={styles.courseShort}>
-                                Идеален старт за напълно начинаещи, които искат да усвоят
-                                основните техники и да се почувстват уверени в салона.
-                            </p>
+                                <p className={styles.courseShort}>
+                                    {c.description}
+                                </p>
 
-                            <Link to="#" className={styles.moreButton}>
-                                Виж детайлите →
-                            </Link>
+                                <Link to="#" className={styles.moreButton}>
+                                    Виж детайлите →
+                                </Link>
 
-                            <ul className={styles.courseList}>
-                                <li>Запознаване с инструментите и хигиенните стандарти.</li>
-                                <li>Основни форми на дамско подстригване.</li>
-                                <li>Правилна работа със сешоар и четки.</li>
-                                <li>Стайлинг за ежедневни прически.</li>
-                                <li>Изграждане на професионални навици и увереност.</li>
-                            </ul>
+                                <div className={styles.courseMeta}>
+                                    <span className={styles.courseDuration}>Продължителност: {c.duration}</span>
+                                    <span className={styles.courseFormat}>Формат: Теория + практика</span>
+                                </div>
 
-                            <div className={styles.courseMeta}>
-                                <span className={styles.courseDuration}>Продължителност: 3 месеца</span>
-                                <span className={styles.courseFormat}>Формат: Теория + практика</span>
-                            </div>
-
-                            <a href="tel:0888123456" className="cta-button course-cta">
-                                📞 Обади се и се запиши
-                            </a>
-                        </article>
-
-                        {/* Курс 2 */}
-                        <article className={`${styles.courseCard} ${styles.courseCardBeginner}`}>
-                            <div className={styles.courseCardHeader}>
-                                <span className={`${styles.courseTag} ${styles.courseTagBeginner}`}>
-                                    Ниво: Начинаещ
-                                </span>
-                                <h3>Основи в колористиката: боядисване и покриване на бели коси</h3>
-                            </div>
-
-                            <img
-                                src="https://images.pexels.com/photos/8468125/pexels-photo-8468125.jpeg"
-                                alt="Основи на дамското подстригване"
-                                className={styles.courseImage}
-                            />
-
-                            <p className={styles.courseShort}>
-                                Базов курс по колористика за тези, които искат да започнат
-                                безопасно и професионално да боядисват коса.
-                            </p>
-
-                            <Link to="#" className={styles.moreButton}>
-                                Научи повече за курса
-                            </Link>
-
-                            <ul className={styles.courseList}>
-                                <li>Теория на цвета и цветови кръг.</li>
-                                <li>Видове бои, оксиданти и техните нива.</li>
-                                <li>Основни техники за нанасяне на боя.</li>
-                                <li>Покриване на бели коси и изравняване на тон.</li>
-                                <li>Грижа за косата преди и след боядисване.</li>
-                            </ul>
-
-                            <div className={styles.courseMeta}>
-                                <span className={styles.courseDuration}>Продължителност: 2 месеца</span>
-                                <span className={styles.courseFormat}>Формат: Теория + демонстрации + практика</span>
-                            </div>
-
-                            <a href="tel:0888123456" className="cta-button course-cta">
-                                📞 Резервирай място
-                            </a>
-                        </article>
+                                <Link to="tel:0888123456" className="cta-button course-cta">
+                                    📞 Обади се и се запиши
+                                </Link>
+                            </article>
+                        ))}
                     </div>
                 </section>
 
-                {/* Група: Курсове за напреднали */}
                 <section className={styles.coursesGroup}>
                     <div className={styles.coursesGroupHeader}>
                         <h2>Курсове за напреднали</h2>
@@ -124,130 +104,40 @@ export default function Courses() {
                     </div>
 
                     <div className={styles.coursesGrid}>
-                        {/* Курс 3 */}
-                        <article className={`${styles.courseCard} ${styles.courseCardAdvanced}`}>
-                            <div className={styles.courseCardHeader}>
-                                <span className={`${styles.courseTag} ${styles.courseTagAdvanced}`}>
-                                    Ниво: Напреднал
-                                </span>
-                                <h3>Модерни техники в колористиката: Balayage, Airtouch, Омбре</h3>
-                            </div>
 
-                            <img
-                                src="https://images.unsplash.com/photo-1712213396688-c6f2d536671f"
-                                alt="Основи на дамското подстригване"
-                                className={styles.courseImage}
-                            />
+                        {advancedCourses.map(c => (
+                            <article key={c._id} className={`${styles.courseCard} ${styles.courseCardAdvanced}`}>
+                                <div className={styles.courseCardHeader}>
+                                    <span className={`${styles.courseTag} ${styles.courseTagAdvanced}`}>
+                                        Ниво: {c.level}
+                                    </span>
+                                    <h3>{c.title}</h3>
+                                </div>
 
-                            <p className={styles.courseShort}>
-                                Интензивно обучение в най-търсените съвременни техники за
-                                преливки и естествени цветови ефекти.
-                            </p>
+                                <img
+                                    src={c.imageUrl}
+                                    alt={`${c.imageUrl} image`}
+                                    className={styles.courseImage}
+                                />
 
-                            <Link to="#" className={styles.moreButton}>
-                                Пълна информация за обучението
-                            </Link>
+                                <p className={styles.courseShort}>
+                                    {c.description}
+                                </p>
 
-                            <ul className={styles.courseList}>
-                                <li>Balayage, airtouch и омбре – теория и логика зад техниките.</li>
-                                <li>Работа с кичури и плавни преливки.</li>
-                                <li>Формулиране на нюанси спрямо база и желания резултат.</li>
-                                <li>Минимизиране на увреждането на косата при изсветляване.</li>
-                                <li>Снимкови визии и работа за социални мрежи.</li>
-                            </ul>
+                                <Link to="#" className={styles.moreButton}>
+                                    Пълна информация за обучението
+                                </Link>
 
-                            <div className={styles.courseMeta}>
-                                <span className={styles.courseDuration}>Продължителност: 2 месеца</span>
-                                <span className={styles.courseFormat}>Формат: Майсторски клас + практика</span>
-                            </div>
+                                <div className={styles.courseMeta}>
+                                    <span className={styles.courseDuration}>Продължителност: {c.duration}</span>
+                                    <span className={styles.courseFormat}>Формат: Майсторски клас + практика</span>
+                                </div>
 
-                            <a href="tel:0888123456" className="cta-button course-cta">
-                                📞 Запиши се за модерна колористика
-                            </a>
-                        </article>
-
-                        {/* Курс 4 */}
-                        <article className={`${styles.courseCard} ${styles.courseCardAdvanced}`}>
-                            <div className={styles.courseCardHeader}>
-                                <span className={`${styles.courseTag} ${styles.courseTagAdvanced}`}>
-                                    Ниво: Напреднал
-                                </span>
-                                <h3>Мъжки прически и бръснарски техники</h3>
-                            </div>
-
-                            <img
-                                src="https://images.unsplash.com/photo-1647140655214-e4a2d914971f"
-                                alt="Основи на дамското подстригване"
-                                className={styles.courseImage}
-                            />
-
-                            <p className={styles.courseShort}>
-                                Специализиран курс за мъжко фризьорство и барбъринг с акцент
-                                върху модерните fade и оформяне на бради.
-                            </p>
-
-                            <Link to="#" className={styles.moreButton}>
-                                Програма и подробности →
-                            </Link>
-
-                            <ul className={styles.courseList}>
-                                <li>Low, mid и high fade – форма и баланс.</li>
-                                <li>Комбиниране на машинно и ножично подстригване.</li>
-                                <li>Оформяне и контуриране на брада.</li>
-                                <li>Техники за симетрия и чисти линии.</li>
-                                <li>Завършващ стайлинг и препоръка на продукти.</li>
-                            </ul>
-
-                            <div className={styles.courseMeta}>
-                                <span className={styles.courseDuration}>Продължителност: 1,5 месеца</span>
-                                <span className={styles.courseFormat}>Формат: Практика върху модели</span>
-                            </div>
-
-                            <a href="tel:0888123456" className="cta-button course-cta">
-                                📞 Обади се и задай въпрос
-                            </a>
-                        </article>
-
-                        {/* Курс 5 */}
-                        <article className={`${styles.courseCard} ${styles.courseCardAdvanced}`}>
-                            <div className={styles.courseCardHeader}>
-                                <span className={`${styles.courseTag} ${styles.courseTagAdvanced}`}>
-                                    Ниво: Напреднал
-                                </span>
-                                <h3>Стилизиране и вечерни прически за специални събития</h3>
-                            </div>
-
-                            <img
-                                src="https://images.unsplash.com/photo-1606251706444-d069cd266189"
-                                alt="Основи на дамското подстригване"
-                                className={styles.courseImage}
-                            />
-
-                            <p className={styles.courseShort}>
-                                Курс за фризьори, които искат да работят със сватби, балове,
-                                фотосесии и официални събития.
-                            </p>
-
-                            <Link to="#" className={styles.moreButton}>
-                                Описание на курса
-                            </Link>
-
-                            <ul className={styles.courseList}>
-                                <li>Къдрици, обем и структурирани прически.</li>
-                                <li>Кокове, плитки и комбинирани форми.</li>
-                                <li>Фиксиране и дълготрайност на прическите.</li>
-                                <li>Адаптиране спрямо форма на лице, рокля и стил.</li>
-                                <li>Работа под време – подготовка за реални условия.</li>
-                            </ul>
-                            <div className={styles.courseMeta}>
-                                <span className={styles.courseDuration}>Продължителност: 1 месец</span>
-                                <span className={styles.courseFormat}>Формат: Демонстрации + интензивна практика</span>
-                            </div>
-
-                            <a href="tel:0888123456" className="cta-button course-cta">
-                                📞 Запази място за следващия мастер клас
-                            </a>
-                        </article>
+                                <a href="tel:0888123456" className="cta-button course-cta">
+                                    📞 Запиши се за модерна колористика
+                                </a>
+                            </article>
+                        ))}
                     </div>
                 </section>
 
