@@ -18,6 +18,7 @@ import AdminDashboard from './components/admin-dashboard/AdminDashboard.jsx'
 import AdminRoute from './guards/AdminRoute.jsx'
 import AdminCourses from './components/admin-dashboard/admin-courses/AdminCourses.jsx'
 import CourseDetails from './components/courses/curse-details/CourseDetails.jsx'
+import EnrollmentForm from './components/courses/enrollment-form/EnrollmentForm.jsx'
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
 
           <Route path='/courses' element={<Courses />} />
           <Route path="/courses/:courseId" element={<CourseDetails />} />
+          <Route path="/courses/:courseId/enroll" element={<ProtectedRoute><EnrollmentForm /></ProtectedRoute>} />
 
           <Route path='/products' element={<Products />} />
           <Route path='/about' element={<About />} />

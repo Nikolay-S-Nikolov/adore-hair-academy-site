@@ -51,9 +51,9 @@ export default function CourseDetails() {
 
                     <p className={styles.description}>{course.details}</p>
 
-                    <button className={styles.enrollButton}>
+                    <Link to={`/courses/${course._id}/enroll`} className={styles.enrollButton}>
                         Запиши се
-                    </button>
+                    </Link>
 
                     <Link to="/courses" className={styles.backLink}>
                         ← Обратно към курсовете
