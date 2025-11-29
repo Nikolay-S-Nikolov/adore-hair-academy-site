@@ -1,5 +1,6 @@
 import styles from "./AdminCourseForm.module.css";
 import { useFormAction } from "../../../../hooks/UseFormAction.js";
+import { useEffect } from "react";
 
 export default function AdminCourseForm({ isEdit, onSubmit, initialData, onCancel }) {
 
@@ -7,8 +8,22 @@ export default function AdminCourseForm({ isEdit, onSubmit, initialData, onCance
         register,
         handleSubmit,
         state,
-        isPending
+        isPending,
+        resetForm
     } = useFormAction(onSubmit, initialData);
+
+    useEffect(() => {
+        if (state.success && !isEdit) {
+            resetForm({
+                title: "",
+                level: "",
+                duration: "",
+                description: "",
+                imageUrl: "",
+                hasOnlineExam: false,
+            });
+        }
+    }, [state.success, isEdit, resetForm]);
 
     return (
         <section className={styles.card}>

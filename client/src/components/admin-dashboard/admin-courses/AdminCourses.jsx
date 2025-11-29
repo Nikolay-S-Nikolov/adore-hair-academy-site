@@ -67,7 +67,7 @@ export default function AdminCourses() {
             <div className={styles.layout}>
 
                 <AdminCourseForm
-                    key={editingCourse?._id || "new"}
+                    key={editingCourse?._id || 'new'}
                     isEdit={Boolean(editingCourse)}
                     onSubmit={editingCourse ? handleUpdate : handleCreate}
                     onCancel={onCancelEdit}
