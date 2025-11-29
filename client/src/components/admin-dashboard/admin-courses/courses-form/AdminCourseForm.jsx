@@ -19,6 +19,7 @@ export default function AdminCourseForm({ isEdit, onSubmit, initialData, onCance
                 level: "",
                 duration: "",
                 description: "",
+                details: "",
                 imageUrl: "",
                 hasOnlineExam: true,
             });
@@ -83,6 +84,15 @@ export default function AdminCourseForm({ isEdit, onSubmit, initialData, onCance
                         {...register("description")}
                         className={styles.textarea}
                         placeholder="Кратко описание на курса..."
+                    />
+                </label>
+
+                <label className={styles.label}>
+                    Детайли
+                    <textarea
+                        {...register("details")}
+                        className={styles.textarea}
+                        placeholder="Детайлно описание на курса..."
                     />
                 </label>
 

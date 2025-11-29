@@ -77,7 +77,7 @@ export default function Courses() {
                                     {c.description}
                                 </p>
 
-                                <Link to="#" className={styles.moreButton}>
+                                <Link to={`/courses/${c._id}`} className={styles.moreButton}>
                                     Виж детайлите →
                                 </Link>
 
@@ -124,7 +124,7 @@ export default function Courses() {
                                     {c.description}
                                 </p>
 
-                                <Link to="#" className={styles.moreButton}>
+                                <Link to={`/courses/${c._id}`} className={styles.moreButton}>
                                     Пълна информация за обучението
                                 </Link>
 
