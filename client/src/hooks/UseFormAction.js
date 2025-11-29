@@ -1,4 +1,4 @@
-import { useActionState, useState } from "react";
+import { useActionState, useCallback, useEffect, useState } from "react";
 
 export function useFormAction(actionHandler, initialValues = {}) {
     const [values, setValues] = useState(initialValues);
@@ -30,31 +30,37 @@ export function useFormAction(actionHandler, initialValues = {}) {
                 return {
                     success: false,
                     error: err.message,
-                    result: prevState,
+                    result: prevState.result
                 };
             }
         },
         initialState
     );
 
-    const register = (fieldName) => ({
-        name: fieldName,
-        value: values[fieldName],
-        onChange: (e) => {
-            const { name, value, type, checked } = e.target;
-            setValues((v) => ({
-                ...v,
-                [name]: type === "checkbox" ? checked ? checked : '' : value,
-                [e.target.name]: e.target.type === 'checkbox' ? e.target.checked : e.target.value,
-            }));
-        },
-    });
+    const register = useCallback(
+        (fieldName) => ({
+            name: fieldName,
+            value: values[fieldName],
+            onChange: (e) => {
+                const { name, value, type, checked } = e.target;
+                setValues((v) => ({
+                    ...v,
+                    [name]: type === "checkbox" ? checked ? checked : '' : value,
+                    [e.target.name]: e.target.type === 'checkbox' ? e.target.checked : e.target.value,
+                }));
+            },
+        }), [values]);
 
-    const resetForm = (newValues = initialValues) => {
+    const resetForm = useCallback((newValues = initialValues) => {
         setValues(newValues);
-    };
+    }, [initialValues]);
 
-    // Това връзва формата с actionState submit
+    useEffect(() => {
+        if (state.success && initialState._id == null) {
+            resetForm({});
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [state.success]);
     const handleSubmit = (formData) => {
         return formAction(formData);
     };
