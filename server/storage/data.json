@@ -54,5 +54,79 @@
       "description": "Перманентна боя с наситени пигменти и устойчиви резултати.",
       "_createdOn": 1764161100944
     }
+  },
+  "members": {
+    "cc9b0a0f-655d-45d7-9857-0a61c6bb2c4d": {
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+      "teamId": "34a1cab1-81f1-47e5-aec3-ab6c9810efe1",
+      "status": "member",
+      "_createdOn": 1616236790262,
+      "_updatedOn": 1616236792930
+    },
+    "61a19986-3b86-4347-8ca4-8c074ed87591": {
+      "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+      "teamId": "dc888b1a-400f-47f3-9619-07607966feb8",
+      "status": "member",
+      "_createdOn": 1616237188183,
+      "_updatedOn": 1616237189016
+    }
+  },
+  "courses": {
+    "a3424ccf-c95d-4657-a36e-b341d58be5d9": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "title": "Модерни техники в колористиката: Balayage, Airtouch, Омбре",
+      "level": "Напреднали",
+      "duration": " 2 месеца",
+      "imageUrl": "https://images.unsplash.com/photo-1712213396688-c6f2d536671f",
+      "description": "Интензивно обучение в най-търсените съвременни техники за преливки и естествени цветови ефекти",
+      "hasOnlineExam": true,
+      "_createdOn": 1764413953401,
+      "_id": "a3424ccf-c95d-4657-a36e-b341d58be5d9",
+      "_updatedOn": 1764426820797
+    },
+    "773e8053-a835-4d0e-9faa-c4e5800d7631": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "title": "Мъжки прически и бръснарски техники",
+      "level": "Напреднали",
+      "duration": "40 дена",
+      "imageUrl": "https://images.unsplash.com/photo-1647140655214-e4a2d914971f",
+      "description": "Специализиран курс за мъжко фризьорство и барбъринг с акцент върху модерните fade и оформяне на бради.",
+      "hasOnlineExam": true,
+      "_createdOn": 1764414007163,
+      "_id": "773e8053-a835-4d0e-9faa-c4e5800d7631",
+      "_updatedOn": 1764426823396
+    },
+    "44aab672-6853-4db0-b268-eafcaca7c741": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "title": "Стилизиране и вечерни прически за специални събития",
+      "level": "Напреднали",
+      "duration": "1 месец",
+      "imageUrl": "https://images.unsplash.com/photo-1606251706444-d069cd266189",
+      "description": "Курс за фризьори, които искат да работят със сватби, балове, фотосесии и официални събити.",
+      "hasOnlineExam": true,
+      "_createdOn": 1764414086040,
+      "_id": "44aab672-6853-4db0-b268-eafcaca7c741",
+      "_updatedOn": 1764426830995
+    },
+    "374e8fae-f7e4-4ec3-b0bd-1ebff18d3d89": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "title": "Основи на дамското подстригване и работа със сешоар",
+      "level": "Начинаещ",
+      "duration": "3 месеца",
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1669675935972-74a2f5d1e44a",
+      "description": "Идеален старт за напълно начинаещи, които искат да усвоят\n                                основните техники и да се почувстват уверени в салона.",
+      "hasOnlineExam": true,
+      "_createdOn": 1764427293731
+    },
+    "70d1894a-821b-48e1-a078-ceaf5c831a4e": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "title": "Основи в колористиката: боядисване и покриване на бели коси",
+      "level": "Начинаещ",
+      "duration": "2 месеца",
+      "imageUrl": "https://images.pexels.com/photos/8468125/pexels-photo-8468125.jpeg",
+      "description": " Базов курс по колористика за тези, които искат да започнат\n                                безопасно и професионално да боядисват коса.",
+      "hasOnlineExam": true,
+      "_createdOn": 1764427382029
+    }
   }
 }
