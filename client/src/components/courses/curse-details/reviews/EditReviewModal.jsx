@@ -42,8 +42,6 @@ export default function EditReviewModal({ review, onClose, onReviewUpdated }) {
 
     function validate() {
         const { newErrors, hasErrors } = validators.validateReViewForm(authorName, text);
-        console.log(hasErrors);
-        console.log(newErrors);        
 
         if (hasErrors) { setErrors(newErrors); };
         return hasErrors;

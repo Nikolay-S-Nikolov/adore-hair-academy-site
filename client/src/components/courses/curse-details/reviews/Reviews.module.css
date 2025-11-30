@@ -204,6 +204,30 @@
     line-height: 1.6;
 }
 
+.inputError {
+    border-color: rgba(255, 107, 107, 0.5);
+    background: rgba(255, 107, 107, 0.05);
+}
+
+.inputError:focus {
+    border-color: rgba(255, 107, 107, 0.6);
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+}
+
+.error {
+    font-size: 0.875rem;
+    color: #ff6b6b;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.error::before {
+    content: '⚠';
+    font-size: 1rem;
+}
+
 .submitBtn {
     width: fit-content;
     padding: 14px 28px;
