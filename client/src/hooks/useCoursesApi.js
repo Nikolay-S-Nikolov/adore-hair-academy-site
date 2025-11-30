@@ -42,12 +42,10 @@ export function useCourseApi() {
 
         if (!res.ok) {
             throw new Error(json?.message || `Request failed (${res.status})`);
-        }
-        console.log('pass');
-        
+        }        
 
         return json;
-    }, [token, baseUrl, user.role]);
+    }, [token, baseUrl, user?.role]);
 
     const getCourseById = useCallback((id) => request("GET", `/data/courses/${id}`), [request]);
 

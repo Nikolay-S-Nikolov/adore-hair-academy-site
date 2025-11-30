@@ -3,13 +3,14 @@ import { useCourseApi } from "../../../hooks/useCoursesApi.js";
 import { useToast } from "../../../hooks/useToast.js";
 import styles from "./EnrollmentForm.module.css";
 import { useAuth } from "../../../hooks/useAuth.js";
+import validators from "../../../utils/validators.js"
 
 export default function EnrollmentForm() {
     const { courseId } = useParams();
     const { request } = useCourseApi();
     const toast = useToast();
     const navigate = useNavigate();
-    const { user } = useAuth();
+    const { user, logout } = useAuth();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -17,15 +18,21 @@ export default function EnrollmentForm() {
         const formData = new FormData(e.target);
         const data = Object.fromEntries(formData);
 
-        try {
+        if (validators.validateName(data.fullName)) {
+            toast.error("Моля, въведете валидно име и фамилия (напр. Иван Петров).");
+            return;
+        }
 
+        if (validators.validatePhone(data.phone)) {
+            toast.error("Моля, въведете валиден български телефонен номер.");
+            return;
+        }
+
+        try {
             const existing = await request(
                 "GET",
                 `/data/enrollments?where=courseId%3D%22${courseId}%22%20AND%20userId%3D%22${user._id}%22`
             );
-// ?where=recipeId%3D%228f414b4f-ab39-4d36-bedb-2ad69da9c830%22&load=author%3D_ownerId%3Ausers
-            console.log(existing);
-            
 
             if (existing.length > 0) {
                 toast.warning("Вие вече сте подали заявка за този курс.");
@@ -36,15 +43,19 @@ export default function EnrollmentForm() {
             await request("POST", "/data/enrollments", {
                 ...data,
                 courseId,
-                userId: user._id,
-                createdOn: Date.now()
             });
 
             toast.success("Вашата заявка е изпратена успешно!");
             navigate(`/courses/${courseId}`, { replace: true });
 
         } catch (err) {
-            toast.error(err.message || "Възникна грешка.");
+
+            if (err.message === "Invalid access token") {
+                toast.error("Възникна грешка моля впишете се отново.");
+                logout();
+            } else {
+                toast.error(err.message || "Възникна грешка.");
+            }
         }
     };
 
