@@ -1,114 +1,224 @@
 .page {
     display: flex;
-    justify-content: center;
-    padding: 60px 20px;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 24px 60px;
     background: #0e0d16;
     min-height: 100vh;
+    gap: 48px;
 }
 
 .card {
-    max-width: 900px;
+    max-width: 1100px;
     width: 100%;
-    display: flex;
-    gap: 40px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 18px;
-    padding: 30px;
-    backdrop-filter: blur(12px);
-    animation: fadeIn 0.6s ease;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 48px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: 24px;
+    padding: 48px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+    overflow: hidden;
 }
 
-@media (max-width: 768px) {
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.5), transparent);
+}
+
+@media (max-width: 900px) {
     .card {
-        flex-direction: column;
-        text-align: center;
+        grid-template-columns: 1fr;
+        padding: 36px;
+        gap: 32px;
     }
 }
 
 .imageWrapper {
-    flex: 1;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.imageWrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(14, 13, 22, 0.4));
+    pointer-events: none;
 }
 
 .image {
     width: 100%;
-    height: auto;
-    border-radius: 14px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.imageWrapper:hover .image {
+    transform: scale(1.05);
 }
 
 .info {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 20px;
 }
 
 .title {
-    font-size: 2rem;
-    color: #f4f4f4;
-    font-weight: 600;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    color: #f8f8f8;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
 }
 
 .level,
 .duration {
-    color: #e6e6e6;
-    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #e0e0e0;
+    font-size: 1rem;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    width: fit-content;
+}
+
+.level strong,
+.duration strong {
+    color: #d4af37;
+    font-weight: 600;
 }
 
 .description {
     color: #d8d8d8;
-    line-height: 1.6;
+    line-height: 1.7;
+    font-size: 1.05rem;
+    margin: 12px 0;
 }
 
 .exam {
-    margin-top: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
     font-weight: 600;
-    color: #d4af37; /* Златно */
+    font-size: 1rem;
+    color: #d4af37;
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 12px;
+    width: fit-content;
+    margin: 8px 0;
 }
 
 .enrollButton {
-    margin-top: 20px;
-    padding: 14px 26px;
+    margin-top: 24px;
+    padding: 16px 32px;
     border: none;
-    background: #d4af37;
+    background: linear-gradient(135deg, #d4af37 0%, #c19a2f 100%);
     color: #0e0d16;
-    font-weight: 600;
-    border-radius: 10px;
+    font-weight: 700;
+    border-radius: 14px;
     font-size: 1.1rem;
     cursor: pointer;
-    transition: 0.25s ease;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: fit-content;
+    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.enrollButton::before {
+    content: 'Запиши се';
+    align-content: center;
+    color: #fff;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #e0bf45 0%, #d4af37 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .enrollButton:hover {
-    background: #c19a2f;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+}
+
+.enrollButton:hover::before {
+    opacity: 1;
+}
+
+.enrollButton:active {
+    transform: translateY(0);
 }
 
 .backLink {
-    margin-top: 15px;
-    display: inline-block;
+    margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     color: #aaaaff;
     text-decoration: none;
     font-size: 0.95rem;
+    transition: all 0.2s ease;
+    font-weight: 500;
 }
 
 .backLink:hover {
-    text-decoration: underline;
+    color: #c4c4ff;
+    gap: 12px;
 }
 
 .error {
     color: #ff6b6b;
     text-align: center;
     font-size: 1.1rem;
+    padding: 20px;
+    background: rgba(255, 107, 107, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 107, 107, 0.2);
 }
 
 .loading {
     color: #d4af37;
     text-align: center;
     font-size: 1.2rem;
+    padding: 40px;
+    animation: pulse 2s ease-in-out infinite;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes fadeInUp {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
 }

@@ -42,25 +42,31 @@ export function useCourseApi() {
 
         if (!res.ok) {
             throw new Error(json?.message || `Request failed (${res.status})`);
-        }        
+        }
 
         return json;
     }, [token, baseUrl, user?.role]);
 
     const getCourseById = useCallback((id) => request("GET", `/data/courses/${id}`), [request]);
 
-    const createCourse = useCallback(
-        (courseData) => request("POST", "/data/courses", courseData),
-        [request]
-    );
-
     const updateCourse = useCallback(
         (id, courseData) => request("PUT", `/data/courses/${id}`, courseData),
         [request]
     );
 
+    const createCourse = useCallback(
+        (courseData) => request("POST", "/data/courses", courseData),
+        [request]
+    );
+
+
     const deleteCourse = useCallback(
         (id) => request("DELETE", `/data/courses/${id}`),
+        [request]
+    );
+
+    const update = useCallback(
+        (url, data) => request("PUT", url, data),
         [request]
     );
 
@@ -69,6 +75,7 @@ export function useCourseApi() {
         getCourseById,
         createCourse,
         updateCourse,
-        deleteCourse
+        deleteCourse,
+        update
     };
 }

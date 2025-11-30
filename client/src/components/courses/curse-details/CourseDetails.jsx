@@ -2,6 +2,8 @@ import { useParams, Link } from "react-router";
 import { useEffect, useState } from "react";
 import styles from "./CourseDetails.module.css";
 import { useCourseApi } from "../../../hooks/useCoursesApi.js";
+import ReviewList from "./reviews/ReviewList.jsx";
+import ReviewForm from "./reviews/ReviewForm.jsx";
 
 export default function CourseDetails() {
     const { courseId } = useParams();
@@ -9,6 +11,7 @@ export default function CourseDetails() {
     const [course, setCourse] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [reviewCreated, setReviewCreated] = useState({});
 
     useEffect(() => {
         getCourseById(courseId)
@@ -16,6 +19,10 @@ export default function CourseDetails() {
             .catch((err) => setError(err.message))
             .finally(() => setLoading(false));
     }, [courseId, getCourseById]);
+
+    function newReviewCreated(review) {
+        setReviewCreated(review);
+    }
 
     if (loading) return <p className={styles.loading}>Зареждане...</p>;
     if (error) return <p className={styles.error}>Грешка: {error}</p>;
@@ -60,6 +67,13 @@ export default function CourseDetails() {
                     </Link>
                 </div>
             </div>
+
+            <ReviewList courseId={course._id} newReview={reviewCreated} />
+
+            <ReviewForm
+                courseId={course._id}
+                onReviewCreated={newReviewCreated}
+            />
         </section>
     );
 }

@@ -37,4 +37,26 @@ export default {
         return false;
     },
 
+    validateReViewForm(authorName, text) {
+
+        const newErrors = {};
+
+        if (!authorName.trim()) {
+            newErrors.authorName = 'Името е задължително';
+        } else if (authorName.trim().length < 2) {
+            newErrors.authorName = 'Името трябва да е поне 2 символа';
+        } else if (authorName.trim().length > 50) {
+            newErrors.authorName = 'Името не може да бъде повече от 50 символа';
+        }
+
+        if (!text.trim()) {
+            newErrors.text = 'Отзивът е задължителен';
+        } else if (text.trim().length < 10) {
+            newErrors.text = 'Отзивът трябва да е поне 10 символа';
+        } else if (text.trim().length > 500) {
+            newErrors.text = 'Отзивът не може да бъде повече от 500 символа';
+        }
+        return { newErrors, hasErrors: Object.keys(newErrors).length > 0 };
+    },
+
 }

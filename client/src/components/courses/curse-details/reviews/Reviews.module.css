@@ -1,0 +1,304 @@
+.listWrapper {
+    max-width: 1100px;
+    width: 100%;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.03) 100%);
+    border: 1px solid rgba(212, 175, 55, 0.12);
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+.sectionTitle {
+    font-size: 2rem;
+    color: #f8f8f8;
+    margin-bottom: 32px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    position: relative;
+    padding-bottom: 16px;
+}
+
+.sectionTitle::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #d4af37, transparent);
+    border-radius: 2px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.reviewCard {
+    padding: 28px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.reviewCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #d4af37, transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.reviewCard:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(212, 175, 55, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.reviewCard:hover::before {
+    opacity: 1;
+}
+
+.headerRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.author {
+    font-weight: 600;
+    color: #d4af37;
+    font-size: 1.15rem;
+    letter-spacing: -0.01em;
+}
+
+.date {
+    color: #b8b8b8;
+    font-size: 0.9rem;
+    padding: 4px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.text {
+    color: #e8e8e8;
+    line-height: 1.7;
+    margin-bottom: 16px;
+    font-size: 1.02rem;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.editBtn,
+.deleteBtn {
+    padding: 8px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.editBtn {
+    background: rgba(170, 170, 255, 0.15);
+    color: #aaaaff;
+    border: 1px solid rgba(170, 170, 255, 0.3);
+}
+
+.editBtn:hover {
+    background: rgba(170, 170, 255, 0.25);
+    transform: translateY(-1px);
+}
+
+.deleteBtn {
+    background: rgba(255, 107, 107, 0.15);
+    color: #ff6b6b;
+    border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+.deleteBtn:hover {
+    background: rgba(255, 107, 107, 0.25);
+    transform: translateY(-1px);
+}
+
+.loginNote {
+    margin-top: 20px;
+    color: #d0d0d0;
+    font-size: 1.05rem;
+    text-align: center;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 14px;
+    border: 1px dashed rgba(212, 175, 55, 0.2);
+}
+
+.form {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.formTitle {
+    color: #f8f8f8;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+}
+
+.input,
+.textarea {
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.input:focus,
+.textarea:focus {
+    outline: none;
+    border-color: rgba(212, 175, 55, 0.4);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.textarea {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.submitBtn {
+    width: fit-content;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #d4af37 0%, #c19a2f 100%);
+    color: #0e0d16;
+    border-radius: 12px;
+    cursor: pointer;
+    border: none;
+    font-weight: 700;
+    font-size: 1.05rem;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.submitBtn::before {
+    content: 'Изпрати';
+    color: #fff;
+    align-content: center;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #e0bf45 0%, #d4af37 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.submitBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+.submitBtn:hover::before {
+    opacity: 1;
+}
+
+.submitBtn:active {
+    transform: translateY(0);
+}
+
+.loading,
+.noReviews {
+    text-align: center;
+    color: #b8b8b8;
+    font-size: 1.05rem;
+    padding: 40px 20px;
+    font-style: italic;
+}
+
+.loading {
+    color: #d4af37;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .listWrapper,
+    .form {
+        padding: 24px;
+    }
+
+    .reviewCard {
+        padding: 20px;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .editBtn,
+    .deleteBtn {
+        width: 100%;
+    }
+}
