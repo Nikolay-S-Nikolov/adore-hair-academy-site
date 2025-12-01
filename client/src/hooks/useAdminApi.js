@@ -61,11 +61,22 @@ export function useAdminApi() {
         [request]
     );
 
+`/data/enrollments?load=course=courseId:courses`
+
+    const getEnrollments = useCallback(() => request("GET", "/data/enrollments?load=course%3DcourseId%3Acourses"), [request]);
+
+    const updateEnrollment = useCallback(
+        (id, data) => request("PATCH", `/data/enrollments/${id}`, data),
+        [request]
+    );
+
     return {
         request,
         getCourses,
         createCourse,
         updateCourse,
-        deleteCourse
+        deleteCourse,
+        getEnrollments,
+        updateEnrollment,
     };
 }
