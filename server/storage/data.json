@@ -82,7 +82,8 @@
       "hasOnlineExam": true,
       "_createdOn": 1764413953401,
       "_id": "a3424ccf-c95d-4657-a36e-b341d58be5d9",
-      "_updatedOn": 1764426820797
+      "_updatedOn": 1764433360142,
+      "details": "Запознаване с инструментите и хигиенните стандарти.\nОсновни форми на дамско подстригване.\nПравилна работа със сешоар и четки.\nСтайлинг за ежедневни прически.\nИзграждане на професионални навици и увереност."
     },
     "773e8053-a835-4d0e-9faa-c4e5800d7631": {
       "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
@@ -127,6 +128,91 @@
       "description": " Базов курс по колористика за тези, които искат да започнат\n                                безопасно и професионално да боядисват коса.",
       "hasOnlineExam": true,
       "_createdOn": 1764427382029
+    }
+  },
+  "enrollments": {
+    "90e63058-e0f5-4db7-b5f5-4acf4b581f30": {
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+      "fullName": "Peter Ivanov",
+      "phone": "0888123456",
+      "note": "кратка бележка",
+      "courseId": "374e8fae-f7e4-4ec3-b0bd-1ebff18d3d89",
+      "userId": "35c62d76-8152-4626-8712-eeb96381bea8",
+      "createdOn": 1764436464783,
+      "_createdOn": 1764436464788
+    },
+    "a806e65b-cc4c-4a4a-a477-830c32584133": {
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+      "fullName": "Тест Тестович",
+      "phone": "0898123456",
+      "note": "кратка бележка",
+      "courseId": "a3424ccf-c95d-4657-a36e-b341d58be5d9",
+      "userId": "35c62d76-8152-4626-8712-eeb96381bea8",
+      "createdOn": 1764436881523,
+      "_createdOn": 1764436881526
+    },
+    "89b3aa2c-09cc-4e2c-b9ab-9d3c63e4cf0e": {
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+      "fullName": "Стефчо Стефчов",
+      "phone": "0888123456",
+      "note": "бележка няма да се запиша, Не обещавам",
+      "courseId": "773e8053-a835-4d0e-9faa-c4e5800d7631",
+      "userId": "35c62d76-8152-4626-8712-eeb96381bea8",
+      "createdOn": 1764437934301,
+      "_createdOn": 1764437934303
+    },
+    "7f1f235d-e9e3-4a06-b8e7-b8f17052b8b4": {
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+      "fullName": "Asd As",
+      "phone": "0888",
+      "note": "",
+      "courseId": "44aab672-6853-4db0-b268-eafcaca7c741",
+      "_createdOn": 1764505955059
+    },
+    "9fe977c7-8dcd-4253-a1cc-cdd1fa0970b6": {
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+      "fullName": "Иван Иванов",
+      "phone": "0887240987",
+      "note": "",
+      "courseId": "44aab672-6853-4db0-b268-eafcaca7c741",
+      "_createdOn": 1764537494060
+    }
+  },
+  "reviews": {
+    "79472506-429d-48b3-a040-344bb7a700fa": {
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+      "courseId": "a3424ccf-c95d-4657-a36e-b341d58be5d9",
+      "authorName": "asddsaads",
+      "text": "asddasdsa",
+      "_createdOn": 1764519722184
+    },
+    "942aa89a-f27b-4ff0-a5e9-4d4776373b31": {
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+      "courseId": "a3424ccf-c95d-4657-a36e-b341d58be5d9",
+      "authorName": "asdasdas",
+      "text": "asdas",
+      "_createdOn": 1764519724702
+    },
+    "b70fa4c9-cb0f-4a83-91e8-43e896592a17": {
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+      "courseId": "374e8fae-f7e4-4ec3-b0bd-1ebff18d3d89",
+      "authorName": "asdasd",
+      "text": "asdasd",
+      "_createdOn": 1764523607947
+    },
+    "e2b97e7a-c465-458e-88f8-76aab2dcc43b": {
+      "authorName": "sdffsdfdsfdsfds",
+      "text": "asdasdadsfdsfsdfd",
+      "_createdOn": 1764525010943,
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "_updatedOn": 1764525046314
+    },
+    "70837fca-21a3-4610-92e6-c204fdab6810": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "courseId": "374e8fae-f7e4-4ec3-b0bd-1ebff18d3d89",
+      "authorName": "асдасд",
+      "text": "асдасдасдсад",
+      "_createdOn": 1764532630863
     }
   }
 }
