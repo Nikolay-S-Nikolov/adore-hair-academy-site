@@ -131,51 +131,64 @@
     }
   },
   "enrollments": {
-    "90e63058-e0f5-4db7-b5f5-4acf4b581f30": {
+    "81a74824-24f0-4a20-8337-5c718f438cfe": {
       "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-      "fullName": "Peter Ivanov",
+      "fullName": "Петър Петров",
       "phone": "0888123456",
-      "note": "кратка бележка",
-      "courseId": "374e8fae-f7e4-4ec3-b0bd-1ebff18d3d89",
-      "userId": "35c62d76-8152-4626-8712-eeb96381bea8",
-      "createdOn": 1764436464783,
-      "_createdOn": 1764436464788
+      "note": "",
+      "courseId": "70d1894a-821b-48e1-a078-ceaf5c831a4e",
+      "status": "approved",
+      "_createdOn": 1764624317217,
+      "_updatedOn": 1764624435982
     },
-    "a806e65b-cc4c-4a4a-a477-830c32584133": {
+    "50faf25f-0a1b-4352-81c3-1dd80e6d45e7": {
       "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-      "fullName": "Тест Тестович",
-      "phone": "0898123456",
-      "note": "кратка бележка",
+      "fullName": "Петър Петров",
+      "phone": "0888123123",
+      "note": "",
       "courseId": "a3424ccf-c95d-4657-a36e-b341d58be5d9",
-      "userId": "35c62d76-8152-4626-8712-eeb96381bea8",
-      "createdOn": 1764436881523,
-      "_createdOn": 1764436881526
+      "status": "pending",
+      "_createdOn": 1764624329458
     },
-    "89b3aa2c-09cc-4e2c-b9ab-9d3c63e4cf0e": {
+    "1c298f38-292f-49e6-8130-d1d92410f800": {
       "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-      "fullName": "Стефчо Стефчов",
+      "fullName": "Петър Петров",
+      "phone": "0888123123",
+      "note": "",
+      "courseId": "374e8fae-f7e4-4ec3-b0bd-1ebff18d3d89",
+      "status": "rejected",
+      "_createdOn": 1764624399144,
+      "_updatedOn": 1764624438635
+    },
+    "571d7880-fbd9-435a-9473-a375cb514652": {
+      "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+      "fullName": "Георги Георгиев",
       "phone": "0888123456",
-      "note": "бележка няма да се запиша, Не обещавам",
-      "courseId": "773e8053-a835-4d0e-9faa-c4e5800d7631",
-      "userId": "35c62d76-8152-4626-8712-eeb96381bea8",
-      "createdOn": 1764437934301,
-      "_createdOn": 1764437934303
-    },
-    "7f1f235d-e9e3-4a06-b8e7-b8f17052b8b4": {
-      "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-      "fullName": "Asd As",
-      "phone": "0888",
       "note": "",
-      "courseId": "44aab672-6853-4db0-b268-eafcaca7c741",
-      "_createdOn": 1764505955059
+      "courseId": "374e8fae-f7e4-4ec3-b0bd-1ebff18d3d89",
+      "status": "approved",
+      "_createdOn": 1764624691813,
+      "_updatedOn": 1764624727301
     },
-    "9fe977c7-8dcd-4253-a1cc-cdd1fa0970b6": {
-      "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-      "fullName": "Иван Иванов",
-      "phone": "0887240987",
+    "cf206a03-7b33-4bca-88d3-5d14d7d9dca4": {
+      "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+      "fullName": "Георги Георгиев",
+      "phone": "0888123456",
       "note": "",
-      "courseId": "44aab672-6853-4db0-b268-eafcaca7c741",
-      "_createdOn": 1764537494060
+      "courseId": "70d1894a-821b-48e1-a078-ceaf5c831a4e",
+      "status": "approved",
+      "_createdOn": 1764624700771,
+      "_updatedOn": 1764625566705
+    },
+    "8021ac9b-265c-48e3-87e6-cfa7371833ec": {
+      "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+      "fullName": "Георги Георгиев",
+      "phone": "0888123456",
+      "note": "",
+      "courseId": "a3424ccf-c95d-4657-a36e-b341d58be5d9",
+      "status": "rejected",
+      "_createdOn": 1764624717525,
+      "_updatedOn": 1764624799662
     }
   },
   "reviews": {
