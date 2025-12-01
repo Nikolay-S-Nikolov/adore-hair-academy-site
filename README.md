@@ -43,7 +43,7 @@ This repository contains the frontend application in folder client, which commun
 
 ## Live Demo
 
-**Frontend:** [Deployed on Vercel](https://adore-hair-academy-site.vercel.app/courses) *(https://adore-hair-academy-site.vercel.app/courses)*
+**Frontend:** [Deployed on Vercel](https://adore-hair-academy-site.vercel.app/) *(https://adore-hair-academy-site.vercel.app/)*
 
 **Backend:** [Deployed on Render](https://adore-hair-academy-server.onrender.com/) *(https://adore-hair-academy-server.onrender.com/)*
 

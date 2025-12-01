@@ -8,7 +8,8 @@ export default function Header() {
     const [isOpen, setIsOpen] = useState(false)
     const onMenuClick = () => setIsOpen(prev => !prev);
     const closeMenu = () => setIsOpen(false);
-    const { isAuthenticated } = useAuth()
+    const { isAuthenticated, user } = useAuth()
+    const isAdmin = user?.role === 'staff';
 
     return (
         <>
@@ -31,6 +32,9 @@ export default function Header() {
                             <li><Link to="/courses" onClick={closeMenu}>Курсове</Link></li>
                             {isAuthenticated &&
                                 <li><Link to="/dashboard" onClick={closeMenu}>Моето обучение</Link></li>
+                            }
+                            {isAdmin &&
+                                <li><Link to="/admin" onClick={closeMenu}>Админ панел</Link></li>
                             }
                             <li><Link to="/products" onClick={closeMenu}>Продукти</Link></li>
                             <li><Link to="/about" onClick={closeMenu}>За нас</Link></li>

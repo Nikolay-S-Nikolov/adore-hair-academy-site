@@ -31,7 +31,7 @@ export default function EnrollmentForm() {
         try {
             const existing = await request(
                 "GET",
-                `/data/enrollments?where=courseId%3D%22${courseId}%22%20AND%20userId%3D%22${user._id}%22`
+                `/data/enrollments?where=courseId%3D%22${courseId}%22%20AND%20_ownerId%3D%22${user._id}%22`
             );
 
             if (existing.length > 0) {
@@ -43,6 +43,7 @@ export default function EnrollmentForm() {
             await request("POST", "/data/enrollments", {
                 ...data,
                 courseId,
+                status: "pending"
             });
 
             toast.success("Вашата заявка е изпратена успешно!");
