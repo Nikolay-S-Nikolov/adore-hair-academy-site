@@ -59,4 +59,30 @@ export default {
         return { newErrors, hasErrors: Object.keys(newErrors).length > 0 };
     },
 
+    validateResource(data) {
+        const newErrors = {};
+
+        if (!data.title.trim() || data.title.length < 3) {
+            newErrors.title = "Заглавието трябва да съдържа поне 3 символа.";
+        }
+
+        if (!["video", "file"].includes(data.type)) {
+            newErrors.type = "Невалиден тип материал.";
+        }
+
+        if (!data.url.trim()) {
+            newErrors.url = "Моля въведете URL адрес.";
+        }
+
+        const urlRegex = /^https?:\/\/.+/;
+        if (!urlRegex.test(data.url)) {
+            newErrors.url = "Моля въведете валиден URL адрес (трябва да започва с http:// или https://)";
+        }
+
+        if (!data.courseId) {
+            newErrors.courseId = "Моля изберете курс.";
+        }
+
+        return Object.keys(newErrors).length > 0 ? newErrors : null;
+    }
 }

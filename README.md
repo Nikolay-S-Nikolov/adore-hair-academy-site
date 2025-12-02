@@ -20,6 +20,7 @@
 - [x]  Update dashboard with static data
 - [x]  Add Course details  component and css
 - [x]  Add AdminResources, ResourceCard,ResourceForm, ResourceList and AdminResources.module.css for admin CRUD operations
+- [x]  Add resource form validation and toast messages
 
 # Adore Hair Academy — React Application
 

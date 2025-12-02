@@ -5,6 +5,7 @@ import styles from "./AdminResources.module.css";
 import LoadingSpinner from "../../ui/loading-spinner/LoadingSpinner.jsx";
 import ResourceForm from "./ResourceForm.jsx";
 import ResourceList from "./ResourceList.jsx";
+import { useToast } from "../../../hooks/useToast.js";
 
 export default function AdminResources() {
     const { getCourses, request } = useAdminApi();
@@ -13,6 +14,7 @@ export default function AdminResources() {
     const [courses, setCourses] = useState([]);
     const [loading, setLoading] = useState(true);
     const [editing, setEditing] = useState(null);
+    const toast = useToast()
 
     useEffect(() => {
         Promise.all([
@@ -48,6 +50,7 @@ export default function AdminResources() {
     const handleDelete = async (id) => {
         await request("DELETE", `/data/resources/${id}`),
         setResources(prev => prev.filter(r => r._id !== id));
+        toast.success('Ресурсът е изтрит успешно!')
     };
 
     if (loading) return <LoadingSpinner />

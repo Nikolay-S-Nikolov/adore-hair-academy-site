@@ -1,7 +1,10 @@
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import styles from "./AdminResources.module.css";
+import validate from "../../../utils/validators.js"
+import { useToast } from "../../../hooks/useToast.js";
 
 export default function ResourceForm({ isEdit, initialData, onSubmit, courses }) {
+  const [errors, setErrors] = useState({});
   const emptyData = {
     title: "",
     type: "video",
@@ -9,12 +12,28 @@ export default function ResourceForm({ isEdit, initialData, onSubmit, courses })
     description: "",
     courseId: "",
   };
+  const [newData, setNewData] = useState(emptyData);
+  const toast = useToast()
 
+  const defaultValues = isEdit && initialData ? initialData : newData;
 
-  const defaultValues = isEdit && initialData ? initialData : emptyData;
+  function resetData(){
+    setNewData(emptyData);
+  }
 
   async function resourceAction(currentState, formData) {
     const data = Object.fromEntries(formData);
+
+    const validationErrors = validate.validateResource(data);
+    if (validationErrors) {
+      setErrors(validationErrors);
+      toast.error("Поправете грешките във формата.");
+      setNewData(data)
+      return { success: false, error: "Поправете грешките във формата." };
+    }
+
+    setErrors({});
+
 
     try {
 
@@ -28,16 +47,17 @@ export default function ResourceForm({ isEdit, initialData, onSubmit, courses })
           courseId: initialData.courseId,
           _createdOn: initialData._createdOn
         };
-        console.log(initialData._id);
-
 
         await onSubmit(initialData._id, { ...prevData, ...data }, initialData.course.title);
       } else {
         await onSubmit(data);
       }
-
+      toast.success(isEdit?'Успешно променихте ресурса':'Създадохте нов ресурс!');
+      resetData();
       return { success: true, error: null };
+      
     } catch (err) {
+      toast.error(err.message || "Нещо се обърка");
       return { success: false, error: err.message || "Нещо се обърка" };
     }
   }
@@ -66,6 +86,7 @@ export default function ResourceForm({ isEdit, initialData, onSubmit, courses })
           defaultValue={defaultValues.title}
           required
         />
+        {errors.title && <p className={styles.errorText}>{errors.title}</p>}
       </label>
 
       <label>
@@ -74,6 +95,7 @@ export default function ResourceForm({ isEdit, initialData, onSubmit, courses })
           <option value="video">Видео (YouTube)</option>
           <option value="file">Файл (PDF / Drive)</option>
         </select>
+        {errors.type && <p className={styles.errorText}>{errors.type}</p>}
       </label>
 
       <label>
@@ -84,6 +106,7 @@ export default function ResourceForm({ isEdit, initialData, onSubmit, courses })
           defaultValue={defaultValues.url}
           required
         />
+        {errors.url && <p className={styles.errorText}>{errors.url}</p>}
       </label>
 
       <label>
@@ -92,21 +115,20 @@ export default function ResourceForm({ isEdit, initialData, onSubmit, courses })
           name="description"
           defaultValue={defaultValues.description}
         />
+        {errors.description && <p className={styles.errorText}>{errors.description}</p>}
       </label>
 
       <label>
         Курс
-        <select name="courseId" defaultValue={defaultValues.courseId || ''} required>
-
-          {!isEdit&&<option value="">-- Изберете курс --</option>}
-          {isEdit&&<option value={defaultValues.courseId}>{courses.find(c => c._id === defaultValues.courseId).title}</option>}
-          {/* <option value="">-- Изберете курс --</option> */}
+        <select name="courseId" defaultValue={defaultValues.courseId} required>
+          <option value="" disabled>-- Изберете курс --</option>
           {courses.map((c) => (
-            <option key={c._id} value={c._id}>
+            <option key={c._id} value={String(c._id)}>
               {c.title}
             </option>
           ))}
         </select>
+        {errors.courseId && <p className={styles.errorText}>{errors.courseId}</p>}
       </label>
 
       <button disabled={isPending} className={styles.primaryButton}>

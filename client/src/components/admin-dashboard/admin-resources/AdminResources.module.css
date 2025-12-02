@@ -2,6 +2,7 @@
     padding: 40px;
     font-family: var(--font-family-primary);
     color: var(--color-dark-gray);
+    overflow-x: hidden;
 }
 
 .title {
@@ -16,6 +17,10 @@
     color: var(--color-dark-gray);
     opacity: 0.8;
     margin-bottom: 35px;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 40px;
+    width: 100%;
 }
 
 .layout {
@@ -25,7 +30,6 @@
 }
 
 /* FORM */
-
 .form {
     background: var(--color-beige);
     padding: 28px;
@@ -55,6 +59,9 @@
 .form input,
 .form textarea,
 .form select {
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
     padding: 10px 14px;
     border-radius: 8px;
     border: 1px solid var(--color-light-gray);
@@ -92,7 +99,6 @@
 }
 
 /* LIST */
-
 .list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -100,6 +106,11 @@
 }
 
 /* RESOURCE CARD */
+.form,
+.card {
+    min-width: 0;
+    width: 100%;
+}
 
 .card {
     background: var(--color-white);
@@ -143,7 +154,6 @@
 }
 
 /* ACTION BUTTONS */
-
 .actions {
     margin-top: 6px;
     display: flex;
@@ -179,8 +189,88 @@
     opacity: 0.9;
 }
 
-@media (max-width: 900px) {
+/* ERRORS */
+.inputError {
+    border: 2px solid #f44336 !important;
+    background-color: #fff5f5;
+}
+
+.errorText {
+    color: #f44336;
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+/* ---------------------- */
+/*     RESPONSIVE CSS     */
+/* ---------------------- */
+
+/* Large tablets */
+@media (max-width: 1024px) {
     .layout {
         grid-template-columns: 1fr;
+    }
+
+    .form {
+        padding: 22px;
+    }
+
+    .list {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+/* Tablets / small phones */
+@media (max-width: 768px) {
+    .page {
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .form {
+        gap: 16px;
+        padding: 20px;
+    }
+
+    .list {
+        gap: 16px;
+        grid-template-columns: 1fr;
+    }
+
+    .layout {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+
+    .form input,
+    .form textarea,
+    .form select {
+        font-size: 0.9rem;
+        padding: 9px 12px;
+    }
+
+    .primaryButton {
+        font-size: 0.9rem;
+        padding: 10px 14px;
+    }
+
+    .card {
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .card h3 {
+        font-size: 1rem;
     }
 }
