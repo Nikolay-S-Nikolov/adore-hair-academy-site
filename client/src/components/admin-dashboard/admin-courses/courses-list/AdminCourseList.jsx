@@ -1,3 +1,4 @@
+import LoadingSpinner from "../../../ui/loading-spinner/LoadingSpinner.jsx";
 import styles from "./AdminCourseList.module.css";
 
 export default function AdminCourseList({
@@ -11,7 +12,7 @@ export default function AdminCourseList({
             <h2 className={styles.cardTitle}>Всички курсове</h2>
 
             {loading && courses.length === 0 && (
-                <p className={styles.info}>Зареждане на курсове...</p>
+                <LoadingSpinner text="Зареждане на курсовете..."/>
             )}
 
             {!loading && courses.length === 0 && (

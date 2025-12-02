@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "./AdminEnrollments.module.css";
 import { useAdminApi } from "../../../hooks/useAdminApi.js";
 import { useToast } from "../../../hooks/useToast.js";
+import LoadingSpinner from "../../ui/loading-spinner/LoadingSpinner.jsx";
 
 export default function AdminEnrollments() {
     const { getEnrollments, updateEnrollment } = useAdminApi();
@@ -36,7 +37,7 @@ export default function AdminEnrollments() {
         toast.warning("Заявката е отказана.");
     };
 
-    if (loading) return <p>Зареждане...</p>;
+    if (loading) return <LoadingSpinner text="Зареждане на заявките..."/>;
 
     const pending = enrollments.filter(e => e.status === "pending");
     const approved = enrollments.filter(e => e.status === "approved");

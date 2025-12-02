@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "./Courses.module.css";
 import { Link } from 'react-router'
 import config from '../../gonfig/config.js'
+import LoadingSpinner from "../ui/loading-spinner/LoadingSpinner.jsx";
 
 export default function Courses() {
     const [beginnerCourses, setBeginnerCourses] = useState([]);
@@ -30,7 +31,7 @@ export default function Courses() {
         load();
     }, [])
 
-    if (loading) return <p>Зареждане...</p>;
+    if (loading) return <LoadingSpinner text="Моля, изчакайте..." />
 
     return (
         <section className={styles.coursesPage}>

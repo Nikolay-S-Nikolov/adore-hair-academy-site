@@ -4,6 +4,7 @@ import styles from "./CourseDetails.module.css";
 import { useCourseApi } from "../../../hooks/useCoursesApi.js";
 import ReviewList from "./reviews/ReviewList.jsx";
 import ReviewForm from "./reviews/ReviewForm.jsx";
+import LoadingSpinner from "../../ui/loading-spinner/LoadingSpinner.jsx";
 
 export default function CourseDetails() {
     const { courseId } = useParams();
@@ -24,7 +25,8 @@ export default function CourseDetails() {
         setReviewCreated(review);
     }
 
-    if (loading) return <p className={styles.loading}>Зареждане...</p>;
+    // if (loading) return <p className={styles.loading}>Зареждане на курса...</p>;
+    if (loading) return <LoadingSpinner text="Зареждане на курса..."/>;
     if (error) return <p className={styles.error}>Грешка: {error}</p>;
     if (!course) return <p className={styles.error}>Курсът не е намерен.</p>;
 

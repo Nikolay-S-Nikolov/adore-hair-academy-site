@@ -4,6 +4,7 @@ import { useCourseApi } from "../../../../hooks/useCoursesApi.js";
 import { useAuth } from "../../../../hooks/useAuth.js";
 import { useToast } from "../../../../hooks/useToast.js";
 import EditReviewModal from "./EditReviewModal.jsx";
+import LoadingSpinner from "../../../ui/loading-spinner/LoadingSpinner.jsx";
 
 export default function ReviewList({ courseId, newReview }) {
     const { request } = useCourseApi();
@@ -50,7 +51,8 @@ export default function ReviewList({ courseId, newReview }) {
             <div className={styles.listWrapper}>
                 <h3 className={styles.sectionTitle}>Отзиви</h3>
 
-                {loading && <p className={styles.loading}>Зареждане...</p>}
+                {loading && <LoadingSpinner text="Зареждане на отзивите..."/>}
+                {/* {loading && <p className={styles.loading}>Зареждане на отзивите...</p>} */}
 
                 {!loading && reviews.length === 0 && (
                     <p className={styles.noReviews}>Все още няма отзиви.</p>
