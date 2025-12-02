@@ -19,6 +19,7 @@
 - [x]  Add Dashboard component
 - [x]  Update dashboard with static data
 - [x]  Add Course details  component and css
+- [x]  Add AdminResources, ResourceCard,ResourceForm, ResourceList and AdminResources.module.css for admin CRUD operations
 
 # Adore Hair Academy — React Application
 

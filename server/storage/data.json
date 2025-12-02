@@ -226,6 +226,44 @@
       "authorName": "асдасд",
       "text": "асдасдасдсад",
       "_createdOn": 1764532630863
+    },
+    "21e9f181-9235-4da6-831f-22d908155aff": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "courseId": "374e8fae-f7e4-4ec3-b0bd-1ebff18d3d89",
+      "authorName": "Lili",
+      "text": "askljdhlkdajshlkjhdas",
+      "_createdOn": 1764670215345
+    }
+  },
+  "resources": {
+    "e971e2ba-cc6c-470f-a99b-08057fffbfb7": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "title": "How To Blow Dry DIY Layered Haircut with Blowout Brush",
+      "type": "video",
+      "url": "https://youtu.be/-JR2Ygl64p0?si=fOTZK2H7HlidZQ3t",
+      "description": "Този урок демонстрира техники за разделяне на косата и правилно използване на четка и сешоар за постигане на обем и блясък. Видеото обхваща и нанасянето на продукта за фиксация и предотвратяване на накъдряне.",
+      "courseId": "374e8fae-f7e4-4ec3-b0bd-1ebff18d3d89",
+      "_createdOn": 1764677802164
+    },
+    "f21e29ef-6da1-4e79-8efa-7380471cf262": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "title": "How to Style Your Hair for a Wedding the EASY WAY",
+      "type": "video",
+      "url": "https://youtu.be/lf8Ui9WjhYs?si=a3aDZX1NqPhFI05K",
+      "description": "Опитайте тази класическа обемна, голяма, сплетена разрошена прическа, идеална за средно дълга или дълга коса, за пролет, лято, есен, за работа, за църква, парти или за специални поводи като абитуриентски бал, завръщане у дома, сватби/булчински събития, дипломиране или парти.",
+      "courseId": "44aab672-6853-4db0-b268-eafcaca7c741",
+      "_createdOn": 1764689717351
+    },
+    "c26b4e1e-656c-4145-adcf-e0dc7477aab4": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "title": "Безопасност при обучение на фризьори",
+      "type": "file",
+      "url": "https://docs.google.com/document/d/1PlSyM0WcAXfn53rjXAhfzRcdSfOFdMTnMYcM-iVH9ds/edit?usp=sharing",
+      "description": "Безопасността е основен елемент в професионалното обучение на фризьорите. Тя гарантира добри условия на работа, защитава здравето на курсистите и клиентите и създава навици, които ще се прилагат през цялата кариера.",
+      "courseId": "a3424ccf-c95d-4657-a36e-b341d58be5d9",
+      "_createdOn": 1764692407106,
+      "_id": "c26b4e1e-656c-4145-adcf-e0dc7477aab4",
+      "_updatedOn": 1764692414719
     }
   }
 }

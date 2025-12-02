@@ -1,0 +1,186 @@
+.page {
+    padding: 40px;
+    font-family: var(--font-family-primary);
+    color: var(--color-dark-gray);
+}
+
+.title {
+    font-size: 2.2rem;
+    font-family: var(--font-family-serif);
+    color: var(--color-black);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--color-dark-gray);
+    opacity: 0.8;
+    margin-bottom: 35px;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 40px;
+}
+
+/* FORM */
+
+.form {
+    background: var(--color-beige);
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.form h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-family: var(--font-family-serif);
+    color: var(--color-black);
+}
+
+.form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.form input,
+.form textarea,
+.form select {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--color-light-gray);
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease;
+    background: var(--color-white);
+}
+
+.form input:focus,
+.form textarea:focus,
+.form select:focus {
+    border-color: var(--color-gold);
+    outline: none;
+}
+
+.form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.primaryButton {
+    margin-top: 10px;
+    padding: 12px 18px;
+    background: var(--color-gold);
+    color: var(--color-white);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.primaryButton:hover {
+    background: var(--color-gold-dark);
+}
+
+/* LIST */
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 22px;
+}
+
+/* RESOURCE CARD */
+
+.card {
+    background: var(--color-white);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-shadow: 0 0 22px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 32px rgba(0, 0, 0, 0.12);
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-family: var(--font-family-serif);
+    color: var(--color-black);
+}
+
+.type {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-gold-dark);
+    opacity: 0.8;
+}
+
+.link {
+    color: var(--color-gold-dark);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* ACTION BUTTONS */
+
+.actions {
+    margin-top: 6px;
+    display: flex;
+    gap: 10px;
+}
+
+.edit,
+.delete {
+    flex: 1;
+    padding: 10px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    transition: opacity 0.2s ease, background 0.2s ease;
+}
+
+.edit {
+    background: var(--color-silver);
+    color: var(--color-black);
+}
+
+.edit:hover {
+    background: #A9A9A9;
+}
+
+.delete {
+    background: var(--color-dark-gray);
+    color: var(--color-white);
+}
+
+.delete:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 900px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+}

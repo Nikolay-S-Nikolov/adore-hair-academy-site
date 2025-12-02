@@ -20,6 +20,7 @@ import AdminCourses from './components/admin-dashboard/admin-courses/AdminCourse
 import CourseDetails from './components/courses/curse-details/CourseDetails.jsx'
 import EnrollmentForm from './components/courses/enrollment-form/EnrollmentForm.jsx'
 import AdminEnrollments from './components/admin-dashboard/аdmin-еnrollments/AdminEnrollments.jsx'
+import AdminResources from './components/admin-dashboard/admin-resources/AdminResources.jsx'
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
           <Route path='/admin' element={<AdminRoute> <AdminDashboard /> </AdminRoute>} />
           <Route path="/admin/courses" element={<AdminRoute> <AdminCourses /> </AdminRoute>} />
           <Route path="/admin/enrollments" element={<AdminRoute> <AdminEnrollments /> </AdminRoute>} />
+          <Route path="/admin/resources" element={<AdminRoute> <AdminResources /> </AdminRoute>} />
         </Routes>
 
         <Footer />
