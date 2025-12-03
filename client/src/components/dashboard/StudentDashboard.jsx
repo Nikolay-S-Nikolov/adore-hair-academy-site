@@ -10,7 +10,7 @@ export default function StudentDashboard() {
     const [loading, setLoading] = useState(true);
     const [courses, setCourses] = useState([])
     const [expanded, setExpanded] = useState({});
-    const [resources, setResources] = useState({}); 
+    const [resources, setResources] = useState({});
     const [loadingRes, setLoadingRes] = useState({});
     const { request } = useCourseApi()
 
@@ -80,15 +80,47 @@ export default function StudentDashboard() {
 
                         {expanded[item.course._id] && (
                             <div className={styles.resourceList}>
-                                {loadingRes[item.course._id] && <p>Зареждане...</p>}
+
+                                {loadingRes[item.course._id] && (
+                                    <p className={styles.loading}>Зареждане...</p>
+                                )}
 
                                 {!loadingRes[item.course._id] &&
                                     resources[item.course._id]?.map(r => (
                                         <div key={r._id} className={styles.resourceItem}>
-                                            <a href={r.url} target="_blank">{r.title}</a>
-                                            <p>{r.description}</p>
+
+                                            <div className={styles.resourceHeader}>
+                                                <span className={
+                                                    r.type === "video"
+                                                        ? styles.videoTag
+                                                        : styles.fileTag
+                                                }>
+                                                    {r.type === "video" ? "Видео" : "Файл"}
+                                                </span>
+
+                                                <a href={r.url} target="_blank" className={styles.resourceTitle}>
+                                                    {r.title.length > 40 ? r.title.slice(0, 40) + "..." : r.title}
+                                                </a>
+                                            </div>
+
+                                            {r.description && (
+                                                <p className={styles.resourceDescription}>
+                                                    {r.description.length > 90
+                                                        ? r.description.slice(0, 90) + "..."
+                                                        : r.description}
+                                                </p>
+                                            )}
+
+                                            <button
+                                                className={styles.secondaryButton}
+                                                onClick={() => window.open(r.url, "_blank")}
+                                            >
+                                                {r.type === "video" ? "Пусни видеото" : "Отвори файла"}
+                                            </button>
+
                                         </div>
-                                    ))}
+                                    ))
+                                }
 
                                 {!loadingRes[item.course._id] &&
                                     resources[item.course._id]?.length === 0 && (

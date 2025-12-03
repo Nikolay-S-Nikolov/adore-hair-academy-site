@@ -115,7 +115,7 @@
 
 /* NEXT LESSON */
 .nextLesson {
-    color: #6b7280;
+    color: var(--color-dark-gray);
     font-size: 0.9rem;
     margin-top: 8px;
 }
@@ -137,22 +137,22 @@
     transition: background 0.2s ease;
 }
 
+.secondaryButton {
+    max-width: 200px;
+    background: #8b919b;
+}
+.secondaryButton:hover {
+    background: #8b919b;
+}
+
 .linkButton {
     background: #d4af37;
     color: #fff;
 }
 
-.linkButton:hover {
-    background: #b8962e;
-}
-
-.secondaryButton {
-    background: #111827;
-    color: #fff;
-}
-
+.linkButton:hover,
 .secondaryButton:hover {
-    background: #1f2937;
+    background: #b8962e;
 }
 
 /* SIDE COLUMN */
@@ -208,14 +208,24 @@
 
 /* RESOURCES */
 .resourceList {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--color-dark-biege);
+    border-radius: 12px;
+    border: 1px solid var(--color-gold-dark);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .resourceItem {
-    padding: 10px 0;
-    border-bottom: 1px solid #e5e7eb;
+    background: var(--color-light-gray);
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--color-gold);
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
 }
 
 .resourceItem a {
@@ -226,6 +236,12 @@
 
 .resourceItem a:hover {
     color: #d4af37;
+}
+
+.resourceHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .status {
@@ -256,7 +272,68 @@
     margin-bottom: 1rem;
     font-size: 1.4rem;
     font-weight: 700;
+    color: var(--color-dark-gray);
+}
+
+.videoTag,
+.fileTag {
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
     color: var(--color-white);
+}
+
+.videoTag {
+    background: #d46d6d; /* светло червено за видео */
+}
+
+.fileTag {
+    background: #6d8ad4; /* синьо за файлове */
+}
+
+.resourceTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-gold) !important;
+    text-decoration: none;
+}
+
+.resourceTitle:hover {
+    text-decoration: underline;
+}
+
+.resourceDescription {
+    font-size: 0.9rem;
+    color: var(--color-dark-gray);
+    line-height: 1.4;
+}
+
+.resourceButton {
+    align-self: flex-start;
+    background: #d4af37;
+    color: var(--color-black);
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.resourceButton:hover {
+    background: var(--color-gold-dark);
+}
+
+.loading {
+    color: var(--color-silver);
+    font-style: italic;
+}
+
+.empty {
+    color: var(--color-silver);
+    font-style: italic;
 }
 
 /* RESPONSIVE */
