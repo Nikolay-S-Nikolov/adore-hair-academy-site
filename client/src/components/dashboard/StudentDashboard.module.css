@@ -9,18 +9,18 @@
 .title {
     font-size: 2.2rem;
     font-weight: 700;
-    color: #111827; 
+    color: #111827;
     margin-bottom: 6px;
 }
 
 .subtitle {
     font-size: 1.1rem;
-    color: #4b5563; 
+    color: #4b5563;
     margin-bottom: 32px;
 }
 
 .highlight {
-    color: #d4af37; 
+    color: #d4af37;
     font-weight: 600;
 }
 
@@ -36,7 +36,7 @@
     background: #ffffff;
     border-radius: 14px;
     padding: 20px 22px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     border: 1px solid #e5e7eb;
 }
 
@@ -72,7 +72,7 @@
 }
 
 .courseItem:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
     transform: translateY(-2px);
 }
 
@@ -226,6 +226,37 @@
 
 .resourceItem a:hover {
     color: #d4af37;
+}
+
+.status {
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.in_progress {
+    background: #C9A96E;
+    color: white;
+}
+
+.pending {
+    background: #B8B8B8;
+    color: #1C1C1C;
+}
+
+.rejected {
+    background: #A67C52;
+    color: white;
+    opacity: 0.8;
+}
+
+.sectionTitle {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-white);
 }
 
 /* RESPONSIVE */
