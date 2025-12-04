@@ -22,6 +22,7 @@
 - [x]  Add AdminResources, ResourceCard,ResourceForm, ResourceList and AdminResources.module.css for admin CRUD operations
 - [x]  Add resource form validation and toast messages
 - [x]  Refactor StudentDashboard to show dynamic data
+- [x]  Add AdminExams, ExamForm, ExamList and QuestionBuilder components with CRUD functionality for exam management
 
 # Adore Hair Academy — React Application
 

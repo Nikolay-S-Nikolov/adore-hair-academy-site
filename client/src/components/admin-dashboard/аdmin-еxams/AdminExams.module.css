@@ -1,0 +1,203 @@
+.page {
+    padding: 2rem;
+    color: var(--color-white);
+}
+
+.title {
+    font-family: var(--font-family-serif);
+    font-size: 2.4rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-gold);
+}
+
+.subtitle {
+    color: var(--color-silver);
+    margin-bottom: 2rem;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+/* FORM CARD */
+
+.formCard {
+    background: var(--color-dark-gray);
+    padding: 1.8rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-gold-dark);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.25);
+}
+
+.formCard h2 {
+    margin-bottom: 1rem;
+    color: var(--color-gold);
+}
+
+.input {
+    width: 100%;
+    padding: 0.6rem;
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+    background: var(--color-black);
+    border: 1px solid var(--color-gold-dark);
+    color: var(--color-beige);
+    border-radius: 6px;
+}
+
+/* ACTION BUTTONS */
+
+.actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.primaryButton {
+    padding: 0.7rem 1.4rem;
+    background: var(--color-gold);
+    color: var(--color-black);
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.secondaryButton {
+    padding: 0.7rem 1.4rem;
+    background: transparent;
+    border: 1px solid var(--color-silver);
+    color: var(--color-silver);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* QUESTIONS */
+
+.questionsSection {
+    margin-top: 2rem;
+}
+
+.questionCard {
+    background: var(--color-black);
+    border: 1px solid var(--color-gold-dark);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.2rem;
+}
+
+.questionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.deleteSmall {
+    background: none;
+    color: var(--color-gold);
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.answers {
+    margin-top: 1rem;
+}
+
+.answerRow {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.addQuestionButton {
+    background: var(--color-gold-dark);
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    color: var(--color-black);
+    cursor: pointer;
+    border: none;
+    margin-top: 1rem;
+}
+
+/* LIST */
+
+.list {
+    display: grid;
+    gap: 1rem;
+}
+
+.listCard {
+    background: var(--color-dark-gray);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid var(--color-gold-dark);
+}
+
+.listActions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.editButton,
+.deleteButton {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+}
+
+.editButton {
+    background: var(--color-gold);
+    color: var(--color-black);
+}
+
+.deleteButton {
+    background: #8b2e2e;
+    color: var(--color-white);
+}
+
+.error {
+    color: #ff6b6b;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 20px;
+    background: rgba(255, 107, 107, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 107, 107, 0.2);
+}
+
+
+.errorText {
+    font-size: 0.875rem;
+    color: #ff6b6b;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.errorText::before {
+    content: '⚠';
+    font-size: 1rem;
+}
+
+.inputError {
+    border-color: rgba(255, 107, 107, 0.5);
+    background: rgba(255, 107, 107, 0.05);
+}
+
+.inputError:focus {
+    border-color: rgba(255, 107, 107, 0.6);
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+}

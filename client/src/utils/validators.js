@@ -84,5 +84,34 @@ export default {
         }
 
         return Object.keys(newErrors).length > 0 ? newErrors : null;
+    },
+
+    validateExamForm(data) {
+        const newErrors = {};
+
+        if (data.title?.trim().length < 3) {
+            newErrors.title = "Заглавието трябва да е поне 3 символа.";
+        }
+
+        if (!data.courseId) {
+            newErrors.courseId = "Трябва да изберете курс.";
+        }
+
+        if (data.questions?.length === 0) {
+            newErrors.questions = "Добавете поне един въпрос.";
+        }
+
+        if (data.questions) {
+
+            for (const q of data.questions) {
+                if (!q.text.trim() || q.answers.some(a => !a.trim())) {
+                    newErrors.newErrors = "Всички въпроси и трябва да имат текст.";
+                    return;
+                }
+            }
+        }
+
+        return Object.keys(newErrors).length > 0 ? newErrors : null;
     }
+
 }

@@ -62,21 +62,23 @@ export default function Courses() {
 
                         {beginnerCourses.map(c => (
                             <article key={c._id} className={`${styles.courseCard} ${styles.courseCardBeginner}`}>
-                                <div className={styles.courseCardHeader}>
-                                    <span className={`${styles.courseTag} ${styles.courseTagBeginner}`}>
-                                        Ниво: {c.level}
-                                    </span>
-                                    <h3>{c.title}</h3>
-                                </div>
-                                <img
-                                    src={c.imageUrl}
-                                    alt={`${c.title} image`}
-                                    className={styles.courseImage}
-                                />
+                                <Link to={`/courses/${c._id}`}>
+                                    <div className={styles.courseCardHeader}>
+                                        <span className={`${styles.courseTag} ${styles.courseTagBeginner}`}>
+                                            Ниво: {c.level}
+                                        </span>
+                                        <h3>{c.title}</h3>
+                                    </div>
+                                    <img
+                                        src={c.imageUrl}
+                                        alt={`${c.title} image`}
+                                        className={styles.courseImage}
+                                    />
 
-                                <p className={styles.courseShort}>
-                                    {c.description}
-                                </p>
+                                    <p className={styles.courseShort}>
+                                        {c.description}
+                                    </p>
+                                </Link>
 
                                 <Link to={`/courses/${c._id}`} className={styles.moreButton}>
                                     Виж детайлите →
@@ -108,22 +110,24 @@ export default function Courses() {
 
                         {advancedCourses.map(c => (
                             <article key={c._id} className={`${styles.courseCard} ${styles.courseCardAdvanced}`}>
-                                <div className={styles.courseCardHeader}>
-                                    <span className={`${styles.courseTag} ${styles.courseTagAdvanced}`}>
-                                        Ниво: {c.level}
-                                    </span>
-                                    <h3>{c.title}</h3>
-                                </div>
+                                <Link to={`/courses/${c._id}`}>
+                                    <div className={styles.courseCardHeader}>
+                                        <span className={`${styles.courseTag} ${styles.courseTagAdvanced}`}>
+                                            Ниво: {c.level}
+                                        </span>
+                                        <h3>{c.title}</h3>
+                                    </div>
 
-                                <img
-                                    src={c.imageUrl}
-                                    alt={`${c.imageUrl} image`}
-                                    className={styles.courseImage}
-                                />
+                                    <img
+                                        src={c.imageUrl}
+                                        alt={`${c.imageUrl} image`}
+                                        className={styles.courseImage}
+                                    />
 
-                                <p className={styles.courseShort}>
-                                    {c.description}
-                                </p>
+                                    <p className={styles.courseShort}>
+                                        {c.description}
+                                    </p>
+                                </Link>
 
                                 <Link to={`/courses/${c._id}`} className={styles.moreButton}>
                                     Пълна информация за обучението

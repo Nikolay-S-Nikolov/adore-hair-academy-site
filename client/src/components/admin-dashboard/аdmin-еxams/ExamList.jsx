@@ -1,0 +1,25 @@
+import styles from "./AdminExams.module.css";
+
+export default function ExamList({ exams, onEdit, onDelete }) {
+    if (exams.length === 0) {
+        return <p className={styles.empty}>Няма създадени изпити.</p>;
+    }
+
+    return (
+        <div className={styles.list}>
+            {exams.map(exam => (
+                <div key={exam._id} className={styles.listCard}>
+                    <h3>{exam.title}</h3>
+                    <p><strong>Курс:</strong> {exam.course?.title || "—"}</p>
+                    <p><strong>Въпроси:</strong> {exam.questions?.length || 0}</p>
+                    <p><strong>Продължителност:</strong> {exam.duration} мин.</p>
+
+                    <div className={styles.listActions}>
+                        <button onClick={() => onEdit(exam)} className={styles.editButton}>Редактирай</button>
+                        <button onClick={() => onDelete(exam)} className={styles.deleteButton}>Изтрий</button>
+                    </div>
+                </div>
+            ))}
+        </div>
+    );
+}

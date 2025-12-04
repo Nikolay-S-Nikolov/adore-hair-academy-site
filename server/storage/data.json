@@ -301,5 +301,46 @@
       "courseId": "a3424ccf-c95d-4657-a36e-b341d58be5d9",
       "_createdOn": 1764774979108
     }
+  },
+  "exams": {
+    "afdda592-a1de-4b2a-a7ff-5a56dcbdfbed": {
+      "title": "asdasd",
+      "courseId": "70d1894a-821b-48e1-a078-ceaf5c831a4e",
+      "duration": 30,
+      "questions": [
+        {
+          "text": "222222222222222",
+          "answers": [
+            "1111111111",
+            "222222222222",
+            "asdasd",
+            "asdads"
+          ],
+          "correct": 0
+        }
+      ],
+      "_createdOn": 1764880350958,
+      "_updatedOn": 1764881394567,
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc"
+    },
+    "ff7c8fc9-6e21-4e4d-bed9-4127ad179012": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "title": "asdaaaasdasdasdas",
+      "courseId": "44aab672-6853-4db0-b268-eafcaca7c741",
+      "duration": 30,
+      "questions": [
+        {
+          "text": "asdasdasdasd",
+          "answers": [
+            "asdasdasd",
+            "asdasdadsdas",
+            "asdasddas",
+            "asdadsdasdasdas"
+          ],
+          "correct": 0
+        }
+      ],
+      "_createdOn": 1764881462328
+    }
   }
 }
