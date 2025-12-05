@@ -75,7 +75,10 @@
 /* QUESTIONS */
 
 .questionsSection {
-    margin-top: 2rem;
+    margin-top: 1rem;
+}
+.questionsSection h3 {
+    color: var(--color-gold);
 }
 
 .questionCard {
@@ -119,6 +122,7 @@
     cursor: pointer;
     border: none;
     margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 /* LIST */
@@ -133,6 +137,11 @@
     padding: 1.5rem;
     border-radius: 10px;
     border: 1px solid var(--color-gold-dark);
+}
+
+.listCard h3 {
+    margin-bottom: 0.5rem;
+    color: var(--color-gold);
 }
 
 .listActions {

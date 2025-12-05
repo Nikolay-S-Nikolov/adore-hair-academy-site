@@ -38,13 +38,18 @@ export default function ExamForm({ isEdit, initialData, onSubmit, onCancel, cour
         setCourseId("");
         setDuration(30);
         setQuestions([]);
+        setError(null);
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const err = validators.validateExamForm({ title, courseId, questions })
-        if (err) return setError(err);
+        if (err) {
+            setError(err);
+            console.log(err);
+            return;
+        }
 
         const examData = {
             title,
@@ -123,6 +128,7 @@ export default function ExamForm({ isEdit, initialData, onSubmit, onCancel, cour
 
             <QuestionBuilder questions={questions} setQuestions={setQuestions} />
             {error?.questions === "Добавете поне един въпрос." && <p className={styles.errorText}>{error.questions}</p>}
+            {!error?.questions && error?.noText && <p className={styles.errorText}>{error.noText}</p>}
             <div className={styles.actions}>
                 <button type="submit" className={styles.primaryButton}>
                     {isEdit ? "Запази" : "Създай"}

@@ -105,8 +105,7 @@ export default {
 
             for (const q of data.questions) {
                 if (!q.text.trim() || q.answers.some(a => !a.trim())) {
-                    newErrors.newErrors = "Всички въпроси и трябва да имат текст.";
-                    return;
+                    newErrors.noText = "Не трябва да има въпрос иили отговор без текс.";
                 }
             }
         }

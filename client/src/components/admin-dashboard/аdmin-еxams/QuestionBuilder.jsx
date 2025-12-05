@@ -58,7 +58,7 @@ export default function QuestionBuilder({ questions, setQuestions }) {
                                     className={styles.input}
                                     value={ans}
                                     placeholder={`Отговор ${idx + 1}`}
-                                    onChange={(e) => {
+                                    onChange={(e) => {                                        
                                         const updatedAnswers = [...q.answers];
                                         updatedAnswers[idx] = e.target.value;
                                         updateQuestion(i, {
