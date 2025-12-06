@@ -97,6 +97,25 @@ export default {
             newErrors.courseId = "Трябва да изберете курс.";
         }
 
+        if (!["finalExam", "demoExam"].includes(data.type)) {
+            newErrors.type = "Невалиден тип изпит.";
+        }
+
+        const startMs = Date.parse(data.startAt);
+        const endMs = Date.parse(data.endAt);
+
+        if (startMs >= endMs) {
+            newErrors.date = "Началният час трябва да е преди крайния.";
+        }
+
+        if (Number.isNaN(startMs) || Number.isNaN(endMs)) {
+            newErrors.date = "Невалиден формат на дата/час.";
+        }
+
+        if (!data.startAt || !data.endAt) {
+            newErrors.date = "Моля, задайте начален и краен час на изпита.";
+        }
+
         if (data.questions?.length === 0) {
             newErrors.questions = "Добавете поне един въпрос.";
         }

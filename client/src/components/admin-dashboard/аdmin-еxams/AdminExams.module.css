@@ -203,6 +203,14 @@
     box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
 }
 
+.datePreview {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #d4af37;
+    font-style: italic;
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 700px) {

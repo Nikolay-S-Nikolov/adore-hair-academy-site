@@ -13,19 +13,29 @@ export default function ExamForm({ isEdit, initialData, onSubmit, onCancel, cour
     const [title, setTitle] = useState(initialData?.title || "");
     const [courseId, setCourseId] = useState(initialData?.courseId || "");
     const [duration, setDuration] = useState(initialData?.duration || 30);
+    const [type, setType] = useState(initialData?.type || "finalExam");
+    const [startAt, setStartAt] = useState(initialData?.startAt || "");
+    const [endAt, setEndAt] = useState(initialData?.endAt || "");
     const [questions, setQuestions] = useState(initialData?.questions || []);
+
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         if (isEdit && initialData) {
-
             request('GET', `/data/exams/${initialData._id}`)
                 .then((exam) => {
                     setTitle(exam.title || "");
                     setCourseId(exam.courseId || "");
                     setDuration(exam.duration || 30);
+                    setType(exam.type || "finalExam");
                     setQuestions(exam.questions || []);
+
+                    const s = new Date(exam.startAt ? exam.startAt : Date.now());
+                    setStartAt(s.toISOString().slice(0, 16) || "");
+
+                    const e = new Date(exam.endAt ? exam.endAt : Date.now());
+                    setEndAt(e.toISOString().slice(0, 16) || "");
                 })
                 .catch(err => setError(err.message))
                 .finally(() => setLoading(false))
@@ -39,12 +49,24 @@ export default function ExamForm({ isEdit, initialData, onSubmit, onCancel, cour
         setDuration(30);
         setQuestions([]);
         setError(null);
+        setStartAt("");
+        setEndAt("");
+        setType("finalExam");
+
+
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const err = validators.validateExamForm({ title, courseId, questions })
+        const err = validators.validateExamForm({
+            title,
+            courseId,
+            questions,
+            type,
+            startAt,
+            endAt
+        })
         if (err) {
             setError(err);
             console.log(err);
@@ -55,15 +77,15 @@ export default function ExamForm({ isEdit, initialData, onSubmit, onCancel, cour
             title,
             courseId,
             duration: Number(duration),
-            questions
+            questions,
+            type,
+            startAt,
+            endAt,
+
         };
         isEdit ? await onSubmit(initialData._id, examData) : await onSubmit(examData);
 
-        setTitle("");
-        setCourseId("");
-        setDuration(30);
-        setQuestions([]);
-        setError(null);
+        resetInitialData();
     };
 
     if (loading && isEdit) return <LoadingSpinner text="Зареждане на въпросите..." />;
@@ -115,6 +137,18 @@ export default function ExamForm({ isEdit, initialData, onSubmit, onCancel, cour
             </label>
 
             <label>
+                Тип изпит
+                <select
+                    className={styles.input}
+                    value={type}
+                    onChange={(e) => setType(e.target.value)}
+                >
+                    <option value="finalExam">Финален изпит</option>
+                    <option value="demoExam">Демо тест</option>
+                </select>
+            </label>
+
+            <label>
                 Продължителност (в минути)
                 <input
                     type="number"
@@ -126,9 +160,62 @@ export default function ExamForm({ isEdit, initialData, onSubmit, onCancel, cour
                 />
             </label>
 
+            <div className={styles.twoCols}>
+                <label>
+                    Начало на изпита
+                    {error?.date && <p className={styles.errorText}>{error.date}</p>}
+                    {startAt && (
+                        <span className={styles.datePreview}>
+                            {new Date(startAt).toLocaleString('bg-BG', {
+                                day: '2-digit',
+                                month: '2-digit',
+                                year: 'numeric',
+                                hour: '2-digit',
+                                minute: '2-digit'
+                            })}
+                        </span>
+                    )}
+                    <input
+                        type="datetime-local"
+                        className={styles.input}
+                        style={{ "color-scheme": "dark" }}
+                        value={startAt}
+                        onChange={(e) => setStartAt(e.target.value)}
+                    />
+
+                </label>
+
+                <label>
+                    Край на изпита
+                    {error?.date && <p className={styles.errorText}>{error.date}</p>}
+                    {endAt && (
+                        <span className={styles.datePreview}>
+                            {new Date(endAt).toLocaleString('bg-BG', {
+                                day: '2-digit',
+                                month: '2-digit',
+                                year: 'numeric',
+                                hour: '2-digit',
+                                minute: '2-digit'
+                            })}
+                        </span>
+                    )}
+                    <input
+                        type="datetime-local"
+                        className={styles.input}
+                        style={{ "color-scheme": "dark" }}
+                        value={endAt}
+                        onChange={(e) => setEndAt(e.target.value)}
+                    />
+                </label>
+            </div>
+
+
             <QuestionBuilder questions={questions} setQuestions={setQuestions} />
+
             {error?.questions === "Добавете поне един въпрос." && <p className={styles.errorText}>{error.questions}</p>}
+
             {!error?.questions && error?.noText && <p className={styles.errorText}>{error.noText}</p>}
+
             <div className={styles.actions}>
                 <button type="submit" className={styles.primaryButton}>
                     {isEdit ? "Запази" : "Създай"}
