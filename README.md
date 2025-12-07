@@ -1,29 +1,3 @@
-- [x] Added html and css resources
-- [x] Create react base project inside client folder `npm create vite@latest .`
-- [x] Add components Header, Home and Footer
-- [x] Add responsive Header menu functionality
-- [x] Setup React router `npm i react-router`
-- [x]  Add Routes
-- [x]  Add Courses component and css
-- [x]  Add About component and css
-- [x]  Add Contact component and css
-- [x]  Add Product component and css
-- [x]  Add Contact send email functionality
-- [x]  Add Register component and css
-- [x]  Add Login component and css
-- [x]  Add Logout component and css
-- [x]  Add toast context and hook
-- [x]  Add GlobalToast component, toast context and hook
-- [x]  Add GuestRoute guard
-- [x]  Add ProtectedRoute guard
-- [x]  Add Dashboard component
-- [x]  Update dashboard with static data
-- [x]  Add Course details  component and css
-- [x]  Add AdminResources, ResourceCard,ResourceForm, ResourceList and AdminResources.module.css for admin CRUD operations
-- [x]  Add resource form validation and toast messages
-- [x]  Refactor StudentDashboard to show dynamic data
-- [x]  Add AdminExams, ExamForm, ExamList and QuestionBuilder components with CRUD functionality for exam management
-
 # Adore Hair Academy — React Application
 
 A modern single-page application built with **React 19 + Vite**, designed for a real-world hairdressing academy.
@@ -43,7 +17,7 @@ This repository contains the frontend application in folder client, which commun
 - **Admin Panel** for course management (create, edit, delete)
 - **Review System** - users can leave reviews for courses
 - **Enrollment System** - user course enrollment
-- Foundation for future Student Dashboard, exam system, and learning resources
+- **Student Dashboard** - exam system, and learning resources
 
 ## Live Demo
 
@@ -51,13 +25,20 @@ This repository contains the frontend application in folder client, which commun
 
 **Backend:** [Deployed on Render](https://adore-hair-academy-server.onrender.com/) *(https://adore-hair-academy-server.onrender.com/)*
 
+### Test User Account
+For testing user functionalities, use these credentials:
+
+```
+peter@abv.bg : 123456
+george@abv.bg : 123456
+```
+
 ### Test Admin Account
 
 For testing admin functionalities, use these credentials:
 
 ```
-Email: admin@abv.bg
-Password: admin
+admin@abv.bg: admin
 ```
 
 admin dashboard route `/admin`
@@ -185,7 +166,7 @@ Planned improvements:
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 *Screenshots will be added soon*
 

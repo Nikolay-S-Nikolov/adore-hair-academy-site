@@ -5,6 +5,8 @@ import styles from "./AdminCourses.module.css";
 import { useAdminApi } from "../../../hooks/useAdminApi.js";
 import AdminCourseList from "./courses-list/AdminCourseList.jsx";
 import AdminCourseForm from "./courses-form/AdminCourseForm.jsx";
+import ConfirmModal from "../../modals/ConfirmModal.jsx";
+import { useToast } from "../../../hooks/useToast.js";
 
 export default function AdminCourses() {
     const { getCourses, createCourse, updateCourse, deleteCourse } = useAdminApi();
@@ -12,6 +14,9 @@ export default function AdminCourses() {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
     const [editingCourse, setEditingCourse] = useState(null);
+    const [courseToDelete, setCourseToDelete] = useState(null);
+    const toast = useToast()
+
 
     useEffect(() => {
         getCourses()
@@ -26,6 +31,7 @@ export default function AdminCourses() {
         const updated = await updateCourse(editingCourse._id, { ...editingCourse, ...formData });
         setCourses(prev => prev.map(c => (c._id === editingCourse._id ? updated : c)));
         setEditingCourse(null);
+        toast.success('Курсът е променен успешно!');
     };
 
     function onEditClickHandler(course) {
@@ -37,16 +43,26 @@ export default function AdminCourses() {
         setEditingCourse(null);
     };
 
-    const handleDelete = async (id) => {
-        await deleteCourse(id);
-        setCourses(prev => prev.filter(c => c._id !== id));
+    const handleDelete = (course) => {
+        setCourseToDelete(course)
     };
 
 
     const handleCreate = async (data) => {
         const newCourse = await createCourse(data);
         setCourses(prev => [...prev, newCourse]);
+        toast.success('Курсът е създаден успешно!');
     };
+
+    const confirmDelete = async () => {
+        await deleteCourse(courseToDelete._id);
+        setCourses(prev => prev.filter(c => c._id !== courseToDelete._id));
+        setCourseToDelete(null);
+        toast.success('Курсът е изтрит успешно!');
+
+    }
+
+    const cancelDelete = () => setCourseToDelete(null);
 
 
     return (
@@ -86,6 +102,15 @@ export default function AdminCourses() {
 
                 <AdminCourseList loading={loading} courses={courses} onEditClick={onEditClickHandler} handleEdit={handleUpdate}
                     handleDelete={handleDelete} />
+
+                {courseToDelete && (
+                    <ConfirmModal
+                        title="Изтриване на курс"
+                        message={`Сигурни ли сте, че искате да изтриете курса ${courseToDelete.title}`}
+                        onConfirm={confirmDelete}
+                        onCancel={cancelDelete}
+                    />
+                )}
             </div>
         </div>
     );
