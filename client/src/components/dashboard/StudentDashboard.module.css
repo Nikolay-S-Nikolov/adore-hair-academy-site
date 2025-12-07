@@ -331,12 +331,90 @@
     font-style: italic;
 }
 
+/*EXAM */
+.examLink {
+    display: inline-block;
+    background-color: var(--color-gold);
+    color: var(--color-black);
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.25s ease, transform 0.2s ease;
+    box-shadow: 0 3px 10px rgba(201, 169, 110, 0.25);
+}
+
+.examLink:hover {
+    background-color: var(--color-gold-dark);
+    transform: translateY(-2px);
+}
+
+.demoExamLink {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--color-gold);
+    border: 1px solid var(--color-gold);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    margin-top: 8px;
+}
+
+.demoExamLink:hover {
+    background-color: var(--color-gold);
+    color: var(--color-black);
+}
+
+.examInfo {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--color-silver);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 14px;
+    border-left: 3px solid var(--color-gold);
+    border-radius: 4px;
+    margin: 6px 0;
+}
+
+.examClosed {
+    font-size: 0.95rem;
+    color: #ff6b6b;
+    background: rgba(255, 0, 0, 0.06);
+    padding: 8px 14px;
+    border-left: 3px solid #ff6b6b;
+    border-radius: 4px;
+    margin: 6px 0;
+}
+
 .empty {
     color: var(--color-silver);
-    font-style: italic;
+    opacity: 0.7;
+    padding: 6px 0;
+    font-size: 0.92rem;
 }
 
 /* RESPONSIVE */
+
+@media (max-width: 600px) {
+
+    .examLink,
+    .demoExamLink {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    .examInfo,
+    .examClosed,
+    .empty {
+        font-size: 0.95rem;
+        padding: 10px 12px;
+    }
+}
+
 @media (max-width: 900px) {
     .grid {
         grid-template-columns: 1fr;

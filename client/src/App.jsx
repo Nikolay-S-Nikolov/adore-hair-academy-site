@@ -22,6 +22,8 @@ import EnrollmentForm from './components/courses/enrollment-form/EnrollmentForm.
 import AdminEnrollments from './components/admin-dashboard/аdmin-еnrollments/AdminEnrollments.jsx'
 import AdminResources from './components/admin-dashboard/admin-resources/AdminResources.jsx'
 import AdminExams from './components/admin-dashboard/аdmin-еxams/AdminExams.jsx'
+import ExamTaking from './components/dashboard/exam-taking/ExamTaking.jsx'
+import ExamResult from './components/dashboard/exam-result/ExamResult.jsx'
 
 function App() {
 
@@ -46,6 +48,8 @@ function App() {
           <Route path='/logout' element={<Logout />} />
 
           <Route path='/dashboard' element={<ProtectedRoute><StudentDashboard /></ProtectedRoute>} />
+          <Route path='/dashboard/exam/:examId' element={<ProtectedRoute><ExamTaking /></ProtectedRoute>} />
+          <Route path='/dashboard/exam-result/:resultId' element={<ProtectedRoute><ExamResult /></ProtectedRoute>} />
 
           <Route path='/admin' element={<AdminRoute> <AdminDashboard /> </AdminRoute>} />
           <Route path="/admin/courses" element={<AdminRoute> <AdminCourses /> </AdminRoute>} />

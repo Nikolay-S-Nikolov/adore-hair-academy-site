@@ -4,7 +4,7 @@ import formatDateTime from "../../../utils/formatDateTime.js"
 export default function ExamList({ exams, onEdit, onDelete }) {
 
     if (exams.length === 0) {
-        return <p className={styles.empty}>Няма създадени изпити.</p>;
+        return <p className={styles.empty}>Все още няма създадени изпити.</p>;
     }
 
     return (

@@ -409,8 +409,11 @@
           "correct": 0
         }
       ],
+      "type": "demoExam",
+      "startAt": "2025-12-07T14:18",
+      "endAt": "2025-12-09T14:18",
       "_createdOn": 1764934803408,
-      "_updatedOn": 1764935233369,
+      "_updatedOn": 1765130849353,
       "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc"
     },
     "27fc2174-5752-4992-b27a-48b98282e582": {
@@ -524,7 +527,6 @@
       "_updatedOn": 1764936756676
     },
     "b149bbb2-ce36-46ad-97b9-6cd469de2286": {
-      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
       "title": "Колористика – Основен Теоретичен Тест",
       "courseId": "70d1894a-821b-48e1-a078-ceaf5c831a4e",
       "duration": 30,
@@ -630,7 +632,124 @@
           "correctIndex": 1
         }
       ],
-      "_createdOn": 1764936859812
+      "type": "finalExam",
+      "startAt": "2025-12-07T14:50",
+      "endAt": "2025-12-30T14:50",
+      "_createdOn": 1764936859812,
+      "_updatedOn": 1765130890688,
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc"
+    },
+    "0af3bcad-2058-4503-9f44-c78828025963": {
+      "title": "asddsa",
+      "courseId": "a3424ccf-c95d-4657-a36e-b341d58be5d9",
+      "duration": 30,
+      "questions": [
+        {
+          "text": "asdasdasd",
+          "answers": [
+            "asdasdads",
+            "asd",
+            "asdadsdsa",
+            "sasdadsa"
+          ],
+          "correct": 0
+        }
+      ],
+      "type": "finalExam",
+      "startAt": "2025-12-17T06:11",
+      "endAt": "2025-12-26T08:11",
+      "_createdOn": 1765041553224,
+      "_updatedOn": 1765130810589,
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc"
+    }
+  },
+  "examResults": {
+    "6f10744c-bb6d-4959-b8e9-baab38dd5026": {
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+      "examId": "43e3958d-aa8c-42e7-94a6-831ad04e7493",
+      "courseId": "a3424ccf-c95d-4657-a36e-b341d58be5d9",
+      "score": 0,
+      "totalQuestions": 10,
+      "answers": {
+        "0": 1,
+        "1": 2,
+        "2": 2,
+        "3": 2,
+        "4": 1,
+        "5": 2,
+        "6": 2,
+        "7": 1,
+        "8": 1,
+        "9": 0
+      },
+      "submittedAt": 1765115918950,
+      "_createdOn": 1765115918956
+    },
+    "6999d851-1332-4e85-8472-aeb9dcc52c66": {
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+      "examId": "43e3958d-aa8c-42e7-94a6-831ad04e7493",
+      "courseId": "a3424ccf-c95d-4657-a36e-b341d58be5d9",
+      "score": 50,
+      "totalQuestions": 10,
+      "answers": {
+        "0": 0,
+        "1": 2,
+        "2": 2,
+        "3": 2,
+        "4": 1,
+        "5": 2,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 1
+      },
+      "submittedAt": 1765116685860,
+      "_createdOn": 1765116685878
+    },
+    "7bcb7bc6-279f-4793-8672-25aceb9f68cc": {
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+      "examId": "0af3bcad-2058-4503-9f44-c78828025963",
+      "courseId": "a3424ccf-c95d-4657-a36e-b341d58be5d9",
+      "score": 100,
+      "totalQuestions": 1,
+      "answers": {
+        "0": 0
+      },
+      "submittedAt": 1765116868305,
+      "_createdOn": 1765116868312
+    },
+    "58cf806f-3d9f-4a77-8edb-3ac7599c8059": {
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+      "examId": "0af3bcad-2058-4503-9f44-c78828025963",
+      "courseId": "a3424ccf-c95d-4657-a36e-b341d58be5d9",
+      "score": 100,
+      "totalQuestions": 1,
+      "answers": {
+        "0": 0
+      },
+      "submittedAt": 1765117364032,
+      "_createdOn": 1765117364044
+    },
+    "3f56f8a1-d0a8-45c4-a6ae-d47c5bc6b79a": {
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+      "examId": "43e3958d-aa8c-42e7-94a6-831ad04e7493",
+      "courseId": "a3424ccf-c95d-4657-a36e-b341d58be5d9",
+      "score": 10,
+      "totalQuestions": 10,
+      "answers": {
+        "0": 0,
+        "1": 0,
+        "2": 1,
+        "3": 1,
+        "4": 0,
+        "5": 1,
+        "6": 1,
+        "7": 2,
+        "8": 1,
+        "9": 1
+      },
+      "submittedAt": 1765130923231,
+      "_createdOn": 1765130923239
     }
   }
 }

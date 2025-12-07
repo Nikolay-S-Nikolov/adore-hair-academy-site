@@ -1,0 +1,142 @@
+/* src/components/exams/ExamTaking.module.css */
+
+.page {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-black);
+  padding: 2rem 1rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 720px;
+  background: var(--color-dark-gray);
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  color: var(--color-beige);
+  font-family: var(--font-family-primary);
+}
+
+.header {
+  margin-bottom: 1.5rem;
+}
+
+.header h1 {
+  font-family: var(--font-family-serif);
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-white);
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--color-silver);
+}
+
+.error {
+  color: #ff6b6b;
+  margin-bottom: 1rem;
+}
+
+.questionBox {
+  margin-bottom: 1.5rem;
+}
+
+.questionText {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--color-beige);
+}
+
+.answers {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.answerLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  background: #191919;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease,
+    transform 0.1s ease;
+}
+
+.answerLabel + .answerLabel {
+  margin-top: 0.5rem;
+}
+
+.answerLabel input[type="radio"] {
+  accent-color: var(--color-gold);
+}
+
+.answerLabel:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-1px);
+}
+
+.navButtons {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 1.2rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease,
+    box-shadow 0.15s ease;
+}
+
+.primaryButton {
+  background: var(--color-gold);
+  color: var(--color-black);
+  font-weight: 600;
+}
+
+.primaryButton:hover:not(:disabled) {
+  background: var(--color-gold-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.secondaryButton {
+  background: transparent;
+  border: 1px solid var(--color-silver);
+  color: var(--color-beige);
+}
+
+.secondaryButton:hover:not(:disabled) {
+  border-color: var(--color-gold);
+}
+
+.primaryButton:disabled,
+.secondaryButton:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .card {
+    padding: 1.4rem;
+  }
+
+  .navButtons {
+    flex-direction: column-reverse;
+  }
+}

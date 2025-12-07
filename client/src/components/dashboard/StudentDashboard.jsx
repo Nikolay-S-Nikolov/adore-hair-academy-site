@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router"
 import LoadingSpinner from "../ui/loading-spinner/LoadingSpinner.jsx";
 
 import styles from "./StudentDashboard.module.css";
 import { useCourseApi } from "../../hooks/useCoursesApi.js";
 import { useAuth } from "../../hooks/useAuth.js";
+import formatDate from "../../utils/formatDateTime.js";
 
 export default function StudentDashboard() {
     const { user } = useAuth();
@@ -11,6 +13,9 @@ export default function StudentDashboard() {
     const [courses, setCourses] = useState([])
     const [expanded, setExpanded] = useState({});
     const [resources, setResources] = useState({});
+    const [exams, setExams] = useState({});
+    const [demoExams, setDemoExams] = useState({});
+
     const [loadingRes, setLoadingRes] = useState({});
     const { request } = useCourseApi()
 
@@ -19,6 +24,8 @@ export default function StudentDashboard() {
             .then(setCourses)
             .finally(() => setLoading(false));
     }, [request, user._id]);
+
+    const currentTime = Date.now();
 
     async function toggleResources(courseId) {
         const isOpen = expanded[courseId];
@@ -34,6 +41,10 @@ export default function StudentDashboard() {
         try {
             const data = await request("GET", `/data/resources?where=courseId%3D%22${courseId}%22`)
             setResources(prev => ({ ...prev, [courseId]: data }));
+            const exam = await request("GET", `/data/exams?where=courseId%3D%22${courseId}%22&sortBy=_createdOn%20desc`)
+
+            setExams(prev => ({ ...prev, [courseId]: exam.filter(e => e.type === "finalExam")[0] }));
+            setDemoExams(prev => ({ ...prev, [courseId]: exam.filter(e => e.type === "demoExam")[0] }));
         } catch (err) {
             console.error(err);
         } finally {
@@ -46,6 +57,10 @@ export default function StudentDashboard() {
     const approved = courses.filter(e => e.status === "approved");
     const pending = courses.filter(e => e.status === "pending");
     const rejected = courses.filter(e => e.status === "rejected");
+
+    function converDateTime(dateTime) {
+        return new Date(dateTime).getTime()
+    }
 
     return (
         <div className={styles.page}>
@@ -74,8 +89,9 @@ export default function StudentDashboard() {
                                 className={styles.linkButton}
                                 onClick={() => toggleResources(item.course._id)}
                             >
-                                Материали и уроци
+                                Материали и уроци и изпити
                             </button>
+
                         </div>
 
                         {expanded[item.course._id] && (
@@ -83,6 +99,43 @@ export default function StudentDashboard() {
 
                                 {loadingRes[item.course._id] && (
                                     <p className={styles.loading}>Зареждане...</p>
+                                )}
+
+                                {!loadingRes[item.course._id] && exams[item.course._id] && (
+                                    currentTime >= converDateTime(exams[item.course._id].startAt) && currentTime <= converDateTime(exams[item.course._id].endAt) ?
+                                        (<Link
+                                            to={`/dashboard/exam/${exams[item.course._id]._id}`}
+                                            className={styles.examLink}
+                                        >
+                                            Линк към изпит :{exams[item.course._id].title}
+                                        </Link>
+                                        ) : currentTime < converDateTime(exams[item.course._id].startAt) ? (
+                                            <p className={styles.examInfo}>
+                                                Изпитът започва на {formatDate(exams[item.course._id].startAt)}
+                                            </p>
+                                        ) : (
+                                            <p className={styles.examClosed}>
+                                                Изпитният прозорец е затворен.
+                                            </p>
+                                        )
+                                )}
+
+                                {!loadingRes[item.course._id] && !exams[item.course._id] && (
+                                    <p className={styles.empty}>Все още няма добавени изпит.</p>
+                                )}
+
+                                {!loadingRes[item.course._id] && demoExams[item.course._id] &&
+                                    (<Link
+                                        to={`/dashboard/exam/${demoExams[item.course._id]._id}`}
+                                        className={styles.demoExamLink}
+                                    >
+                                        Линк към демо изпит :{demoExams[item.course._id].title}
+                                    </Link>)
+
+                                }
+
+                                {!loadingRes[item.course._id] && !demoExams[item.course._id] && (
+                                    <p className={styles.empty}>Все още няма добавен демо изпит.</p>
                                 )}
 
                                 {!loadingRes[item.course._id] &&
