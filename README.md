@@ -159,11 +159,11 @@ Planned improvements:
 - Request approval/rejection
 - Statistics
 
-### Notifications System
-- Real-time notifications
-- Email notifications
-- Push notifications
+## Bonuses
 
+### External API Integration
+- **Web3Forms API** - Handles contact form submissions and sends emails without backend server
+- **Google Maps Embed API** - Interactive map showing academy location in Contact page
 ---
 
 ## Screenshots

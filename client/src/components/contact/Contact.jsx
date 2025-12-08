@@ -7,7 +7,6 @@ export default function Contact() {
     <section className={styles.contactPage}>
       <div className="container">
 
-        {/* HEADER */}
         <header className={styles.header}>
           <h1>Свържете се с ADORE Hair Academy</h1>
           <p className={styles.subtitle}>
@@ -16,10 +15,8 @@ export default function Contact() {
           </p>
         </header>
 
-        {/* INFO BLOCK */}
         <section className={styles.infoSection}>
 
-          {/* CONTACT DETAILS */}
           <div className={styles.infoCard}>
             <h2>Контакти</h2>
 
@@ -34,7 +31,6 @@ export default function Contact() {
               <p><strong>Работно време:</strong> Пон–Съб: 10:00 – 19:00</p>
             </div>
 
-            {/* SOCIAL BUTTONS */}
             <div className={styles.socials}>
               <a
                 href="https://instagram.com"
@@ -54,12 +50,10 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* CONTACT FORM */}
           <ContactForm />
 
         </section>
 
-        {/* MAP SECTION */}
         <section className={styles.mapSection}>
           <h2>Къде се намираме?</h2>
           <p className={styles.subtitle}>Лесно достъпна локация с удобен транспорт</p>
@@ -78,10 +72,8 @@ export default function Contact() {
           </div>
         </section>
 
-        {/* FAQ SECTION */}
         <FaqSection />
 
-        {/* CTA BLOCK */}
         <section className={styles.ctaSection}>
           <div className={styles.ctaCard}>
             <h2>Готови сте да започнете?</h2>
