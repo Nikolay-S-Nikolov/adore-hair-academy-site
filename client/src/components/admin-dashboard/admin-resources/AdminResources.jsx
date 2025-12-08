@@ -6,6 +6,7 @@ import LoadingSpinner from "../../ui/loading-spinner/LoadingSpinner.jsx";
 import ResourceForm from "./ResourceForm.jsx";
 import ResourceList from "./ResourceList.jsx";
 import { useToast } from "../../../hooks/useToast.js";
+import BackToBtn from "../back-to-btn/BackToBtn.jsx";
 
 export default function AdminResources() {
     const { getCourses, request } = useAdminApi();
@@ -49,7 +50,7 @@ export default function AdminResources() {
 
     const handleDelete = async (id) => {
         await request("DELETE", `/data/resources/${id}`),
-        setResources(prev => prev.filter(r => r._id !== id));
+            setResources(prev => prev.filter(r => r._id !== id));
         toast.success('Ресурсът е изтрит успешно!')
     };
 
@@ -57,6 +58,7 @@ export default function AdminResources() {
 
     return (
         <div className={styles.page}>
+            <BackToBtn />
             <h1 className={styles.title}>Учебни материали</h1>
             <p className={styles.subtitle}>Добавяне на видео уроци и PDF файлове към курсовете.</p>
 

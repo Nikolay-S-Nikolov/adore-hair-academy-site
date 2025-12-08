@@ -8,6 +8,7 @@ import ExamList from "./ExamList.jsx";
 import ConfirmModal from "../../modals/ConfirmModal.jsx";
 import { useToast } from "../../../hooks/useToast.js";
 import LoadingSpinner from "../../ui/loading-spinner/LoadingSpinner.jsx";
+import BackToBtn from "../back-to-btn/BackToBtn.jsx";
 
 export default function AdminExams() {
     const toast = useToast();
@@ -93,6 +94,7 @@ export default function AdminExams() {
 
     return (
         <div className={styles.page}>
+            <BackToBtn />
             <h1 className={styles.title}>Управление на изпити</h1>
             <p className={styles.subtitle}>Създаване, редактиране и изтриване на изпитни тестове.</p>
 

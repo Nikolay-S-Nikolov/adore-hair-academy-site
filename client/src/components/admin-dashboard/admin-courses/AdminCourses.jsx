@@ -7,6 +7,7 @@ import AdminCourseList from "./courses-list/AdminCourseList.jsx";
 import AdminCourseForm from "./courses-form/AdminCourseForm.jsx";
 import ConfirmModal from "../../modals/ConfirmModal.jsx";
 import { useToast } from "../../../hooks/useToast.js";
+import BackToBtn from "../back-to-btn/BackToBtn.jsx";
 
 export default function AdminCourses() {
     const { getCourses, createCourse, updateCourse, deleteCourse } = useAdminApi();
@@ -69,9 +70,7 @@ export default function AdminCourses() {
 
         <div className={styles.page}>
 
-            <Link className={styles.backButton} to="/admin">
-                ⟵ Обратно към админ панела
-            </Link>
+            <BackToBtn/>
 
             <h1 className={styles.title}>Управление на курсове</h1>
             <p className={styles.subtitle}>

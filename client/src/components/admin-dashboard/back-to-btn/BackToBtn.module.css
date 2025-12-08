@@ -1,0 +1,32 @@
+
+
+.backButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 10px 16px;
+    margin-bottom: 20px;
+
+    background-color: #f7f7f7;       
+    border: 1px solid #ddd;         
+    border-radius: 8px;
+
+    color: #333;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.backButton:hover {
+    background-color: #ececec;    
+    border-color: #ccc;
+    transform: translateX(-2px);    
+}
+
+.backButton:active {
+    transform: translateX(0px) scale(0.98);
+}

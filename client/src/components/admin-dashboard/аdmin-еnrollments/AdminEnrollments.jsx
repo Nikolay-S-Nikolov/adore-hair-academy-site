@@ -3,6 +3,7 @@ import styles from "./AdminEnrollments.module.css";
 import { useAdminApi } from "../../../hooks/useAdminApi.js";
 import { useToast } from "../../../hooks/useToast.js";
 import LoadingSpinner from "../../ui/loading-spinner/LoadingSpinner.jsx";
+import BackToBtn from "../back-to-btn/BackToBtn.jsx";
 
 export default function AdminEnrollments() {
     const { getEnrollments, updateEnrollment } = useAdminApi();
@@ -37,7 +38,7 @@ export default function AdminEnrollments() {
         toast.warning("Заявката е отказана.");
     };
 
-    if (loading) return <LoadingSpinner text="Зареждане на заявките..."/>;
+    if (loading) return <LoadingSpinner text="Зареждане на заявките..." />;
 
     const pending = enrollments.filter(e => e.status === "pending");
     const approved = enrollments.filter(e => e.status === "approved");
@@ -45,6 +46,8 @@ export default function AdminEnrollments() {
 
     return (
         <div className={styles.page}>
+
+            <BackToBtn />
             <h1 className={styles.title}>Заявки за записване</h1>
 
             {/* ---------- Pending ---------- */}
