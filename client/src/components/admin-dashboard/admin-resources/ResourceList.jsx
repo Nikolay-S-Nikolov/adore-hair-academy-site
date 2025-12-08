@@ -9,7 +9,7 @@ export default function ResourceList({ resources, onEdit, onDelete }) {
                     key={r._id}
                     item={r}
                     onEdit={() => onEdit(r)}
-                    onDelete={() => onDelete(r._id)}
+                    onDelete={() => onDelete(r)}
                 />
             ))}
         </div>

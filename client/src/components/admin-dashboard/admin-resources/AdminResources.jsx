@@ -7,6 +7,7 @@ import ResourceForm from "./ResourceForm.jsx";
 import ResourceList from "./ResourceList.jsx";
 import { useToast } from "../../../hooks/useToast.js";
 import BackToBtn from "../back-to-btn/BackToBtn.jsx";
+import ConfirmModal from "../../modals/ConfirmModal.jsx";
 
 export default function AdminResources() {
     const { getCourses, request } = useAdminApi();
@@ -15,6 +16,8 @@ export default function AdminResources() {
     const [courses, setCourses] = useState([]);
     const [loading, setLoading] = useState(true);
     const [editing, setEditing] = useState(null);
+    const [resourceToDelete, setresourceToDelete] = useState(null);
+
     const toast = useToast()
 
     useEffect(() => {
@@ -36,6 +39,7 @@ export default function AdminResources() {
         newRes.course = { title: course.title };
 
         setResources(prev => [...prev, newRes]);
+        toast.success('Ресурса е създаден успешно!');
     };
 
     const handleUpdate = async (id, data) => {
@@ -46,13 +50,21 @@ export default function AdminResources() {
 
         setResources(prev => prev.map(r => r._id === data._id ? updated : r));
         setEditing(null);
+        toast.success('Ресурса е променен успешно!');
     };
 
-    const handleDelete = async (id) => {
-        await request("DELETE", `/data/resources/${id}`),
-            setResources(prev => prev.filter(r => r._id !== id));
-        toast.success('Ресурсът е изтрит успешно!')
+    const handleDelete = (resource) => {
+        setresourceToDelete(resource);
     };
+
+    const confirmDelete = async () => {
+        await request("DELETE", `/data/resources/${resourceToDelete._id}`),
+            setResources(prev => prev.filter(r => r._id !== resourceToDelete._id));
+        setresourceToDelete(null);
+        toast.success('Ресурса е изтрит успешно!');
+    }
+
+    const cancelDelete = () => setresourceToDelete(null);
 
     if (loading) return <LoadingSpinner />
 
@@ -76,6 +88,14 @@ export default function AdminResources() {
                     onDelete={handleDelete}
                 />
             </div>
+            {resourceToDelete && (
+                <ConfirmModal
+                    title="Изтриване на ресурс"
+                    message={`Сигурни ли сте, че искате да изтриете ресурса ${resourceToDelete.type}: ${resourceToDelete.title}`}
+                    onConfirm={confirmDelete}
+                    onCancel={cancelDelete}
+                />
+            )}
         </div>
     );
 }
