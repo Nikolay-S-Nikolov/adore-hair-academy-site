@@ -3,7 +3,7 @@ import config from "../gonfig/config.js";
 import { useCallback } from "react";
 
 export function useCourseApi() {
-    const { token, user } = useAuth();
+    const { token, user, logout } = useAuth();
 
     const baseUrl = config.BASE_URL;
     const request = useCallback(async (method, url, data = null) => {
@@ -25,27 +25,33 @@ export function useCourseApi() {
             options.headers["Content-Type"] = "application/json";
             options.body = JSON.stringify(data);
         }
-
-        const res = await fetch(baseUrl + url, options);
-
-        //TODO check if 204
-        if (res.status === 204) {
-            return { success: true };
-        }
-
-        let json = null;
         try {
-            json = await res.json();
-        } catch {
-            json = null;
-        }
+            const res = await fetch(baseUrl + url, options);
 
-        if (!res.ok) {
-            throw new Error(json?.message || `Request failed (${res.status})`);
-        }
+            if (res.status === 403) {
+                logout();
+                return null;
+            }
 
-        return json;
-    }, [token, baseUrl, user?.role]);
+            //TODO check if 204
+            if (res.status === 204) {
+                return { success: true };
+            }
+            let json = null;
+            try {
+                json = await res.json();
+            } catch {
+                json = null;
+            }
+
+            if (!res.ok) {
+                throw new Error(json?.message || `Request failed (${res.status})`);
+            }
+            return json;
+        } catch (err) {
+            throw new Error(err.message || "REQUEST_FAILED");
+        }
+    }, [token, baseUrl, user?.role, logout]);
 
     const getCourseById = useCallback((id) => request("GET", `/data/courses/${id}`), [request]);
 

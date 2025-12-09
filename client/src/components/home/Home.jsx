@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { useCourseApi } from "../../hooks/useCoursesApi.js";
 import LoadingSpinner from "../ui/loading-spinner/LoadingSpinner.jsx";
+import config from "../../gonfig/config.js"
 
 export default function Home() {
     const [courses, setCourses] = useState([]);
@@ -15,7 +16,8 @@ export default function Home() {
         async function loadCourses() {
             try {
                 setLoading(true);
-                const data = await request("GET", "/data/courses/?sortBy=_createdOn%20desc");
+                const res = await fetch(`${config.BASE_URL}/data/courses/?sortBy=_createdOn%20desc`);
+                const data = await res.json();
                 setCourses(data.slice(0, 3));
             } catch (err) {
                 setError(`Грешка при зареждането ${err.message}`);

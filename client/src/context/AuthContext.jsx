@@ -1,4 +1,5 @@
 import { createContext, useState, useCallback } from "react";
+
 import config from '../gonfig/config.js'
 
 const AuthContext = createContext({
@@ -6,7 +7,7 @@ const AuthContext = createContext({
     user: {
         _id: '',
         email: '',
-        accessToken: '',        
+        accessToken: '',
     },
     loading: false,
     error: false,
@@ -24,7 +25,6 @@ export function AuthProvider({ children }) {
     });
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-
     const baseUrl = config.BASE_URL;
 
     const authRequest = useCallback(async (method, url, data, isLogout = false) => {
@@ -66,11 +66,6 @@ export function AuthProvider({ children }) {
 
             return result;
         } catch (err) {
-            // if (err.message === "SESSION_EXPIRED") {
-            //     toast.warning("Вашата сесия е изтекла. Моля влезте отново.");
-            //     navigate("/login");
-            //     return;
-            // }
             setError(err.message);
             throw err;
         } finally {
@@ -96,11 +91,20 @@ export function AuthProvider({ children }) {
     }, [authRequest]);
 
     const logout = useCallback(async () => {
+    try {
         await authRequest("GET", "/users/logout", null, true);
+    } catch (err) {
+        if (err.message === "Invalid access token" || err.message.includes("403")) {
+            console.warn("Token was invalid. Local logout only.");
+        } else {
+            console.error("Logout failed:", err);
+        }
+    } finally {
         localStorage.removeItem("authToken");
         localStorage.removeItem("user");
         setToken(null);
         setUser(null);
+    }
     }, [authRequest]);
 
     const value = {
