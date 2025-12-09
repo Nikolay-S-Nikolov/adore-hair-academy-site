@@ -24,6 +24,7 @@ import AdminResources from './components/admin-dashboard/admin-resources/AdminRe
 import AdminExams from './components/admin-dashboard/аdmin-еxams/AdminExams.jsx'
 import ExamTaking from './components/dashboard/exam-taking/ExamTaking.jsx'
 import ExamResult from './components/dashboard/exam-result/ExamResult.jsx'
+import Page404 from './components/404/404.jsx'
 
 function App() {
 
@@ -56,6 +57,9 @@ function App() {
           <Route path="/admin/enrollments" element={<AdminRoute> <AdminEnrollments /> </AdminRoute>} />
           <Route path="/admin/resources" element={<AdminRoute> <AdminResources /> </AdminRoute>} />
           <Route path="/admin/exams" element={<AdminRoute> <AdminExams /> </AdminRoute>} />
+
+          <Route path="*" element={<Page404 />} />
+
         </Routes>
 
         <Footer />
