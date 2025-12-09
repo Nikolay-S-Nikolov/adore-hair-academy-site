@@ -1,6 +1,5 @@
 const config = {
-  BASE_URL: 'https://adore-hair-academy-server.onrender.com',
-  // BASE_URL: 'http://localhost:3030',
+  BASE_URL: import.meta.env.VITE_APP_BASE_URL,
 }
 
 export default config;
