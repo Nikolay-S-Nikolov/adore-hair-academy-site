@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import styles from "./Page404.module.css";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
-export default function Page404() {
+export default function Page404({text="Страницата не е намерена"}) {
     return (
         <div className={styles.wrapper}>
             <div className={styles.animation}>
@@ -14,7 +14,7 @@ export default function Page404() {
                 />
             </div>
 
-            <h1 className={styles.title}>Страницата не е намерена</h1>
+            <h1 className={styles.title}>{text}</h1>
             <p className={styles.text}>
                 Изглежда се изгубихме...
                 Нека те върнем обратно на сигурно място.
