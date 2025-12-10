@@ -17,11 +17,11 @@ export default function StudentDashboard() {
     const [demoExams, setDemoExams] = useState({});
 
     const [loadingRes, setLoadingRes] = useState({});
-    const { request } = useCourseApi()
+    const { request } = useCourseApi();
 
     useEffect(() => {
         request("GET", `/data/enrollments?where=_ownerId%3D%22${user._id}%22%20&load=course%3DcourseId%3Acourses`)
-            .then(setCourses)
+            .then(data => setCourses(Array.isArray(data) ? data : []))
             .finally(() => setLoading(false));
     }, [request, user._id]);
 
