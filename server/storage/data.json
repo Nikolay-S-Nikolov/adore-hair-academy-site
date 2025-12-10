@@ -297,16 +297,18 @@
       "title": "Balayage Ombre’ Final step",
       "type": "video",
       "url": "https://youtube.com/shorts/7jzd_uXv3vE?si=eSEXsS6hHEflhdX8",
-      "description": "Внимавайте за финалната ни процедура по балаяж.",
+      "description": "Внимавайте за финалната ни процедура по балеаж.",
       "courseId": "a3424ccf-c95d-4657-a36e-b341d58be5d9",
-      "_createdOn": 1764774979108
+      "_createdOn": 1764774979108,
+      "_id": "1458c2ed-6843-4c6f-8b18-d528a6eeab2c",
+      "_updatedOn": 1765372095315
     }
   },
   "exams": {
     "43e3958d-aa8c-42e7-94a6-831ad04e7493": {
       "title": "Демо изпит ",
       "courseId": "a3424ccf-c95d-4657-a36e-b341d58be5d9",
-      "duration": 30,
+      "duration": 5,
       "questions": [
         {
           "text": "Коя е основната цел на измиването на косата преди подстригване?",
@@ -410,10 +412,10 @@
         }
       ],
       "type": "demoExam",
-      "startAt": "2025-12-07T14:18",
-      "endAt": "2025-12-09T14:18",
+      "startAt": "2025-12-07T13:18",
+      "endAt": "2025-12-09T08:18",
       "_createdOn": 1764934803408,
-      "_updatedOn": 1765130849353,
+      "_updatedOn": 1765371279280,
       "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc"
     },
     "27fc2174-5752-4992-b27a-48b98282e582": {
@@ -522,9 +524,12 @@
           "correctIndex": 1
         }
       ],
+      "type": "finalExam",
+      "startAt": "2025-12-08T15:54",
+      "endAt": "2025-12-30T15:54",
       "_createdOn": 1764936571039,
-      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
-      "_updatedOn": 1764936756676
+      "_updatedOn": 1765209292116,
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc"
     },
     "b149bbb2-ce36-46ad-97b9-6cd469de2286": {
       "title": "Колористика – Основен Теоретичен Тест",
@@ -639,28 +644,27 @@
       "_updatedOn": 1765130890688,
       "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc"
     },
-    "0af3bcad-2058-4503-9f44-c78828025963": {
-      "title": "asddsa",
+    "8c031c3a-5051-41ab-ae9a-a9a605a3e431": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "title": "Финален изпит",
       "courseId": "a3424ccf-c95d-4657-a36e-b341d58be5d9",
-      "duration": 30,
+      "duration": 6,
       "questions": [
         {
-          "text": "asdasdasd",
+          "text": "Текст на въпрос ",
           "answers": [
-            "asdasdads",
-            "asd",
-            "asdadsdsa",
-            "sasdadsa"
+            "Верен отговор",
+            "отговор 2",
+            "отговор 3",
+            "отговор 4"
           ],
           "correct": 0
         }
       ],
       "type": "finalExam",
-      "startAt": "2025-12-17T06:11",
-      "endAt": "2025-12-26T08:11",
-      "_createdOn": 1765041553224,
-      "_updatedOn": 1765130810589,
-      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc"
+      "startAt": "2025-12-17T12:00",
+      "endAt": "2025-12-25T00:00",
+      "_createdOn": 1765371853955
     }
   },
   "examResults": {
@@ -750,6 +754,72 @@
       },
       "submittedAt": 1765130923231,
       "_createdOn": 1765130923239
+    },
+    "a360b6f5-4c9c-4960-b99b-a655092c36be": {
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+      "examId": "43e3958d-aa8c-42e7-94a6-831ad04e7493",
+      "courseId": "a3424ccf-c95d-4657-a36e-b341d58be5d9",
+      "score": 90,
+      "totalQuestions": 10,
+      "answers": {
+        "0": 0,
+        "1": 2,
+        "2": 2,
+        "3": 2,
+        "4": 1,
+        "5": 2,
+        "6": 2,
+        "7": 1,
+        "8": 1,
+        "9": 0
+      },
+      "submittedAt": 1765194434314,
+      "_createdOn": 1765194434319
+    },
+    "b50507f6-01b8-47c8-9f96-e8f59ff0c185": {
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+      "examId": "43e3958d-aa8c-42e7-94a6-831ad04e7493",
+      "courseId": "a3424ccf-c95d-4657-a36e-b341d58be5d9",
+      "score": 90,
+      "totalQuestions": 10,
+      "correctAnswers": 9,
+      "answers": {
+        "0": 0,
+        "1": 2,
+        "2": 2,
+        "3": 2,
+        "4": 1,
+        "5": 2,
+        "6": 2,
+        "7": 1,
+        "8": 1,
+        "9": 0
+      },
+      "submittedAt": 1765196415890,
+      "isAutoSubmitted": false,
+      "_createdOn": 1765196415904
+    },
+    "76e51026-3a36-4b16-8542-e0339c07ea57": {
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+      "examId": "43e3958d-aa8c-42e7-94a6-831ad04e7493",
+      "courseId": "a3424ccf-c95d-4657-a36e-b341d58be5d9",
+      "score": 50,
+      "totalQuestions": 10,
+      "correctAnswers": 5,
+      "answers": {
+        "0": 0,
+        "1": 3,
+        "2": 1,
+        "3": 2,
+        "4": 1,
+        "5": 2,
+        "6": 2,
+        "7": 1,
+        "8": 0
+      },
+      "submittedAt": 1765197132932,
+      "isAutoSubmitted": true,
+      "_createdOn": 1765197132947
     }
   }
 }

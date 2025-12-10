@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { useCourseApi } from "../../hooks/useCoursesApi.js";
-import LoadingSpinner from "../ui/loading-spinner/LoadingSpinner.jsx";
 import config from "../../gonfig/config.js"
 
 export default function Home() {
@@ -69,8 +68,8 @@ export default function Home() {
             <section id="courses" className="courses-section">
                 <div className="container">
                     <h2>Нашите курсове по фризьорство</h2>
-
-                    {loading && <LoadingSpinner text="Зареждане на курсовете..." />}
+                    
+                    {loading && <div>Зареждане на курсовете...</div>}
                     {error && <p
                         style={{
                             'padding': '16px',

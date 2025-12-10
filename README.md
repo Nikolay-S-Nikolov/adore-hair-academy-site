@@ -8,13 +8,13 @@ This repository contains the frontend application in folder client, which commun
 
 ## Project Overview
 
-**Adore Hair Academy** is a modern React project created as a web platform for a hairdressing academy.
+**Adore Hair Academy** is a React project created as a web platform for a hairdressing academy.
 
 ### Main goals of the application:
 
 - Present academy courses with detailed information
 - User registration and login
-- **Admin Panel** for course management (create, edit, delete)
+- **Admin Panel** for courses, resources, enrollments and exams management (create, edit, delete)
 - **Review System** - users can leave reviews for courses
 - **Enrollment System** - user course enrollment
 - **Student Dashboard** - exam system, and learning resources
@@ -87,7 +87,7 @@ admin dashboard route `/admin`
 
 ### Admin Panel 
 **Admin-only area**, accessible only to users with admin privileges
-**Access:** Login with `admin@abv.bg` / `admin` to access the Admin Panel `/admin`.
+**Access:** Login with `admin@abv.bg` / `admin` to access the Admin Panel
 
 ### Custom Hooks Included
 - `useAuth()` — authentication state management
@@ -107,56 +107,49 @@ Global toast notification system:
 
 
 
-## Installation and Runnign the Application
+## Installation and running the application
 
-To run the application you will need Node installed.
-Open Your terminal and run.
+You will need Node.js installed. In a terminal run:
+
 ```
 git clone https://github.com/Nikolay-S-Nikolov/adore-hair-academy-site
-
-```
-
-Navigate to the client directory and install the dependencies
-```
 cd client
 npm install
 ```
 
-Run the client application in development
+Run the client in development mode:
+
 ```
 npm run dev
 ```
 
 Navigate to the server directory and run the server
 ```
+cd server
 node server.js
 ```
 
-## 🧪 Upcoming Features
+## Upcoming Features
 
 Planned improvements:
 
 ### Student Dashboard
-- Enrolled courses information
-- Upcoming exams
-- Downloadable resources
+- Progress indicators per course (percentage complete, lessons completed / total)
+- Course syllabus and lesson plan with "Continue" buttons
+- Calendar view with scheduled live sessions, deadlines and exam dates
+- Final exam limited attempts and result recorded
+- Exam attempts remaining and history
+- Assignments submission and instructor feedback
+- Certificates and downloadable completion badges
+- Grades and performance history (exportable as PDF)
+- Personal notes and saved bookmarks for lessons
+- Notifications and messages from instructors
+- Profile settings
 
 ### Online Exam Module
-- Multiple choice exams
-- Automatic grading
-- Exam timer
 - Results history
 
-### Resource Library
-- PDF files
-- Videos
-- Learning materials
-- Categorization by courses
-
 ### Staff Panel
-- Student management
-- Results review
-- Request approval/rejection
 - Statistics
 
 ## Bonuses
@@ -168,25 +161,26 @@ Planned improvements:
 
 ## Screenshots
 
-*Screenshots will be added soon*
-
-### Planned screenshots:
-- Home Page
-- Courses Page
-- Course Details with Reviews
-- Admin Panel
-- Review Modal
-- Toast Notifications
-- Mobile Layout
-
 ### Home Page
-![Home Page]()
+![Home Page](./client/public/readme-images/home.jpg)
+
+### Courses Page
+![Courses Page](./client/public/readme-images/courses-page.png)
+
+### Course Details with Reviews
+![Course Details with Reviews](./client/public/readme-images/course-details-with-reviews.png)
 
 ### Admin Panel
-![Admin Panel]()
+![Admin Panel](./client/public/readme-images/admin.png)
 
-### Mobile View
-![Mobile View]()
+### Student Dashboard
+![Student Dashboard](./client/public/readme-images/student-dashboard.png)
+
+### Demo Exam
+![Demo Exam](./client/public/readme-images/demo-exam.png)
+
+### Mobile View Student Dashboard with exams and resources
+![Mobile View Student Dashboard](./client/public/readme-images/mobile-view-student-dashboard.png)
 
 ## Unit Testing
 

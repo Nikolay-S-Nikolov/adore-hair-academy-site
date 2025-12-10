@@ -89,7 +89,7 @@ export default function StudentDashboard() {
                                 className={styles.linkButton}
                                 onClick={() => toggleResources(item.course._id)}
                             >
-                                Материали и уроци и изпити
+                                Материали, уроци и изпити
                             </button>
 
                         </div>
