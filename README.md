@@ -184,3 +184,6 @@ Planned improvements:
 
 ## Unit Testing
 
+- Component tests written using Vitest & React Testing Library.
+- StudentDashboard.spec.jsx
+
